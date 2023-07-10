@@ -7,26 +7,39 @@ Celle-ci est effectuée depuis les sources.
 
 | Cat | Etapes |
 |------|------| 
-| - A. | [Cest quoi ZABBIX ?](#préparation-avant-installation-de-nagios) |
-| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](#balise_01) |
-| - C. | [](#balise_02) |
+| - A. | [Cest quoi ZABBIX ?](#balise_01) |
+| - A1. | [Structure du logiciel](#balise_02) |
+| - A2. | [Le serveur de données](#balise_03) |
+| - A3. | [L'interface de gestion](#balise_04) |
+| - A4. | [L'interface de gestion](#balise_05) |
+| - A5. | [L'interface de gestion](#balise_06) |
+| - A6. | [L'interface de gestion](#balise_07) |
+| - A7. | [L'interface de gestion](#balise_08) |
+| - A8. | [L'interface de gestion](#balise_09) |
+
+| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](#balise_02) |
+| - C. | [](#balise_03) |
 
 
-# Zabbix
+<a name="balise_01"></a>
+# - A. Cest quoi ZABBIX ?
 
 ZABBIX est un logiciel libre permettant de surveiller l'état de divers services réseau, serveurs et autres matériels réseau et produisant des graphiques dynamiques de consommation des ressources. C'est un logiciel créé par Alexei Vladishev.
 
-## Structure du logiciel.
+<a name="balise_02"></a>
+## - A1. Structure du logiciel.
 
 Le « serveur ZABBIX » peut être décomposé en trois parties séparées : Le serveur de données, l'interface de gestion et le serveur de traitement. Chacune d'elles peut être disposée sur une machine différente pour répartir la charge et optimiser les performances.
 
 Le système dont l'utilisation des ressources doit être analysée comporte un agent fonctionnant sous forme de daemon appelé zabbix-agentd et écoutant par défaut sur le port TCP 10050. Celui-ci intègre des fonctions permettant d'échantillonner l'état des ressources des différents composants du système (Mémoire, CPU, débit réseau, entrées-sorties, nombre de connexion à une application, etc.) et propose si nécessaire l'exécution de scripts. Le serveur Zabbix appelle donc régulièrement cet agent et lui demande les informations concernant telle ou telle ressource.
 
-## Le serveur de données
+<a name="balise_03"></a>
+## - A2. Le serveur de données :
 
 ZABBIX utilise MySQL, PostgreSQL ou Oracle pour stocker les données. Selon l'importance du nombre de machines et de données à surveiller, le choix du SGBD influe grandement sur les performances. Il existe une section relative à ce choix dans le manuel officiel. A savoir que l'éditeur développe en premier lieu sur l'écosystème MySQL (MariaDB, Percona, ...).
 
-## L'interface de gestion
+<a name="balise_04"></a>
+## - A3. L'interface de gestion :
 
 Son interface web est écrite en PHP. Elle agit directement sur les informations stockées dans la base de données. Chaque information nécessaire au serveur de traitement étant réactualisée automatiquement, il n'y a pas d'action à effectuer sur le binaire pour lui indiquer qu'il y a eu une mise à jour.
 
@@ -38,7 +51,8 @@ Cette interface dispose des fonctionnalités principales suivantes :
 - Auto découverte de machines et ajout automatique
 - Gestion fine des droits d'accès pour les utilisateurs de l'interface
 
-## Le serveur de traitement :
+<a name="balise_05"></a>
+## - A4. Le serveur de traitement :
 
 Il s'agit d'un démon binaire existant pour Linux, BSD et divers Unix (voir site officiel : http://www.zabbix.com/requirements.php). Il offre diverses options de monitoring. La vérification simple permet de vérifier la disponibilité ainsi que le temps de réponse de services standards comme SMTP ou HTTP sans installer aucun logiciel sur l'hôte monitoré. Un agent ZABBIX peut aussi être installé sur les hôtes Linux, UNIX et Windows afin d'obtenir des statistiques comme la charge CPU, l'utilisation du réseau, l'espace disque... Le logiciel peut réaliser le monitoring via SNMP.
 
@@ -46,7 +60,8 @@ Fonctionnalité intéressante, il est possible de configurer des "proxy Zabbix" 
 
 Le logiciel Zabbix est écrit en langage C.
 
-## Méthode de traitement
+<a name="balise_06"></a>
+## - A5. Méthode de traitement :
 
 Pour ZABBIX, chaque valeur récupérée correspond à un item. A chacun d'eux peut être associé un ou plusieurs tests appelés triggers. Des actions peuvent être liées aux triggers, ce qui permet d'effectuer un traitement particulier (notification, remédiation, ...) pour chaque anomalie pouvant survenir. Par exemple, si une machine devient indisponible, on peut envoyer un mail à l'administrateur système. Si la charge d'un programme devient trop importante pendant trop longtemps, on peut lancer un programme qui fera un flush...
 
@@ -55,17 +70,20 @@ Pour ZABBIX, chaque valeur récupérée correspond à un item. A chacun d'eux pe
 - Analyser les conditions de déclenchement d'un événement sera la troisième étape.
 - Restituer les événements, mais également les indicateurs collectés sous forme de graphe dans le temps, sera réalisé par le frontal Web.
 
-## Items
+<a name="balise_07"></a>
+## - A6. Items :
 
 Les items sont des valeurs récupérées par le serveur ZABBIX. Leur source peut être sélectionnée. Elles peuvent être des réponses ou trap SNMP, des codes de retour ou le résultat de programmes externes, des valeurs demandées à un agent ZABBIX, des compteurs JMX, des valeurs calculées (formule mathématique de plusieurs indicateurs bruts), des valeurs agrégées (agrégation d'une valeur collectée pour un groupe d'équipements), ...
 
 Pour chaque item, on peut spécifier la durée d'enregistrement dans la base de chaque valeur remontée.
 
-## Triggers
+<a name="balise_08"></a>
+## - A7. Triggers :
 
 Les triggers sont des tests effectués sur un ou plusieurs item. Ils peuvent avoir des dépendances. Cela permet d'éviter de générer des alertes pour des machines si c'est le réseau en amont qui est défaillant. Les triggers représentent la fonction d'analyse des conditions de déclenchement d'un événement. Étant donné que cette analyse se fait sur les données collectées, on peut baser notre analyse sur un ou plusieurs indicateurs, en provenance d'un ou plusieurs équipements : il s'agit de fonction de corrélation.
 
-## Action
+<a name="balise_09"></a>
+## - A8. Action :
 
 Une action peut être lancée sur 4 types d'événements : 
 
