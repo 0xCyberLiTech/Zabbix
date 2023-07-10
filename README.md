@@ -1,6 +1,18 @@
+![Nagios](./images/nagios.png)
+
+# Installation de Nagios-core & Nagios-plugins sur DEBIAN 11 & 12.
+Celle-ci est effectuée depuis les sources.
+
+## Sommaire :
+
+| Cat | Etapes |
+|------|------| 
+| - A. | [Cest quoi ZABBIX ?](#préparation-avant-installation-de-nagios) |
+| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](#balise_01) |
+| - C. | [](#balise_02) |
+
+
 # Zabbix
-
-
 
 ZABBIX est un logiciel libre permettant de surveiller l'état de divers services réseau, serveurs et autres matériels réseau et produisant des graphiques dynamiques de consommation des ressources. C'est un logiciel créé par Alexei Vladishev.
 
