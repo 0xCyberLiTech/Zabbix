@@ -1,7 +1,6 @@
 ![Nagios](./images/nagios.png)
 
-# Installation de Nagios-core & Nagios-plugins sur DEBIAN 11 & 12.
-Celle-ci est effectuée depuis les sources.
+# Superviser son infrastructure à l'aide de ZABBIX.
 
 ## Sommaire :
 
@@ -16,8 +15,8 @@ Celle-ci est effectuée depuis les sources.
 | - a6. | [Items.](#balise_07) |
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
-| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](#balise_02) |
-| - C. | [](#balise_03) |
+| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](balise_10.md) |
+| - C. | [](#balise_11) |
 
 
 <a name="balise_01"></a>
