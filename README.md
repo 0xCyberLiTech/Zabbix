@@ -16,7 +16,6 @@ Celle-ci est effectuée depuis les sources.
 | - A6. | [L'interface de gestion](#balise_07) |
 | - A7. | [L'interface de gestion](#balise_08) |
 | - A8. | [L'interface de gestion](#balise_09) |
-
 | - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](#balise_02) |
 | - C. | [](#balise_03) |
 
