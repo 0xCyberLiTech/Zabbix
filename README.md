@@ -22,19 +22,31 @@
 <a name="balise_01"></a>
 # - A. Cest quoi ZABBIX ?
 
-ZABBIX est un logiciel libre permettant de surveiller l'état de divers services réseau, serveurs et autres matériels réseau et produisant des graphiques dynamiques de consommation des ressources. C'est un logiciel créé par Alexei Vladishev.
+ZABBIX est un logiciel libre permettant de surveiller l'état de divers services réseau, serveurs et autres matériels réseau et produisant des graphiques dynamiques de consommation des ressources.
+
+C'est un logiciel créé par Alexei Vladishev.
 
 <a name="balise_02"></a>
 ## - a1. Structure du logiciel.
 
-Le « serveur ZABBIX » peut être décomposé en trois parties séparées : Le serveur de données, l'interface de gestion et le serveur de traitement. Chacune d'elles peut être disposée sur une machine différente pour répartir la charge et optimiser les performances.
+Le « serveur ZABBIX » peut être décomposé en trois parties séparées : 
 
-Le système dont l'utilisation des ressources doit être analysée comporte un agent fonctionnant sous forme de daemon appelé zabbix-agentd et écoutant par défaut sur le port TCP 10050. Celui-ci intègre des fonctions permettant d'échantillonner l'état des ressources des différents composants du système (Mémoire, CPU, débit réseau, entrées-sorties, nombre de connexion à une application, etc.) et propose si nécessaire l'exécution de scripts. Le serveur Zabbix appelle donc régulièrement cet agent et lui demande les informations concernant telle ou telle ressource.
+- Le serveur de données.
+- L'interface de gestion.
+- Le serveur de traitement. 
+
+Chacune d'elles peut être disposée sur une machine différente pour répartir la charge et optimiser les performances.
+
+Le système dont l'utilisation des ressources doit être analysée comporte un agent fonctionnant sous forme de daemon appelé zabbix-agentd et écoutant par défaut sur le port TCP 10050. 
+
+Celui-ci intègre des fonctions permettant d'échantillonner l'état des ressources des différents composants du système (Mémoire, CPU, débit réseau, entrées-sorties, nombre de connexion à une application, etc.) et propose si nécessaire l'exécution de scripts. Le serveur Zabbix appelle donc régulièrement cet agent et lui demande les informations concernant telle ou telle ressource.
 
 <a name="balise_03"></a>
 ## - a2. Le serveur de données.
 
-ZABBIX utilise MySQL, PostgreSQL ou Oracle pour stocker les données. Selon l'importance du nombre de machines et de données à surveiller, le choix du SGBD influe grandement sur les performances. Il existe une section relative à ce choix dans le manuel officiel. A savoir que l'éditeur développe en premier lieu sur l'écosystème MySQL (MariaDB, Percona, ...).
+ZABBIX utilise MySQL, PostgreSQL ou Oracle pour stocker les données. 
+
+Selon l'importance du nombre de machines et de données à surveiller, le choix du SGBD influe grandement sur les performances. Il existe une section relative à ce choix dans le manuel officiel. A savoir que l'éditeur développe en premier lieu sur l'écosystème MySQL (MariaDB, Percona, ...).
 
 <a name="balise_04"></a>
 ## - a3. L'interface de gestion.
@@ -52,7 +64,9 @@ Cette interface dispose des fonctionnalités principales suivantes :
 <a name="balise_05"></a>
 ## - a4. Le serveur de traitement.
 
-Il s'agit d'un démon binaire existant pour Linux, BSD et divers Unix (voir site officiel : http://www.zabbix.com/requirements.php). Il offre diverses options de monitoring. La vérification simple permet de vérifier la disponibilité ainsi que le temps de réponse de services standards comme SMTP ou HTTP sans installer aucun logiciel sur l'hôte monitoré. Un agent ZABBIX peut aussi être installé sur les hôtes Linux, UNIX et Windows afin d'obtenir des statistiques comme la charge CPU, l'utilisation du réseau, l'espace disque... Le logiciel peut réaliser le monitoring via SNMP.
+Il s'agit d'un démon binaire existant pour Linux, BSD et divers Unix (voir site officiel : http://www.zabbix.com/requirements.php). 
+
+Il offre diverses options de monitoring. La vérification simple permet de vérifier la disponibilité ainsi que le temps de réponse de services standards comme SMTP ou HTTP sans installer aucun logiciel sur l'hôte monitoré. Un agent ZABBIX peut aussi être installé sur les hôtes Linux, UNIX et Windows afin d'obtenir des statistiques comme la charge CPU, l'utilisation du réseau, l'espace disque... Le logiciel peut réaliser le monitoring via SNMP.
 
 Fonctionnalité intéressante, il est possible de configurer des "proxy Zabbix" afin de répartir la charge ou d'assurer une meilleure disponibilité de service.
 
