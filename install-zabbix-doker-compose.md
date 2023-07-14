@@ -1,5 +1,5 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
-![Apache_logo](./images/Apache_logo.png)
+![Apache_logo](./images/install-zabbix-doker-compose.md)
 
 # - B. Acces en HTTP & HTTPS sur DEBIAN 11 & 12.
 
