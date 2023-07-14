@@ -15,7 +15,7 @@
 | - a6. | [Items.](#balise_07) |
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
-| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](balise_10.md) |
+| - B. | [Superviser votre infrastructure avec ZABBIX (DOCKER).](install-zabbix-doker-compose.md) |
 | - C. | [](#balise_11) |
 
 
