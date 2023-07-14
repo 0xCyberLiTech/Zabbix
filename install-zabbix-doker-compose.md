@@ -1,11 +1,7 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
 ![Apache_logo](./images/install-zabbix-doker-compose.md)
 
-# - B. Acces en HTTP & HTTPS sur DEBIAN 11 & 12.
-
-Exemple concernant le VirtualHost 000-default.conf
-
-# Installation de Zabbix avec docker-compose
+# - B. Superviser votre infrastructure avec ZABBIX (DOCKER-COMPOSE).
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
 
