@@ -1,0 +1,234 @@
+# Installation de Zabbix avec docker-compose
+
+Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
+
+- Le serveur Zabbix.
+- La base de données (MariaDB).
+- L’interface Web.
+- Un agent de supervision pour le serveur Zabbix.
+
+Récuoération des fichiers  https://git.rdr-it.io/docker/zabbix. https://rdr-it.com/zabbix-superviser-infrastructure-installation-configuration-docker/#:~:text=se%20trouve%20ici%20%3A-,https%3A//git.rdr%2Dit.io/docker/zabbix.,-Sur%20votre%20serveur.
+
+Sur votre serveur créé un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
+
+Sur mon serveur, je vais utiliser le dossier /containers/zabbix.
+
+mkdir ~/containers/zabbix/
+
+Une fois dans votre dossier, entrer la commande ci-dessous pour cloner le dépôt :
+```
+sudo git clone https://git.rdr-it.io/docker/zabbix.git .
+```
+docker-compose.yml, qui contient la définitions des différents conteneurs.
+
+Avant de récupérer les images et de les démarrer, je vous conseille de modifier les mots de passe pour la base MariaDB.
+
+Aller dans le dossier env_vars qui contient les différents fichiers de configuration.
+```
+cd env_vars
+```
+A minima, éditer les fichiers .MYSQL_PASSWORD et .MYSQL_ROOT_PASSWORD, changer par un mot de passe personnalisé.
+
+Remonter d’un niveau dans les dossiers pour retourner où se trouve le fichier docker-compose.yml.
+
+On va maintenant pouvoir télécharger les images, avant je vous invite à lire le fichier docker-compose.yml dont voici un aperçu :
+
+```
+version: '3.8'
+services:
+  zabbix-server:
+    image: zabbix/zabbix-server-mysql:alpine-6.4-latest
+    restart: always
+    ports:
+      - "10051:10051"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./zbx_env/usr/lib/zabbix/alertscripts:/usr/lib/zabbix/alertscripts:ro
+      - ./zbx_env/usr/lib/zabbix/externalscripts:/usr/lib/zabbix/externalscripts:ro
+      - ./zbx_env/var/lib/zabbix/export:/var/lib/zabbix/export:rw
+      - ./zbx_env/var/lib/zabbix/modules:/var/lib/zabbix/modules:ro
+      - ./zbx_env/var/lib/zabbix/enc:/var/lib/zabbix/enc:ro
+      - ./zbx_env/var/lib/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro
+      - ./zbx_env/var/lib/zabbix/mibs:/var/lib/zabbix/mibs:ro
+      - snmptraps:/var/lib/zabbix/snmptraps:rw
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+        reservations:
+          memory: 1G
+    env_file:
+      - ./env_vars/.env_db_mysql
+      - ./env_vars/.env_srv
+    secrets:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+    depends_on:
+      - mysql-server
+    networks:
+      zbx_net_backend:
+        aliases:
+          - zabbix-server
+          - zabbix-server-mysql
+          - zabbix-server-alpine-mysql
+          - zabbix-server-mysql-alpine
+      zbx_net_frontend:
+    stop_grace_period: 30s
+    sysctls:
+      - net.ipv4.ip_local_port_range=1024 65000
+      - net.ipv4.conf.all.accept_redirects=0
+      - net.ipv4.conf.all.secure_redirects=0
+      - net.ipv4.conf.all.send_redirects=0
+    labels:
+      com.zabbix.description: "Zabbix server with MySQL database support"
+      com.zabbix.company: "Zabbix LLC"
+      com.zabbix.component: "zabbix-server"
+      com.zabbix.dbtype: "mysql"
+      com.zabbix.os: "alpine"
+
+  zabbix-web-nginx-mysql:
+    image: zabbix/zabbix-web-nginx-mysql:alpine-6.4-latest
+    restart: always
+    ports:
+      - "8080:8080"
+      - "8443:8443"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./zbx_env/etc/ssl/nginx:/etc/ssl/nginx:ro
+      - ./zbx_env/usr/share/zabbix/modules/:/usr/share/zabbix/modules/:ro
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+        reservations:
+          memory: 512M
+    env_file:
+      - ./env_vars/.env_db_mysql
+      - ./env_vars/.env_web
+    secrets:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+    depends_on:
+      - mysql-server
+      - zabbix-server
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
+    networks:
+      zbx_net_backend:
+        aliases:
+        - zabbix-web-nginx-mysql
+        - zabbix-web-nginx-alpine-mysql
+        - zabbix-web-nginx-mysql-alpine
+      zbx_net_frontend:
+    stop_grace_period: 10s
+    sysctls:
+    - net.core.somaxconn=65535
+    labels:
+      com.zabbix.description: "Zabbix frontend on Nginx web-server with MySQL database support"
+      com.zabbix.company: "Zabbix LLC"
+      com.zabbix.component: "zabbix-frontend"
+      com.zabbix.webserver: "nginx"
+      com.zabbix.dbtype: "mysql"
+      com.zabbix.os: "alpine"
+
+  mysql-server:
+    # https://hub.docker.com/r/yobasystems/alpine-mariadb/
+    image: mariadb:10.11.4
+    restart: always
+    command:
+      - mysqld
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_bin
+      - --skip-character-set-client-handshake
+      - --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./zbx_env/var/lib/mysql:/var/lib/mysql:rw
+    env_file:
+      - ./env_vars/.env_db_mysql
+    secrets:
+      - MYSQL_USER
+      - MYSQL_PASSWORD
+      - MYSQL_ROOT_PASSWORD
+    stop_grace_period: 1m
+    networks:
+      zbx_net_backend:
+        aliases:
+        - mysql-server
+        - zabbix-database
+        - mysql-databasse
+
+  zabbix-agent:
+    image: zabbix/zabbix-agent:alpine-6.4-latest
+    restart: always
+    ports:
+      - "10050:10050"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - ./zbx_env/etc/zabbix/zabbix_agentd.d:/etc/zabbix/zabbix_agentd.d:ro
+      - ./zbx_env/var/lib/zabbix/modules:/var/lib/zabbix/modules:ro
+      - ./zbx_env/var/lib/zabbix/enc:/var/lib/zabbix/enc:ro
+      - ./zbx_env/var/lib/zabbix/ssh_keys:/var/lib/zabbix/ssh_keys:ro
+    env_file:
+      - ./env_vars/.env_agent
+    networks:
+      zbx_net_backend:
+        aliases:
+        - zabbix-agent
+        - zabbix-agent-passive
+        - zabbix-agent-alpine
+
+networks:
+  zbx_net_frontend:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.238.0/24
+  zbx_net_backend:
+    driver: bridge
+    driver_opts:
+      com.docker.network.enable_ipv6: "false"
+    internal: true
+    ipam:
+      driver: default
+      config:
+      - subnet: 172.16.239.0/24
+
+volumes:
+  snmptraps:
+
+secrets:
+  MYSQL_USER:
+    file: ./env_vars/.MYSQL_USER
+  MYSQL_PASSWORD:
+    file: ./env_vars/.MYSQL_PASSWORD
+  MYSQL_ROOT_PASSWORD:
+    file: ./env_vars/.MYSQL_ROOT_PASSWORD
+```
+
+C’est partie, on peut maintenant télécharger les différentes images, pour cela entrer la commande suivante :
+```
+sudo docker-compose pull
+```
+
+On va maintenant pouvoir lancer les conteneurs pour démarrer Zabbix.
+
+Pour le premier démarrage, je vous conseille de ne pas détacher l’exécution des conteneurs afin d’avoir le retour dans le terminal, pour cela on démarré les conteneurs sans l’option -d.
+
+Entrer la commande suivante :
+```
+sudo docker-compose up
+```
+Le meilleur moyen de savoir si tout fonctionne maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
+
+Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
