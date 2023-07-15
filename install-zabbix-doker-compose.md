@@ -16,7 +16,7 @@ Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier doc
 
 Prérequis :
 
-Cette procédure à été testée depuis une machine sous (Debian 12) avec Docker d’installé Docker compose v2 et Portainer.
+Cette procédure à été testée depuis une machine sous (Debian 12) avec Docker, Docker compose v2 et Portainer.
 
 Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2 & Portainer.
 
