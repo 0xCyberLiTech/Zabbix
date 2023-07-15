@@ -1,5 +1,3 @@
-![Nagios](./images/nagios.png)
-
 # Superviser son infrastructure à l'aide de ZABBIX.
 
 ## Sommaire :
