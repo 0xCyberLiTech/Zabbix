@@ -1,5 +1,5 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
-![Apache_logo](./images/install-zabbix-doker-compose.md)
+#![zabbix_logo](./images/*)
 
 # - B. Superviser votre infrastructure avec ZABBIX (DOCKER-COMPOSE).
 
