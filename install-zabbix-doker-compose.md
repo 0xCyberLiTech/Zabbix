@@ -10,15 +10,18 @@ Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier doc
 - L’interface Web.
 - Un agent de supervision pour le serveur Zabbix.
 
-Récuoération des fichiers  https://git.rdr-it.io/docker/zabbix. https://rdr-it.com/zabbix-superviser-infrastructure-installation-configuration-docker/#:~:text=se%20trouve%20ici%20%3A-,https%3A//git.rdr%2Dit.io/docker/zabbix.,-Sur%20votre%20serveur.
-
 Sur votre serveur créé un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
 
-Sur mon serveur, je vais utiliser le dossier /containers/zabbix.
+Création du dossier ~/zabbix/.
 
-mkdir ~/containers/zabbix/
+```
+mkdir ~/zabbix/
+```
+```
+cd ~/zabbix/
+```
 
-Une fois dans votre dossier, entrer la commande ci-dessous pour cloner le dépôt :
+Une fois dans votre dossier créé, entrer la commande ci-dessous pour cloner le dépôt :
 ```
 sudo git clone https://git.rdr-it.io/docker/zabbix.git .
 ```
@@ -218,19 +221,17 @@ secrets:
   MYSQL_ROOT_PASSWORD:
     file: ./env_vars/.MYSQL_ROOT_PASSWORD
 ```
-
 C’est partie, on peut maintenant télécharger les différentes images, pour cela entrer la commande suivante :
 ```
-sudo docker-compose pull
+sudo docker compose pull
 ```
-
 On va maintenant pouvoir lancer les conteneurs pour démarrer Zabbix.
 
 Pour le premier démarrage, je vous conseille de ne pas détacher l’exécution des conteneurs afin d’avoir le retour dans le terminal, pour cela on démarré les conteneurs sans l’option -d.
 
 Entrer la commande suivante :
 ```
-sudo docker-compose up
+sudo docker compose up
 ```
 Le meilleur moyen de savoir si tout fonctionne maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
 
