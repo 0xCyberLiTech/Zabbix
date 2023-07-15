@@ -234,7 +234,7 @@ sudo docker compose up
 ```
 Le meilleur moyen de savoir si tout fonctionne maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
 
-Identifiant de connection par défault :
+Identifiant de connexion par défaut :
 ```
 Admin / zabbix
 ```
