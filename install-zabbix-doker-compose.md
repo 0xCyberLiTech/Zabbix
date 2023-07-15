@@ -1,5 +1,5 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
-# - B. Superviser votre infrastructure avec ZABBIX (DOCKER COMPOSE V2).
+# - B. Installation de ZABBIX à l'aide docker compose. (DOCKER COMPOSE V2).
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
 
@@ -11,14 +11,12 @@ Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier doc
 Sur votre serveur créé un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
 
 Création du dossier ~/zabbix/.
-
 ```
 mkdir ~/zabbix/
 ```
 ```
 cd ~/zabbix/
 ```
-
 Une fois dans votre dossier créé, entrer la commande ci-dessous pour cloner le dépôt :
 ```
 sudo git clone https://git.rdr-it.io/docker/zabbix.git .
@@ -220,11 +218,11 @@ secrets:
   MYSQL_ROOT_PASSWORD:
     file: ./env_vars/.MYSQL_ROOT_PASSWORD
 ```
-C’est partie, on peut maintenant télécharger les différentes images, pour cela entrer la commande suivante :
+Télécharger les différentes images :
 ```
 sudo docker compose pull
 ```
-On va maintenant pouvoir lancer les conteneurs pour démarrer Zabbix.
+Lancer les conteneurs pour démarrer Zabbix.
 
 Pour le premier démarrage, je vous conseille de ne pas détacher l’exécution des conteneurs afin d’avoir le retour dans le terminal, pour cela on démarré les conteneurs sans l’option -d.
 
