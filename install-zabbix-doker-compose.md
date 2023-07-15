@@ -1,6 +1,4 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
-#![zabbix_logo](./images/*)
-
 # - B. Superviser votre infrastructure avec ZABBIX (DOCKER-COMPOSE).
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
