@@ -14,6 +14,18 @@ Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier doc
 - L’interface Web.
 - Un agent de supervision pour le serveur Zabbix.
 
+Prérequis :
+
+Cette procédure à été testée depuis une machine sous (Debian 12) avec Docker d’installé Docker compose v2 et Portainer.
+
+Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2 & Portainer.
+
+- Installation manuelle de Docker, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-docker)
+
+- Installation manuelle de Docker-compose V2, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-docker-compose)
+
+- Installation manuelle de Portainer, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-portainer)
+
 Sur votre serveur créé un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
 
 Création du dossier ~/zabbix/.
