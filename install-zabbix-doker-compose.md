@@ -1,5 +1,5 @@
 <a name="Acces_en_HTTP_&_HTTPS.md"></a>
-# - B. Installation de ZABBIX à l'aide docker compose. (DOCKER COMPOSE V2).
+# - B. Installation de ZABBIX à l'aide de docker compose. (DOCKER COMPOSE V2).
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
 
