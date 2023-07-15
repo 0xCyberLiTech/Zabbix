@@ -245,3 +245,5 @@ Admin / zabbix
 Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
 
 ![zabbix-01](./images/zabbix-01.png)
+
+![zabbix-02](./images/zabbix-02.png)
