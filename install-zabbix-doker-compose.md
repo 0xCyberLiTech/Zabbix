@@ -234,4 +234,8 @@ sudo docker compose up
 ```
 Le meilleur moyen de savoir si tout fonctionne maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
 
+Identifiant de connection par défault :
+```
+Admin / zabbix
+```
 Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
