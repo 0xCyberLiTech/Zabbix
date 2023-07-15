@@ -36,9 +36,10 @@ cd env_vars
 A minima, éditer les fichiers .MYSQL_PASSWORD et .MYSQL_ROOT_PASSWORD, changer par un mot de passe personnalisé.
 
 Remonter d’un niveau dans les dossiers pour retourner où se trouve le fichier docker-compose.yml.
-
+```
+cd ..
+```
 On va maintenant pouvoir télécharger les images, avant je vous invite à lire le fichier docker-compose.yml dont voici un aperçu :
-
 ```
 version: '3.8'
 services:
