@@ -1,5 +1,5 @@
 ![zabbix-logo](./images/zabbix-logo.png)
-# Superviser son infrastructure à l'aide de ZABBIX.
+# Installation de ZABBIX à l'aide docker compose.
 
 ## Sommaire :
 
