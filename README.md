@@ -1,3 +1,4 @@
+![zabbix_logo](./images/zabbix_logo.png)
 # Superviser son infrastructure à l'aide de ZABBIX.
 
 ## Sommaire :
