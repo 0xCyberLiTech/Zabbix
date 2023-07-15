@@ -14,7 +14,7 @@
 | - a6. | [Items.](#balise_07) |
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
-| - B. | [Installation de ZABBIX à l'aide docker compose..](install-zabbix-doker-compose.md) |
+| - B. | [Installation de ZABBIX à l'aide de docker compose..](install-zabbix-doker-compose.md) |
 | - C. | [](#balise_11) |
 
 
