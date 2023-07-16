@@ -20,9 +20,7 @@ Cette procédure à été testée depuis une machine sous (Debian 12) avec Docke
 
 Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2 & Portainer.
 
-- Installation manuelle de Docker, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-docker)
-
-- Installation manuelle de Docker-compose V2, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-docker-compose)
+- Installation manuelle de Docker Engine et Docker-compose-plugin v2, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-docker)
 
 - Installation manuelle de Portainer, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-portainer)
 
