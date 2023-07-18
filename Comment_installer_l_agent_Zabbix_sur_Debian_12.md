@@ -172,7 +172,7 @@ sudo systemctl status zabbix-agent
 ```
 Si l'agent s'exécute correctement, vous devriez voir un message d'état indiquant qu'il est actif et en cours d'exécution.
 
-# Pour installer zabbix-agent2 sur DEBIAN 12
+- Étape 7 : Pour installer zabbix-agent2 sur DEBIAN 12
 
 ```
 sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
@@ -186,7 +186,7 @@ sudo apt update
 ```
 sudo apt install zabbix-agent2
 ```
-Pour installer zabbix-agent2 sur DEBIAN 11
+- Étape 8 : Pour installer zabbix-agent2 sur DEBIAN 11
 ```
 sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian11_all.deb
 ```
