@@ -27,13 +27,26 @@ Cette commande mettra à jour les listes de packages et mettra à niveau tous le
 
 - Step 2 : Configurer Zabbix Repository
 
-Zabbix fournit des référentiels officiels contenant les packages nécessaires pour une installation et des mises à jour faciles. Exécutez les commandes suivantes pour ajouter le référentiel Zabbix et importer la clé GPG :
+Zabbix fournit des dépôts officiels contenant les packages nécessaires pour une installation et des mises à jour faciles. 
+
+Exécutez les commandes suivantes pour ajouter les dépôts Zabbix et importer la clé GPG :
 
 ```
 wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
 ```
 ```
 sudo dpkg -i zabbix-release_6.4-1+debian12_all.deb
+```
+```
+cat /etc/apt/sources.list.d/zabbix.list
+
+# Zabbix main repository
+deb https://repo.zabbix.com/zabbix/6.4/debian bookworm main
+deb-src https://repo.zabbix.com/zabbix/6.4/debian bookworm main
+
+# Zabbix unstable repository
+#deb https://repo.zabbix.com/zabbix/6.3/debian bookworm main
+#deb-src https://repo.zabbix.com/zabbix/6.3/debian bookworm main
 ```
 Étape 3 : Installer l'agent Zabbix.
 
