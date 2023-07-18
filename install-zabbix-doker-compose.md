@@ -3,8 +3,6 @@
 images_build.yml
 https://github.com/zabbix/zabbix-docker/actions/workflows/images_build.yml
 
-
-<a name="Acces_en_HTTP_&_HTTPS.md"></a>
 # - B. Installation de ZABBIX depuis docker compose v2.
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
