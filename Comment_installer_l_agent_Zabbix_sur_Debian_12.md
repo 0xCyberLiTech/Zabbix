@@ -94,6 +94,14 @@ sudo nano /etc/zabbix/zabbix_agentd.conf
 ```
 Dans le fichier de configuration, localisez les directives `Server=` et `ServerActive=` et définissez-les sur l'adresse IP ou le nom d'hôte de votre serveur Zabbix. Si vous n'êtes pas sûr, consultez votre administrateur de serveur Zabbix.
 
+Les paramètres à vérifier sont :
+```
+Server=172.18.36.77             # Incoming connections will be accepted only from the hosts listed here.
+ListenPort=10050                # Agent will listen on this port for connections from the server
+ListenIP=0.0.0.0                # List of comma delimited IP addresses that the agent should listen on
+ServerActive=172.18.36.77       # List of comma delimited IP:port pairs of Zabbix servers and Zabbix proxies for active checks
+Hostname=Zabbix server2         # Optional name for the server to be monitored
+```
 ```
 ### Option: Server
 #       List of comma delimited IP addresses, optionally in CIDR notation, or DNS names of Zabbix servers and Zabbix proxies.
@@ -139,6 +147,13 @@ ServerActive=192.168.50.250
 ```
 Enregistrez les modifications et quittez l'éditeur de texte.
 
+Note : Autoriser les ports d’écoute sur le pare-feu
+
+Si vous avez un pare-feu UFW en cours d’exécution, autorisez les ports nécessaires comme indiqué ci-dessous :
+```
+sudo ufw allow 10050
+sudo ufw reload
+```
 - Étape 5 : Démarrer et activer l'agent Zabbix.
 
 Pour démarrer l'agent Zabbix, exécutez la commande suivante :
