@@ -34,7 +34,7 @@ Valable pour DEBIAN 12 / 11 / 10 / 09
 
 https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/
 
-Si la version de zabbix change :
+Si la version de zabbix change (x.x) :
 
 https://repo.zabbix.com/zabbix/x.x/debian/pool/main/z/zabbix-release/
 
