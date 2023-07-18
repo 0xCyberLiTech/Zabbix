@@ -149,7 +149,7 @@ Enregistrez les modifications et quittez l'éditeur de texte.
 
 Note : Autoriser les ports d’écoute sur le pare-feu
 
-Si vous avez un pare-feu UFW en cours d’exécution, autorisez les ports nécessaires comme indiqué ci-dessous :
+Si vous avez un pare-feu UFW en cours d’exécution sur la machine à surveiller, autorisez les ports nécessaires comme indiqué ci-dessous :
 ```
 sudo ufw allow 10050
 sudo ufw reload
