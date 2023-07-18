@@ -92,15 +92,12 @@ Ouvrez le fichier de configuration de l'agent Zabbix à l'aide d'un éditeur de 
 ```
 sudo nano /etc/zabbix/zabbix_agentd.conf
 ```
-Dans le fichier de configuration, localisez les directives `Server=` et `ServerActive=` et définissez-les sur l'adresse IP ou le nom d'hôte de votre serveur Zabbix. Si vous n'êtes pas sûr, consultez votre administrateur de serveur Zabbix.
+Dans le fichier de configuration, localisez les directives `Server=` et `ServerActive=` et définissez-les sur l'adresse IP ou le nom d'hôte de votre serveur Zabbix.
 
-Les paramètres à vérifier sont :
+Les paramètres à modifier sont :
 ```
-Server=zabbix-server-IP           # Incoming connections will be accepted only from the hosts listed here.
-ListenPort=10050                  # Agent will listen on this port for connections from the server
-ListenIP=0.0.0.0                  # List of comma delimited IP addresses that the agent should listen on
-ServerActive=zabbix-server-IP     # List of comma delimited IP:port pairs of Zabbix servers and Zabbix proxies for active checks
-Hostname=Zabbix server2           # Optional name for the server to be monitored
+Server=zabbix-server-IP
+ServerActive=zabbix-server-IP
 ```
 ```
 ### Option: Server
@@ -199,26 +196,26 @@ sudo apt update
 ```
 sudo apt install zabbix-agent2
 ```
-Pour démarrer l'agent Zabbix, exécutez la commande suivante :
+Pour démarrer Zabbix-agent2, exécutez la commande suivante :
 ```
 sudo systemctl start zabbix-agent2
 ```
-Ensuite, activez l'agent Zabbix pour qu'il démarre automatiquement au démarrage du système :
+Ensuite, activez Zabbix-agent2 pour qu'il démarre automatiquement au démarrage du système :
 ```
 sudo systemctl enable zabbix-agent2
 ```
-Une fois l'installation terminée, nous devons configurer l'agent Zabbix pour communiquer avec le serveur Zabbix.
+Une fois l'installation terminée, nous devons configurer Zabbix-agent2 pour communiquer avec le serveur Zabbix.
 
-Ouvrez le fichier de configuration de l'agent Zabbix à l'aide d'un éditeur de texte :
+Ouvrez le fichier de configuration de Zabbix-agent2 /etc/zabbix/zabbix_agent2.conf :
 
 ```
 sudo nano /etc/zabbix/zabbix_agent2.conf
 ```
-Pour configurer l'agent Zabbix pour envoyer des métriques au serveur Zabbix, localisez la directive qui est configurée pour envoyer les métriques à l'adresse de bouclage, ou simplement, le même système hôte.
+Pour configurer Zabbix-agent2 pour envoyer des métriques au serveur Zabbix, localisez la variable "Server=zabbix-server-IP" & "Server=zabbix-server-IP" :
 ```
 Server=127.0.0.1
 ```
-Définissez l'adresse pour refléter l'adresse du serveur Zabbix
+Saisir l'adresse du serveur Zabbix
 ```
 Server=zabbix-server-IP
 ```
@@ -226,7 +223,9 @@ De plus, accédez à la section Vérifications actives et modifiez la directive 
 ```
 ServerActive=zabbix-server-IP
 ```
-Assurez-vous également d'ajuster le nom d'hôte du serveur Docker en conséquence. Le nom d'hôte de mon serveur Docker est Ubuntu20.
+Assurez-vous également d'ajuster le nom d'hôte du serveur Docker en conséquence. 
+
+Saisir le nom d'hôte de mon serveur Docker.
 ```
 Hostname=name-du-server
 ```
