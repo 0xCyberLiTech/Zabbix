@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-# Comment installer l'agent Zabbix sur Debian 12
+# Pour installer zabbix-agent sur DEBIAN 12
 
 Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller.
 
@@ -96,11 +96,11 @@ Dans le fichier de configuration, localisez les directives `Server=` et `ServerA
 
 Les paramètres à vérifier sont :
 ```
-Server=172.18.36.77             # Incoming connections will be accepted only from the hosts listed here.
-ListenPort=10050                # Agent will listen on this port for connections from the server
-ListenIP=0.0.0.0                # List of comma delimited IP addresses that the agent should listen on
-ServerActive=172.18.36.77       # List of comma delimited IP:port pairs of Zabbix servers and Zabbix proxies for active checks
-Hostname=Zabbix server2         # Optional name for the server to be monitored
+Server=zabbix-server-IP           # Incoming connections will be accepted only from the hosts listed here.
+ListenPort=10050                  # Agent will listen on this port for connections from the server
+ListenIP=0.0.0.0                  # List of comma delimited IP addresses that the agent should listen on
+ServerActive=zabbix-server-IP     # List of comma delimited IP:port pairs of Zabbix servers and Zabbix proxies for active checks
+Hostname=Zabbix server2           # Optional name for the server to be monitored
 ```
 ```
 ### Option: Server
@@ -115,7 +115,7 @@ Hostname=Zabbix server2         # Optional name for the server to be monitored
 # Default:
 # Server=
 
-Server=192.168.50.250
+Server=zabbix-server-IP
 ```
 ```
 ### Option: ServerActive
@@ -143,7 +143,7 @@ Server=192.168.50.250
 # Default:
 # ServerActive=
 
-ServerActive=192.168.50.250
+ServerActive=zabbix-server-IP
 ```
 Enregistrez les modifications et quittez l'éditeur de texte.
 
@@ -171,3 +171,62 @@ Pour vous assurer que l'agent Zabbix est en cours d'exécution et communique ave
 sudo systemctl status zabbix-agent
 ```
 Si l'agent s'exécute correctement, vous devriez voir un message d'état indiquant qu'il est actif et en cours d'exécution.
+
+# Pour installer zabbix-agent2 sur DEBIAN 12
+
+```
+sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+```
+```
+sudo dpkg -i zabbix-release_6.4-1+debian12_all.deb
+```
+```
+sudo apt update
+```
+```
+sudo apt install zabbix-agent2
+```
+Pour installer zabbix-agent2 sur DEBIAN 11
+```
+sudo wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian11_all.deb
+```
+```
+sudo dpkg -i zabbix-release_6.4-1+debian11_all.deb
+```
+```
+sudo apt update
+```
+```
+sudo apt install zabbix-agent2
+```
+Pour démarrer l'agent Zabbix, exécutez la commande suivante :
+```
+sudo systemctl start zabbix-agent2
+```
+Ensuite, activez l'agent Zabbix pour qu'il démarre automatiquement au démarrage du système :
+```
+sudo systemctl enable zabbix-agent2
+
+Une fois l'installation terminée, nous devons configurer l'agent Zabbix pour communiquer avec le serveur Zabbix.
+
+Ouvrez le fichier de configuration de l'agent Zabbix à l'aide d'un éditeur de texte :
+
+```
+sudo nano /etc/zabbix/zabbix_agent2.conf
+```
+Pour configurer l'agent Zabbix pour envoyer des métriques au serveur Zabbix, localisez la directive qui est configurée pour envoyer les métriques à l'adresse de bouclage, ou simplement, le même système hôte.
+```
+Server=127.0.0.1
+```
+Définissez l'adresse pour refléter l'adresse du serveur Zabbix
+```
+Server=zabbix-server-IP
+```
+De plus, accédez à la section Vérifications actives et modifiez la directive pour qu'elle pointe vers l'adresse IP du serveur Zabbix.
+```
+ServerActive=zabbix-server-IP
+```
+Assurez-vous également d'ajuster le nom d'hôte du serveur Docker en conséquence. Le nom d'hôte de mon serveur Docker est Ubuntu20.
+
+Hostname=momdemonserver
+Enregistrez ensuite les modifications et quittez le fichier de configuration Zabbix.
