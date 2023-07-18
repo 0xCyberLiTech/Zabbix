@@ -206,7 +206,7 @@ sudo systemctl start zabbix-agent2
 Ensuite, activez l'agent Zabbix pour qu'il démarre automatiquement au démarrage du système :
 ```
 sudo systemctl enable zabbix-agent2
-
+```
 Une fois l'installation terminée, nous devons configurer l'agent Zabbix pour communiquer avec le serveur Zabbix.
 
 Ouvrez le fichier de configuration de l'agent Zabbix à l'aide d'un éditeur de texte :
@@ -227,6 +227,7 @@ De plus, accédez à la section Vérifications actives et modifiez la directive 
 ServerActive=zabbix-server-IP
 ```
 Assurez-vous également d'ajuster le nom d'hôte du serveur Docker en conséquence. Le nom d'hôte de mon serveur Docker est Ubuntu20.
-
-Hostname=momdemonserver
+```
+Hostname=name-du-server
+```
 Enregistrez ensuite les modifications et quittez le fichier de configuration Zabbix.
