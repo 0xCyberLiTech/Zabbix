@@ -2,13 +2,11 @@
 
 # Comment installer l'agent Zabbix sur Debian 12
 
-Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller. Dans cet article, nous vous guiderons tout au long du processus d'installation de l'agent Zabbix sur un système basé sur Debian.
+Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller.
 
 Conditions préalables,
 
 Avant de procéder à l'installation, assurez-vous d'avoir les prérequis suivants :
-
-Un système basé sur Debian (par exemple, Debian, Ubuntu ou leurs dérivés).
 
 Connectivité réseau au serveur Zabbix.
 
