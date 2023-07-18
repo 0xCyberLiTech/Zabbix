@@ -17,7 +17,9 @@ Connectivité réseau au serveur Zabbix.
 
 - Étape 1 : Mettre à jour les packages système.
 
-Tout d'abord, nous devons nous assurer que nos packages système sont à jour. Ouvrez un terminal ou SSH dans votre système Debian et exécutez la commande suivante :
+Tout d'abord, nous devons nous assurer que nos packages système sont à jour. 
+
+Ouvrez un terminal ou SSH dans votre système Debian et exécutez la commande suivante :
 ```
 sudo apt update && sudo apt upgrade -y 
 ```
