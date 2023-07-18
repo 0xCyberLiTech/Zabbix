@@ -13,7 +13,6 @@ Avant de procéder à l'installation, assurez-vous d'avoir les prérequis suivan
 
 Un système basé sur Debian (par exemple, Debian, Ubuntu ou leurs dérivés).
 
-Accès administratif au système.
 Connectivité réseau au serveur Zabbix.
 
 - Étape 1 : Mettre à jour les packages système.
