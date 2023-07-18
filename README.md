@@ -15,6 +15,9 @@
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
 | - B. | [Installation de ZABBIX à l'aide de docker compose v2.](install-zabbix-doker-compose.md) |
+| - B. | [Comment_installer_l'agent_Zabbix_sur_Debian_12.](Installer_l_agent_Zabbix_sur_Debian_12.md) |
+
+
 
 <a name="balise_01"></a>
 # - A. Cest quoi ZABBIX ?
