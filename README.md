@@ -14,7 +14,7 @@
 | - a6. | [Items.](#balise_07) |
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
-| - B. | [Installation de ZABBIX à l'aide de docker compose v2.](install-zabbix-doker-compose.md) |
+| - B. | [Installation de ZABBIX à l'aide de docker compose v2.](install-zabbix-docker-compose.md) |
 | - C. | [Comment installer l'agent Zabbix sur Debian 12.](Comment_installer_l_agent_Zabbix_sur_Debian_12.md) |
 
 
