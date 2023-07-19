@@ -156,7 +156,7 @@ services:
       com.zabbix.os: "alpine"
 
   mysql-server:
-    # https://hub.docker.com/r/yobasystems/alpine-mariadb/
+    # https://hub.docker.com/_/mariadb
     image: mariadb:10.11.4
     restart: always
     command:
