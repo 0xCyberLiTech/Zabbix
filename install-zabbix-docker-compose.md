@@ -256,7 +256,7 @@ Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
 
 ![zabbix-03](./images/zabbix-03.png)
 
-Sauvegarde :
+# Sauvegarde :
 
 Dump Base de Données :
 
@@ -265,35 +265,52 @@ Récupération de l'ID du container :
 docker ps -a
 ```
 ```
+Retour :
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
 ```
-Sauvegarder la base de Donnée zabbix :
+# Sauvegarder la base de Donnée zabbix :
 ```
 cd ~
 ```
 ```
-docker exec d5613cca8slEZZ /usr/bin/mysqldump -u zabbix --password=zabbix zabbix > backup_zabbix_mariadb_10.11.4.sql
+docker exec d5613cca8slEZZ /usr/bin/mysqldump -u zabbix --password=zabbix zabbix > backup_zabbix_mariadb_10.11.4_20-07-2023.sql
 ```
-Restaurer la base de Donnée zabbix :
+# Restaurer la base de Donnée zabbix :
+
+Récupération de l'ID du container :
+```
+docker ps -a
+```
+```
+Retour :
+ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
+```
+Execution de la restauration de la base de données zabbix :
 ```
 cd ~
 ```
 ```
-cat backup_zabbix_mariadb_10.11.4.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
+cat backup_zabbix_mariadb_10.11.4_20-07-2023.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
 ```
-Copier fichier depuis conteneur vers hôte : 
+Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ éxecuter les commandes suivantes :
+
+Identification du container :
 ```
-docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
+docker ps -a
 ```
-Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le conatiner :
 ```
+Retour :
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
 ```
+Puis se connecter au container :
 ```
 docker exec -it d5613cca8slEZZ mysql mysql -uroot -p
 ```
+Autres exemples :
+
+Copier fichier depuis conteneur vers hôte : 
 ```
-docker run -it -p d5613cca8slEZZ 3306:3306 --name mysql  -e MYSQL_ROOT_PASSWORD=x0xT_sxR3aZ mysql
+docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
 ```
 Copier fichier depuis hôte vers conteneur :
 ```
