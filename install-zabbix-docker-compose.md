@@ -262,7 +262,7 @@ Dump Base de Données :
 
 Récupération de l'ID du container :
 ```
-doker ps -a
+docker ps -a
 ```
 ```
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
