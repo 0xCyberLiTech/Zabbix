@@ -278,13 +278,14 @@ Restaurer la base de Donnée zabbix :
 ```
 cd ~
 ```
+```
 cat backup_zabbix_mariadb_10.11.4.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
 ```
 Copier fichier depuis conteneur vers hôte : 
 ```
 docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
 ```
-Copier fichier depuis hôte vers conteneur : 
+Copier fichier depuis hôte vers conteneur :
 ```
 docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
 ```
