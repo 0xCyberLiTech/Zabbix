@@ -285,6 +285,16 @@ Copier fichier depuis conteneur vers hôte :
 ```
 docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
 ```
+Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le conatiner :
+```
+ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
+```
+```
+docker exec -it d5613cca8slEZZ mysql mysql -uroot -p
+```
+```
+docker run -it -p d5613cca8slEZZ 3306:3306 --name mysql  -e MYSQL_ROOT_PASSWORD=x0xT_sxR3aZ mysql
+```
 Copier fichier depuis hôte vers conteneur :
 ```
 docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
