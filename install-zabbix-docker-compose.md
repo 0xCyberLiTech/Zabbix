@@ -289,3 +289,20 @@ Copier fichier depuis hôte vers conteneur :
 ```
 docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
 ```
+Transfert de fichier depuis Windows :
+
+Depuis la console CMD :
+
+Déposer un fichier en provenance du (server linux distant) root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur Windows.
+```
+pscp.exe -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
+pscp.exe -P 2234 root@192.168.50.201:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
+```
+Depuis la console CMD :
+
+Déposer un Dossier et tout son contenu en provenance du (server distant Linux) root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur Windows.
+```
+pscp.exe -r -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
+pscp.exe -r -P 2234 root@192.168.50.250:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
+```
+
