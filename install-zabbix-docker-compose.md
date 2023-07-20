@@ -292,6 +292,8 @@ cd ~
 ```
 cat backup_zabbix_mariadb_10.11.4_20-07-2023.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
 ```
+- Autre commande utile :
+
 Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ éxecuter les commandes suivantes :
 
 Identification du container :
