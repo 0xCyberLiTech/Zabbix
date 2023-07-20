@@ -255,3 +255,36 @@ Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
 ![zabbix-04](./images/zabbix-04.png)
 
 ![zabbix-03](./images/zabbix-03.png)
+
+Sauvegarde :
+
+Dump Base de Données :
+
+Récupération de l'ID du container :
+```
+doker ps -a
+```
+```
+ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
+```
+Sauvegarder la base de Donnée zabbix :
+```
+cd ~
+```
+```
+docker exec d5613cca8slEZZ /usr/bin/mysqldump -u zabbix --password=zabbix zabbix > backup_zabbix_mariadb_10.11.4.sql
+```
+Restaurer la base de Donnée zabbix :
+```
+cd ~
+```
+cat backup_zabbix_mariadb_10.11.4.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
+```
+Copier fichier depuis conteneur vers hôte : 
+```
+docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
+```
+Copier fichier depuis hôte vers conteneur : 
+```
+docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
+```
