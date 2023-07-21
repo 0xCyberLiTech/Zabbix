@@ -323,8 +323,8 @@ Récupération de l'ID du container :
 ```
 docker ps -a
 ```
-```
 Retour :
+```
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
 ```
 # Sauvegarder la base de Donnée zabbix :
@@ -340,20 +340,20 @@ Récupération de l'ID du container :
 ```
 docker ps -a
 ```
-```
 Retour :
+```
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
 ```
-Execution de la restauration de la base de données zabbix :
+Exécution de la restauration de la base de données zabbix :
 ```
 cd ~
 ```
 ```
 cat backup_zabbix_mariadb_10.11.4_20-07-2023.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
 ```
-- Autre commande utile :
+- Autres commandes utiles :
 
-Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ éxecuter les commandes suivantes :
+Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ exécuter les commandes suivantes :
 
 Identification du container :
 ```
@@ -371,26 +371,26 @@ docker exec -it d5613cca8slEZZ mysql mysql -uroot -p
 ```
 Autres exemples :
 
-Copier fichier depuis conteneur vers hôte : 
+Copier un fichier depuis le container vers l'hôte : 
 ```
 docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
 ```
-Copier fichier depuis hôte vers conteneur :
+Copier un fichier depuis l'hôte vers le container :
 ```
 docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
 ```
 Transfert de fichier depuis Windows :
 
-Depuis la console CMD :
+Depuis la console CMD (ADMIN) :
 
-Déposer un fichier en provenance du (server linux distant) root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur Windows.
+Déposer un fichier en provenance du server linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
 ```
 pscp.exe -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
 pscp.exe -P 2234 root@192.168.50.201:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
 ```
 Depuis la console CMD :
 
-Déposer un Dossier et tout son contenu en provenance du (server distant Linux) root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur Windows.
+Déposer un Dossier et tout son contenu en provenance du server distant Linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
 ```
 pscp.exe -r -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
 pscp.exe -r -P 2234 root@192.168.50.250:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
