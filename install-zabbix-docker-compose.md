@@ -318,6 +318,8 @@ Depuis le serveur Zabbix effectuer les réglages qui s'impose :
 
 ![zabbix-15](./images/zabbix-15.png)
 
+Il faut se rendre sur l'onglet chiffrement et reproduire les mêmes actions :
+
 ![zabbix-16](./images/zabbix-16.png)
 
 On obtient donc le résultat suivant :
