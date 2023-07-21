@@ -314,6 +314,8 @@ https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux
 
 ![zabbix-14](./images/zabbix-14.png)
 
+Depuis le serveur Zabbix effectuer les réglages qui s'impose :
+
 ![zabbix-15](./images/zabbix-15.png)
 
 ![zabbix-16](./images/zabbix-16.png)
