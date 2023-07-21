@@ -351,7 +351,9 @@ cd ~
 ```
 cat backup_zabbix_mariadb_10.11.4_20-07-2023.sql | docker exec -i d5613cca8slEZZ /usr/bin/mysql -u root --password=x0xT_sxR3aZ zabbix
 ```
-- Autres commandes utiles :
+# Autres commandes utiles :
+
+- Accéder à un conatiner et se connecter à sa console MySQL depuis Windows : 
 
 Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ exécuter les commandes suivantes :
 
@@ -371,15 +373,15 @@ docker exec -it d5613cca8slEZZ mysql mysql -uroot -p
 ```
 Autres exemples :
 
-Copier un fichier depuis le container vers l'hôte : 
+- Copier un fichier depuis le container vers l'hôte : 
 ```
 docker cp zabbix-zabbix-server-1:/etc/zabbix/zabbix_server.conf ./
 ```
-Copier un fichier depuis l'hôte vers le container :
+- Copier un fichier depuis l'hôte vers le container :
 ```
 docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
 ```
-Transfert de fichier depuis Windows :
+# Transfert de fichier depuis Windows :
 
 Depuis la console CMD (ADMIN) :
 
