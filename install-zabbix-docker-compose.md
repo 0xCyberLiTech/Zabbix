@@ -320,6 +320,10 @@ Depuis le serveur Zabbix effectuer les réglages qui s'impose :
 
 ![zabbix-16](./images/zabbix-16.png)
 
+On obtient donc le résultat suivant :
+
+![zabbix-17](./images/zabbix-17.png)
+
 # Sauvegarde :
 
 Dump Base de Données :
