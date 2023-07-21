@@ -298,11 +298,11 @@ Nous installons l'agent (zabbix_agent-6.4.4-windows-amd64-openssl.msi)
 
 [Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
 
-![zabbix-08](./images/zabbix-08.png=400x300)
+![zabbix-08](./images/zabbix-08.png =400x300)
 
-![zabbix-09](./images/zabbix-09.png=400x300)
+![zabbix-09](./images/zabbix-09.png =400x300)
 
-![zabbix-10](./images/zabbix-10.png=400x300)
+![zabbix-10](./images/zabbix-10.png =400x300)
 
 ![zabbix-11](./images/zabbix-11.png)
 
