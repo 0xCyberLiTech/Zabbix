@@ -260,7 +260,7 @@ Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
 
 # Sécuriser la communication entre l'agent (zabbix_agent-6.4.4-windows-amd64-openssl) installer sur la machine distante et le serveur Zabbix.
 
-Génération de la clée PSK.
+Génération de la clé PSK.
 
 Tout dabord installer le paquet gnutls-bin.
 ```
@@ -372,6 +372,8 @@ docker ps -a
 ```
 ```
 Retour :
+```
+```
 ID : d5613cca8slEZZ / name : zabbix-mysql-server-1
 ```
 Puis se connecter au container :
@@ -404,4 +406,3 @@ Déposer un Dossier et tout son contenu en provenance du (server distant Linux) 
 pscp.exe -r -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
 pscp.exe -r -P 2234 root@192.168.50.250:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
 ```
-
