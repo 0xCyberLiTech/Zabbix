@@ -5,7 +5,7 @@ https://github.com/zabbix/zabbix-docker/actions/workflows/images_build.yml
 
 # - B. Installation de ZABBIX depuis docker compose v2.
 
-Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml pour configurer les différents de Zabbix :
+Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml, les containers suivants y seront déclarés :
 
 - Le serveur Zabbix.
 - La base de données (MariaDB).
@@ -22,7 +22,7 @@ Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2
 
 - Installation manuelle de Portainer, [disponible ici](https://github.com/0xCyberLiTech/Docker/blob/main/README.md#installation-manuelle-de-portainer)
 
-Sur votre serveur créé un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
+Sur votre serveur, créer un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
 
 Création du dossier ~/zabbix/.
 ```
@@ -31,15 +31,14 @@ mkdir ~/zabbix/
 ```
 cd ~/zabbix/
 ```
-Une fois dans votre dossier créé, entrer la commande ci-dessous pour cloner le dépôt :
+Aller dans ce dossier, entrer la commande ci-dessous pour récupérer les fichiers nécessaire à l'installation de Zabbix :
 ```
 sudo git clone https://git.rdr-it.io/docker/zabbix.git .
 ```
-docker-compose.yml, qui contient la définitions des différents conteneurs.
 
 Avant de récupérer les images et de les démarrer, je vous conseille de modifier les mots de passe pour la base MariaDB.
 
-Aller dans le dossier env_vars qui contient les différents fichiers de configuration.
+Aller dans le dossier (env_vars/) qui contient les différents fichiers de configuration.
 ```
 cd env_vars
 ```
