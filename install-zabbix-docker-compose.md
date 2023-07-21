@@ -303,7 +303,7 @@ Nous installons l'agent (zabbix_agent-6.4.4-windows-amd64-openssl.msi)
 
 ![zabbix-12](./images/zabbix-12.png)
 
-Depuis le serveur Zabbix effectuer les réglages qui s'impose :
+2) Depuis le serveur Zabbix effectuer les réglages qui s'impose :
 
 ![zabbix-15](./images/zabbix-15.png)
 
