@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-# Mise en place d'une sauvegarde automatisée de la base de données Zabbix (MySQL).
+# - G. Mise en place d'une sauvegarde automatisée de la base de données Zabbix (MySQL).
 ```
 touch backup-mysql-zabbix.sh
 ```
@@ -74,4 +74,10 @@ dest="/data/zabbix"                  # Chemin de destination de la sauvegarde (A
 ```
 dest="/ma/destination/zabbix"        # Chemin de destination de la sauvegarde (Attention, pas de slash à la fin)
 ```
-
+Planifier une tache, une fois par jour à 23h45.
+```
+crontab -e
+```
+```
+45 23 * * * /usr/local/bin/backup-mysql-zabbix.sh
+```
