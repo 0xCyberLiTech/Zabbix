@@ -55,4 +55,4 @@ Il faut se rendre sur l'onglet chiffrement et reproduire les mêmes actions :
 
 On obtient donc le résultat suivant :
 
-![zabbix-17](./images/zabbix-17.png)
+![zabbix-30](./images/zabbix-30.png)
