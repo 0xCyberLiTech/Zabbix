@@ -504,20 +504,37 @@ Se rendre vers http://mon-ip-local/zabbix :
 Nous allon finaliser cette installation depuis notre navigateur :
 
 Phase 01 :
+
 ![zabbix-20.png](./images/zabbix-20.png)
+
 Phase 02 :
+
 ![zabbix-21.png](./images/zabbix-21.png)
+
 Phase 03 :
+
 ![zabbix-22.png](./images/zabbix-22.png)
+
 Phase 04 :
+
 ![zabbix-23.png](./images/zabbix-23.png)
+
 Phase 05 :
+
 ![zabbix-24.png](./images/zabbix-24.png)
+
 Phase 06 :
+
 ![zabbix-25.png](./images/zabbix-25.png)
+
 Phase 07 :
+
 ![zabbix-26.png](./images/zabbix-26.png)
+
 Phase 08 :
+
 ![zabbix-27.png](./images/zabbix-27.png)
+
 Phase 09 :
+
 ![zabbix-28.png](./images/zabbix-28.png)
