@@ -16,9 +16,9 @@ Commençons par installer notre serveur LAMP.
 |------|------| 
 | - A. | [Installer apache2.](#balise_01) |
 | - a1. | [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
-| - B. | [Installer PHP](#balise_02) |
+| - B. | [Installer PHP.](#balise_02) |
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
-
+| - D. | [Installer Zabbix dans ça dernière version stable.](#balise_04) |
 <a name="balise-01"></a>
 
 # Installation du serveur Apache2 :
@@ -195,8 +195,8 @@ Se connecter à MySQL :
 ```
 mysql
 ```
+- [Unix_Socket] authentication is enabled by default :
 ```
-# [Unix_Socket] authentication is enabled by default
 MariaDB [(none)]> show grants for root@localhost;
 ```
 ```
@@ -208,8 +208,8 @@ MariaDB [(none)]> show grants for root@localhost;
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 2 rows in set (0,000 sec)
 ```
+- Show user list :
 ```
-# show user list
 MariaDB [(none)]> select user,host,password from mysql.user; 
 ```
 ```
@@ -222,8 +222,8 @@ MariaDB [(none)]> select user,host,password from mysql.user;
 +-------------+-----------+-------------------------------------------+
 3 rows in set (0,001 sec)
 ```
+- Show database list :
 ```
-# show database list
 MariaDB [(none)]> show databases;
 ```
 ```
@@ -237,23 +237,23 @@ MariaDB [(none)]> show databases;
 +--------------------+
 4 rows in set (0,000 sec)
 ```
+# Create test database :
 ```
-# create test database
 MariaDB [(none)]> create database test_database; 
 Query OK, 1 row affected (0.000 sec)
 ```
+- Create test table on test database :
 ```
-# create test table on test database
 MariaDB [(none)]> create table test_database.test_table (id int, name varchar(50), address varchar(50), primary key (id)); 
 Query OK, 0 rows affected (0.108 sec)
 ```
+- Insert data to test table :
 ```
-# insert data to test table
 MariaDB [(none)]> insert into test_database.test_table(id, name, address) values("001", "Debian", "Hiroshima"); 
 Query OK, 1 row affected (0.036 sec)
 ```
+- Show test table :
 ```
-# show test table
 MariaDB [(none)]> select * from test_database.test_table;
 ```
 ```
@@ -264,8 +264,8 @@ MariaDB [(none)]> select * from test_database.test_table;
 +----+--------+-----------+
 1 row in set (0.000 sec)
 ```
+- Delete test database :
 ```
-# delete test database
 MariaDB [(none)]> drop database test_database; 
 Query OK, 1 row affected (0.111 sec)
 ```
@@ -288,4 +288,43 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 ```
 systemctl start mariadb
 ```
+<a name="balise-04"></a>
+# Installer Zabbix dans ça dernière version stable.
+
+Ajoutez les dépôts pour Zabbix 6.4 et installez le serveur Zabbix.
+
+Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/
+
+Pour surveiller Zabbix lui-même, installez également l'agent Zabbix (zabbix-agent2).
+```
+wget http://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+```
+```
+ls -l
+```
+```
+zabbix-release_6.4-1+debian12_all.deb
+```
+```
+dpkg -i zabbix-release_6.4-1+debian12_all.deb
+```
+```
+cat /etc/apt/sources.list.d/zabbix.list
+```
+```
+# Zabbix main repository
+deb https://repo.zabbix.com/zabbix/6.4/debian bookworm main
+deb-src https://repo.zabbix.com/zabbix/6.4/debian bookworm main
+
+# Zabbix unstable repository
+#deb https://repo.zabbix.com/zabbix/6.3/debian bookworm main
+#deb-src https://repo.zabbix.com/zabbix/6.3/debian bookworm main
+```
+```
+apt update
+```
+```
+apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
+```
+Créez une base de données nommée zabbix.
 
