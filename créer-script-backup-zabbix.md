@@ -1,4 +1,6 @@
+![zabbix-logo](./images/zabbix-logo.png)
 
+# Mise en place d'une sauvegarde automatisée de la base de données Zabbix (MySQL).
 ```
 touch backup-mysql-zabbix.sh
 ```
