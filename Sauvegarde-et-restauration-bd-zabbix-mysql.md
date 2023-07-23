@@ -1,3 +1,4 @@
+![zabbix-logo](./images/zabbix-logo.png)
 # Sauvegarde de la base de donnée mysql zabbix :
 ```
 mysqldump -u [username] -p [password] zabbix > zabbix_backup.sql
