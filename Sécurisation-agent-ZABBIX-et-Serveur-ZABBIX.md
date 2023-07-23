@@ -1,3 +1,4 @@
+![zabbix-logo](./images/zabbix-logo.png)
 # -D. Sécurisation de la communication entre l'agent-ZABBIX et le Serveur-ZABBIX.
 
 Génération de la clé PSK.
