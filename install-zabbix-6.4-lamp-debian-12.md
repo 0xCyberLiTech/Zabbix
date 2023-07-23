@@ -15,7 +15,7 @@ Commençons par installer notre serveur LAMP.
 | Cat | Etapes |
 |------|------| 
 | - A. | [Installer apache2.](#balise_01) |
-| - a1. | [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
+| - a1.| [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
 | - B. | [Installer PHP.](#balise_02) |
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
 | - D. | [Installer Zabbix dans ça dernière version stable.](#balise_04) |
@@ -97,7 +97,7 @@ Server API <--> FPM/FastCGI
 
 C'est Ok pour la prise en charge de FPM, passons à la suite.
 
-<a name="balise-02"></a>
+<a name="balise-03"></a>
 # Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
