@@ -74,12 +74,12 @@ dest="/data/zabbix"                  # Chemin de destination de la sauvegarde (A
 ```
 dest="/ma/destination/zabbix"        # Chemin de destination de la sauvegarde (Attention, pas de slash à la fin)
 ```
-Planifier une tache, une fois par jour à 23h45.
+Planifier une tache, une fois par jour à 00h00.
 ```
 crontab -e
 ```
 ```
-45 23 * * * /usr/local/bin/backup-mysql-zabbix.sh
+00 00 * * * /usr/local/bin/backup-mysql-zabbix.sh
 ```
 Décompresser une archive en*.gz
 ```
