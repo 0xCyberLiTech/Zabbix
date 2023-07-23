@@ -81,3 +81,13 @@ crontab -e
 ```
 45 23 * * * /usr/local/bin/backup-mysql-zabbix.sh
 ```
+Décompresser une archive en*.gz
+```
+cd /data/zabbix
+```
+```
+gzip -d zabbix-2023-07-23--23-14-38.sql.gz
+```
+```
+zabbix-2023-07-23--23-14-38.sql
+```
