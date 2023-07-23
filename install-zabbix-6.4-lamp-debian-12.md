@@ -9,6 +9,8 @@ Commençons par installer notre serveur LAMP.
 | Cat | Etapes |
 |------|------| 
 | - A. | [Installer et configurer apache2.](#balise_01) |
+| - a1. | [Installer et configurer apache2.](#balise_01) |
+
 | - B. | [Installer et configurer PHP](#balise_02) |
 | - C. | [Installer et configurer MySQL (MariaDB)](#balise_03) |
 
