@@ -19,8 +19,7 @@
 | - C. | [Comment installer l'agent Zabbix sur Debian 12.](Comment_installer_l_agent_Zabbix_sur_Debian_12.md) |
 | - D. | [Sécurisation de la communication entre l'agent-ZABBIX et le Serveur-ZABBIX.](Sécurisation-agent-ZABBIX-et-Serveur-ZABBIX.md) |
 | - E. | [Sauvegarde et restauration de la base de donnée Zabbix (MySQL).](Sauvegarde-et-restauration-bd-zabbix-mysql.md) |
-| - G. | [Créer un script pour sauvegarde la base de donnée de Zabbix (MySQL).](créer-script-backup-zabbix.md) |
-
+| - G. | [Mise en place d'une sauvegarde automatisée de la base de données Zabbix (MySQL).](créer-script-backup-zabbix.md) |
 
 Sauvegarde-et-restauration-bd-zabbix-mysql.md
 
