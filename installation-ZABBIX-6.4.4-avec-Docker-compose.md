@@ -255,9 +255,7 @@ Depuis un navigateur Internet, entrer l’adresse http://ip_server_zabbix:8080
 
 ![zabbix-07](./images/zabbix-07.png)
 
-![zabbix-05](./images/zabbix-05.png)
-
-
+![zabbix-33](./images/zabbix-33.png)
 
 # Sauvegarde :
 
