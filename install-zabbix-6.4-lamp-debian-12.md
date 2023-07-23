@@ -9,8 +9,7 @@ Commençons par installer notre serveur LAMP.
 | Cat | Etapes |
 |------|------| 
 | - A. | [Installer et configurer apache2.](#balise_01) |
-| - a1. | [Installer et configurer apache2.](#balise_01) |
-
+| - a1. | [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
 | - B. | [Installer et configurer PHP](#balise_02) |
 | - C. | [Installer et configurer MySQL (MariaDB)](#balise_03) |
 
