@@ -344,6 +344,7 @@ MariaDB [(none)]> set global log_bin_trust_function_creators = 1;
 ```
 MariaDB [(none)]> exit;
 ```
+```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
 le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix2]
