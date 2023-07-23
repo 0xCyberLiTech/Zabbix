@@ -1,5 +1,5 @@
-# Sécuriser la communication entre l'agent (zabbix_agent-6.4.4-windows-amd64-openssl) installer sur la machine distante et le serveur Zabbix.
-Sécurisation-agent-ZABBIX-et-Serveur-ZABBIX.md
+# -D. Sécurisation de la communication entre l'agent-ZABBIX et le Serveur-ZABBIX.
+
 Génération de la clé PSK.
 
 Tout dabord installer le paquet gnutls-bin.
