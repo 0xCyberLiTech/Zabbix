@@ -19,8 +19,9 @@ Commençons par installer notre serveur LAMP.
 | - B. | [Installer PHP.](#balise_02) |
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
 | - D. | [Installer Zabbix dans ça dernière version stable.](#balise_04) |
-<a name="balise-01"></a>
+| - E. | [Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même..](#balise_05) |
 
+<a name="balise-01"></a>
 # Installation du serveur Apache2 :
 
 ```
@@ -327,4 +328,196 @@ apt update
 apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
 ```
 Créez une base de données nommée zabbix.
+```
+mysql
+```
+```
+MariaDB [(none)]> create database zabbix character set utf8mb4 collate utf8mb4_bin;
+```
+Remplacez le [mot de passe] par le mot de passe de votre choix :
+```
+```
+MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix2';
+```
+```
+MariaDB [(none)]> set global log_bin_trust_function_creators = 1;
+```
+```
+MariaDB [(none)]> exit;
+```
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
+```
+le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix2]
+```
+Configure and start Zabbix Server.
+```
+```
+nano /etc/zabbix/zabbix_server.conf
+```
+```
+DBName=zabbix
+```
+```
+DBUser=zabbix
+```
+```
+DBPassword=zabbix
+```
+```
+systemctl restart zabbix-server.service
+```
+```
+systemctl enable zabbix-server.service
+```
+<a name="balise-05"></a>
+# Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
+```
+nano /etc/zabbix/zabbix_agent2.conf
+```
+```
+Server=127.0.0.1
+```
+```
+ServerActive=127.0.0.1
+```
+```
+Hostname=Zabbix server
+```
+```
+systemctl restart zabbix-agent2.service
+```
+Modifiez les valeurs PHP pour les exigences Zabbix.
+```
+nano /etc/php/8.2/fpm/pool.d/www.conf
+```
+```
+# add to the end
+php_value[max_execution_time] = 300
+php_value[memory_limit] = 128M
+php_value[post_max_size] = 16M
+php_value[upload_max_filesize] = 2M
+php_value[max_input_time] = 300
+php_value[max_input_vars] = 10000
+php_value[always_populate_raw_post_data] = -1
+php_value[date.timezone] = Europe/Paris
+```
+```
+nano /etc/apache2/conf-enabled/zabbix.conf
+```
+```
+# Define /zabbix alias, this is the default
+<IfModule mod_alias.c>
+    Alias /zabbix /usr/share/zabbix
+</IfModule>
 
+<Directory "/usr/share/zabbix">
+    Options FollowSymLinks
+    AllowOverride None
+    Order allow,deny
+    Allow from all
+
+    <IfModule mod_php.c>
+        php_value max_execution_time 300
+        php_value memory_limit 128M
+        php_value post_max_size 16M
+        php_value upload_max_filesize 2M
+        php_value max_input_time 300
+        php_value max_input_vars 10000
+        php_value always_populate_raw_post_data -1
+        php_value date.timezone Europe/Paris
+    </IfModule>
+
+    <IfModule mod_php7.c>
+        php_value max_execution_time 300
+        php_value memory_limit 128M
+        php_value post_max_size 16M
+        php_value upload_max_filesize 2M
+        php_value max_input_time 300
+        php_value max_input_vars 10000
+        php_value always_populate_raw_post_data -1
+        php_value[date.timezone] = Europe/Paris
+    </IfModule>
+</Directory>
+
+<Directory "/usr/share/zabbix/conf">
+    Order deny,allow
+    Deny from all
+    <files *.php>
+        Order deny,allow
+        Deny from all
+    </files>
+</Directory>
+
+<Directory "/usr/share/zabbix/app">
+    Order deny,allow
+    Deny from all
+    <files *.php>
+        Order deny,allow
+        Deny from all
+    </files>
+</Directory>
+
+<Directory "/usr/share/zabbix/include">
+    Order deny,allow
+    Deny from all
+    <files *.php>
+        Order deny,allow
+        Deny from all
+    </files>
+</Directory>
+
+<Directory "/usr/share/zabbix/local">
+    Order deny,allow
+    Deny from all
+    <files *.php>
+        Order deny,allow
+        Deny from all
+    </files>
+</Directory>
+
+<Directory "/usr/share/zabbix/vendor">
+    Order deny,allow
+    Deny from all
+    <files *.php>
+        Order deny,allow
+        Deny from all
+    </files>
+</Directory>
+```
+```
+systemctl restart apache2 php8.2-fpm
+```
+```
+systemctl restart zabbix-server zabbix-agent2 apache2
+```
+```
+systemctl enable zabbix-server zabbix-agent2 apache2
+```
+Info pour la consultation des logs de l'agent zabbix :
+
+```
+tail -100f /var/log/zabbix/zabbix_agent2.log
+```
+
+Se rendre vers http://mon-ip-local/zabbix :
+
+Nous allon finaliser cette installation depuis notre navigateur :
+
+Phase 01 :
+![zabbix-20.png](./images/zabbix-20.png)
+Phase 02 :
+![zabbix-21.png](./images/zabbix-21.png)
+Phase 03 :
+![zabbix-22.png](./images/zabbix-22.png)
+Phase 04 :
+![zabbix-23.png](./images/zabbix-23.png)
+Phase 05 :
+![zabbix-24.png](./images/zabbix-24.png)
+Phase 06 :
+![zabbix-25.png](./images/zabbix-25.png)
+Phase 07 :
+![zabbix-26.png](./images/zabbix-26.png)
+Phase 08 :
+![zabbix-27.png](./images/zabbix-27.png)
+Phase 09 :
+![zabbix-28.png](./images/zabbix-28.png)
