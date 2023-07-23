@@ -336,7 +336,6 @@ MariaDB [(none)]> create database zabbix character set utf8mb4 collate utf8mb4_b
 ```
 Remplacez le [mot de passe] par le mot de passe de votre choix :
 ```
-```
 MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix2';
 ```
 ```
