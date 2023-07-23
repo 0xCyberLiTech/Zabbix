@@ -21,7 +21,7 @@ Commençons par installer notre serveur LAMP.
 | - D. | [Installer Zabbix dans ça dernière version stable.](#balise_04) |
 | - E. | [Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même..](#balise_05) |
 
-<a name="balise-01"></a>
+<a name="balise_01"></a>
 # Installation du serveur Apache2 :
 
 ```
@@ -43,7 +43,7 @@ Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-<a name="balise-02"></a>
+<a name="balise_02"></a>
 # Installation de PHP-FPM
 ````
 apt -y install php-fpm
@@ -97,7 +97,7 @@ Server API <--> FPM/FastCGI
 
 C'est Ok pour la prise en charge de FPM, passons à la suite.
 
-<a name="balise-03"></a>
+<a name="balise_03"></a>
 # Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
@@ -289,7 +289,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 ```
 systemctl start mariadb
 ```
-<a name="balise-04"></a>
+<a name="balise_04"></a>
 # Installer Zabbix dans ça dernière version stable.
 
 Ajoutez les dépôts pour Zabbix 6.4 et installez le serveur Zabbix.
@@ -369,7 +369,7 @@ systemctl restart zabbix-server.service
 ```
 systemctl enable zabbix-server.service
 ```
-<a name="balise-05"></a>
+<a name="balise_05"></a>
 # Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
 ```
 nano /etc/zabbix/zabbix_agent2.conf
