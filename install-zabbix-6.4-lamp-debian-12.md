@@ -13,15 +13,22 @@ Commençons par installer notre serveur LAMP.
 | - B. | [Installer et configurer PHP](#balise_02) |
 | - C. | [Installer et configurer MySQL (MariaDB)](#balise_03) |
 
-
+```
 apt -y install apache2
+```
+```
 systemctl start apache2.service
+```
+```
 systemctl enable apache2.service
+```
+```
 systemctl status apache2.service
+```
+Install PHP
 
-Configure Apache2.
+La version par défaut de PHP à installer sur Debian ne serait pas la plus récente.
+Par exemple, en faisant cet article, pour la version 12 de Bookworm, le PHP était 8.2, et pour 11 Bullseye- PHP7.4.
 
-nano /etc/apache2/conf-enabled/security.conf
+apt install php
 
-#ServerTokens OS
-ServerTokens Prod
