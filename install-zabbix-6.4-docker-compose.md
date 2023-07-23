@@ -3,7 +3,7 @@
 images_build.yml
 https://github.com/zabbix/zabbix-docker/actions/workflows/images_build.yml
 
-# - B. Solution 1 - Installation de ZABBIX depuis Docker..
+# - B1. Solution 1 - Installation de ZABBIX depuis Docker..
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml, les containers suivants y seront déclarés :
 
