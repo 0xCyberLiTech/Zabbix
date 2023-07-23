@@ -66,7 +66,7 @@ done
 echo "On envoie les sauvegarde vers : $dest"
 rsync -avzh --delete-after "$db/" "$dest/"
 ```
-Localiser la variable suivante pour modier la destination de sauvegarde.
+Localiser la variable suivante pour modier la destination de sauvegarde à votre guise.
 
 ```
 dest="/data/zabbix"                  # Chemin de destination de la sauvegarde (Attention, pas de slash à la fin)
