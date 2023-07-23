@@ -15,7 +15,7 @@
 | - a7. | [Triggers.](#balise_08) |
 | - a8. | [Action.](#balise_09) |
 | - B1. | [Solution 1 - Installation de ZABBIX 6.4 depuis Docker.](install-zabbix-6.4-docker-compose.md) |
-| - B2. | [Solution 2 - Installation de ZABBIX 6.4 sur DEBIAN 12.](install-zabbix-6.4-lamp-debian-12.md) |
+| - B2. | [Solution 2 - Installation ZABBIX 6.4.4 + LAMP + DEBIAN12 + zabbix-agent2.](Installation-ZABBIX-6.4.4+LAMP+DEBIAN12+zabbix-agent2.md) |
 | - C. | [Comment installer l'agent Zabbix sur Debian 12.](Comment_installer_l_agent_Zabbix_sur_Debian_12.md) |
 
 
