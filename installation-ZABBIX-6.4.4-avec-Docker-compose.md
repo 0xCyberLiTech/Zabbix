@@ -14,7 +14,7 @@ Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier doc
 
 Prérequis :
 
-Cette procédure à été testée depuis une machine sous (Debian 12) avec Docker, Docker compose v2 et Portainer.
+Cette procédure a été testée depuis une machine sous (Debian 12) avec Docker, Docker compose v2 et Portainer.
 
 Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2 & Portainer.
 
@@ -31,7 +31,7 @@ mkdir ~/zabbix/
 ```
 cd ~/zabbix/
 ```
-Aller dans ce dossier, entrer la commande ci-dessous pour récupérer les fichiers nécessaire à l'installation de Zabbix :
+Aller dans ce dossier, entrer la commande ci-dessous pour récupérer les fichiers nécessaires à l'installation de Zabbix :
 ```
 sudo git clone https://git.rdr-it.io/docker/zabbix.git .
 ```
@@ -42,7 +42,7 @@ Aller dans le dossier (env_vars/) qui contient les différents fichiers de confi
 ```
 cd env_vars
 ```
-A minima, éditer les fichiers .MYSQL_PASSWORD et .MYSQL_ROOT_PASSWORD, changer par un mot de passe personnalisé.
+Editer les fichiers (.MYSQL_PASSWORD) et (.MYSQL_ROOT_PASSWORD) changer par un mot de passe personnalisé.
 
 Remonter d’un niveau dans les dossiers pour retourner où se trouve le fichier docker-compose.yml.
 ```
@@ -237,13 +237,13 @@ sudo docker compose pull
 ```
 Lancer les conteneurs pour démarrer Zabbix.
 
-Pour le premier démarrage, je vous conseille de ne pas détacher l’exécution des conteneurs afin d’avoir le retour dans le terminal, pour cela on démarré les conteneurs sans l’option -d.
+Pour le premier démarrage, je vous conseille de ne pas détacher l’exécution des conteneurs afin d’avoir le retour dans le terminal, pour cela ont démarré les conteneurs sans l’option -d.
 
 Entrer la commande suivante :
 ```
 sudo docker compose up
 ```
-Le meilleur moyen de savoir si tout fonctionne maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
+Le meilleur moyen de savoir si tout a fonctionné maintenant et d’essayer d’aller sur Zabbix depuis un navigateur.
 
 Identifiant de connexion par défaut :
 ```
@@ -327,14 +327,14 @@ docker cp ./zabbix_server.conf zabbix-zabbix-server-1:/etc/zabbix/
 
 Depuis la console CMD (ADMIN) :
 
-Déposer un fichier en provenance du server linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
+Déposer un fichier en provenance du serveur linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
 ```
 pscp.exe -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
 pscp.exe -P 2234 root@192.168.50.201:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
 ```
 Depuis la console CMD :
 
-Déposer un Dossier et tout son contenu en provenance du server distant Linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
+Déposer un dossier et tout son contenu en provenance du serveur distant Linux root@192.168.50.201:/root/BACKUP_ZABBIX/ vers le dossier D:\DOSSIER_BACKUP sur la machine Windows.
 ```
 pscp.exe -r -P <port ssh> username@ip:/chemin/vers/le/fichier /chemin/local
 pscp.exe -r -P 2234 root@192.168.50.250:/root/BACKUP_ZABBIX/* D:\DOSSIER_BACKUP
