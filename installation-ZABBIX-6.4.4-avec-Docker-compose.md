@@ -3,7 +3,7 @@
 images_build.yml
 https://github.com/zabbix/zabbix-docker/actions/workflows/images_build.yml
 
-# - B1. Solution 1 - Installation ZABBIX 6.4.4 avec Docker compse.
+# - B1. Solution 1 - Installation de ZABBIX 6.4.4 depuis Docker compse.
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml, les containers suivants y seront déclarés :
 
@@ -42,7 +42,7 @@ Aller dans le dossier (env_vars/) qui contient les différents fichiers de confi
 ```
 cd env_vars
 ```
-Editer les fichiers (.MYSQL_PASSWORD) et (.MYSQL_ROOT_PASSWORD) changer par un mot de passe personnalisé.
+Éditer les fichiers (.MYSQL_PASSWORD) et (.MYSQL_ROOT_PASSWORD) changer par un mot de passe personnalisé.
 
 Remonter d’un niveau dans les dossiers pour retourner où se trouve le fichier docker-compose.yml.
 ```
@@ -295,7 +295,7 @@ cat backup_zabbix_mariadb_10.11.4_20-07-2023.sql | docker exec -i d5613cca8slEZZ
 ```
 # Autres commandes utiles :
 
-- Accéder à un conatiner et se connecter à sa console MySQL depuis Windows : 
+- Accéder à un container et se connecter à sa console MySQL depuis Windows :
 
 Depuis l'hôte pour accéder au serveur MySQL se trouvant sur le container d5613cca8slEZZ exécuter les commandes suivantes :
 
