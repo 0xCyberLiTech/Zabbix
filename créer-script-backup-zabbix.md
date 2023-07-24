@@ -76,7 +76,7 @@ done
 echo "On envoie les sauvegarde vers : $dest"
 rsync -avzh --delete-after "$db/" "$dest/"
 ```
-Localiser la variable suivante pour modier la destination de sauvegarde à votre guise.
+Localiser la variable suivante pour modifier la destination de sauvegarde à votre guise.
 
 ```
 dest="/data/zabbix"                  # Chemin de destination de la sauvegarde (Attention, pas de slash à la fin)
@@ -84,14 +84,14 @@ dest="/data/zabbix"                  # Chemin de destination de la sauvegarde (A
 ```
 dest="/ma/destination/zabbix"        # Chemin de destination de la sauvegarde (Attention, pas de slash à la fin)
 ```
-Planifier une tache, une fois par jour à 00h00.
+Planifier une tache, une fois par jour à 00 h 00.
 ```
 crontab -e
 ```
 ```
 00 00 * * * /usr/local/bin/backup-mysql-zabbix.sh
 ```
-Décompresser une archive en*.gz
+Décompresser une archive en (mon_fichier.gz)
 ```
 cd /data/zabbix
 ```
@@ -106,8 +106,11 @@ Récupération des sauvegardes depuis Windows.
 Lancer la console CMD en mode administrateur.
 
 Récupération des sauvegardes se trouvant sur la machine distante (Linux /data/zabbix/).
-Celles-ci seront déposées sur votre machine Windows dans votre dossier D:\DOSSIER_BACKUP.
+
+Celles-ci seront déposées sur votre machine Windows dans un dossier que vous aurez créer :
+
+Exemple : D:\MON\DOSSIER\BACKUP
 
 ```
- pscp.exe -r -P 2234 root@192.168.50.250:/data/zabbix/* D:\DOSSIER_BACKUP
+ pscp.exe -r -P 2277 root@192.168.50.250:/data/zabbix/* D:\MON\DOSSIER\BACKUP
 ```
