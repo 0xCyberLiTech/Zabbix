@@ -1,9 +1,9 @@
 ![zabbix-logo](./images/zabbix-logo.png)
-# -D. Sécurisation de la communication entre l'agent-ZABBIX et le Serveur-ZABBIX.
+# -D. Sécurisation de la communication entre l'agent-ZABBIX et le serveur ZABBIX.
 
 Génération de la clé PSK.
 
-Tout dabord installer le paquet gnutls-bin.
+Tout d'abord installer le paquet gnutls-bin.
 ```
 apt-get install gnutls-bin
 ```
