@@ -11,6 +11,16 @@ Coller le code ci-dessous dans le fichier backup-mysql-zabbix.sh :
 ```
 #! /bin/bash
 
+# --------------------------------------------------------
+# 0xCyberLiTech
+# Script créé le 23-07-2023
+# Script modifié le 23-07-2023
+#
+# touch backup-mysql-zabbix.sh
+# chmod +x backup-mysql-zabbix.sh
+# ./backup-mysql-zabbix.sh
+# --------------------------------------------------------
+
 path=`dirname $0`
 cd "$path"
 
