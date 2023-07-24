@@ -17,7 +17,7 @@ Commençons par installer notre serveur LAMP.
 | - a1.| [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
 | - B. | [Installer PHP.](#balise_02) |
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
-| - D. | [Installer Zabbix dans ça dernière version stable.](#balise_04) |
+| - D. | [Installer Zabbix dans sa dernière version stable.](#balise_04) |
 | - E. | [Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même..](#balise_05) |
 
 <a name="balise_01"></a>
