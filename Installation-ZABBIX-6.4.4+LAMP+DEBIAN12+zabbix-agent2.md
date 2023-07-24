@@ -1,5 +1,5 @@
 ![zabbix-logo](./images/zabbix-logo.png)
-# - B2. Installation ZABBIX 6.4.4 + LAMP + DEBIAN 12 + zabbix-agent2.
+# - B2. Installation de ZABBIX 6.4.4 + LAMP + DEBIAN 12 + zabbix-agent2.
 
 ## Sommaire :
 
@@ -13,15 +13,15 @@ Commençons par installer notre serveur LAMP.
 
 | Cat | Etapes |
 |------|------| 
-| - A. | [Installer apache2.](#balise_01) |
+| - A. | [Installer le serveur Apache2.](#balise_01) |
 | - a1.| [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
 | - B. | [Installer PHP.](#balise_02) |
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
-| - D. | [Installer Zabbix dans sa dernière version stable.](#balise_04) |
-| - E. | [Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même..](#balise_05) |
+| - D. | [Installer ZABBIX dans sa dernière version stable.](#balise_04) |
+| - E. | [Configurez et démarrez l'agent ZABBIX pour surveiller le serveur ZABBIX lui-même.](#balise_05) |
 
 <a name="balise_01"></a>
-# Installation du serveur Apache2 :
+# Installer le serveur Apache2 :
 
 ```
 apt -y install apache2
@@ -35,19 +35,19 @@ systemctl enable apache2.service
 ```
 systemctl status apache2.service
 ```
-# Installation de PHP :
+<a name="balise_02"></a>
+# Installer PHP :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-<a name="balise_02"></a>
 # Installation de PHP-FPM
 ````
 apt -y install php-fpm
 ````
-Ajoutez les paramètres dans Virtualhost que vous souhaitez définir PHP-FPM.
+Ajoutez les paramètres dans le ou les Virtualhosts que vous souhaitez associer à PHP-FPM.
 ```
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
@@ -82,7 +82,7 @@ To activate the new configuration, you need to run:
 ```
 systemctl restart php8.2-fpm apache2
 ```
-Créez [phpinfo] dans la racine Web de Virtualhost, vous définissez PHP-FPM et y accédez, alors c'est OK si [FPM/FastCGI] est affiché.
+Créez le fichier [info.php] dans la racine du dossier Web, ( /va/www/html/ ).
 ```
 echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 ```
@@ -90,7 +90,7 @@ Accéder à l'Url http://mon-ip-local/info.php afin de tester.
 
 On peut constater que le module FPM esy pris en charge.
 
-Server API <--> FPM/FastCGI
+Serveur API <--> FPM/FastCGI
 
 ![zabbix-29.png](./images/zabbix-29.png)
 
@@ -186,7 +186,6 @@ All done!  If you've completed all of the above steps, your MariaDB
 installation should now be secure.
 
 Thanks for using MariaDB!
-
 ```
 ```
 systemctl restart mariadb.service
@@ -333,7 +332,7 @@ mysql
 ```
 MariaDB [(none)]> create database zabbix character set utf8mb4 collate utf8mb4_bin;
 ```
-Remplacez le [mot de passe] par le mot de passe de votre choix :
+Remplacez-le [mot de passe] par le mot de passe de votre choix :
 ```
 MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix2';
 ```
@@ -346,7 +345,7 @@ MariaDB [(none)]> exit;
 ```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
-le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix2]
+Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix2]
 ```
 Configure and start Zabbix Server.
 ```
@@ -493,14 +492,12 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 systemctl enable zabbix-server zabbix-agent2 apache2
 ```
 Info pour la consultation des logs de l'agent zabbix :
-
 ```
 tail -100f /var/log/zabbix/zabbix_agent2.log
 ```
-
 Se rendre vers http://mon-ip-local/zabbix :
 
-Nous allon finaliser cette installation depuis notre navigateur :
+Nous allons finaliser cette installation depuis notre navigateur :
 
 Phase 01 :
 
