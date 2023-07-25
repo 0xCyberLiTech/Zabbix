@@ -20,12 +20,6 @@
 | - D. | [Sécurisation de la communication entre l'agent-ZABBIX et le Serveur-ZABBIX.](Sécurisation-agent-ZABBIX-et-Serveur-ZABBIX.md) |
 | - E. | [Sauvegarde et restauration de la base de donnée Zabbix (MySQL).](Sauvegarde-et-restauration-bd-zabbix-mysql.md) |
 | - G. | [Mise en place d'une sauvegarde automatisée de la base de données Zabbix (MySQL).](créer-script-backup-zabbix.md) |
-| - F. | [Installer et configurer (NTPsec).](https://github.com/0xCyberLiTech/Smokeping/blob/main/install-ntpsec.md) |
-
-
-https://github.com/0xCyberLiTech/Smokeping/blob/main/install-ntpsec.md
-
-Sauvegarde-et-restauration-bd-zabbix-mysql.md
 
 <a name="balise_01"></a>
 # - C'est quoi ZABBIX ?
