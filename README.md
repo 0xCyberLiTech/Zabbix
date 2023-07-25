@@ -1,5 +1,5 @@
 ![zabbix-logo](./images/zabbix-logo.png)
-# Installation de ZABBIX à l'aide docker compose.
+# A la découverte de ZABBIX.
 
 ## Sommaire :
 
