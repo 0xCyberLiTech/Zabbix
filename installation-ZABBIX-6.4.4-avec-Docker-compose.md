@@ -24,6 +24,10 @@ Vous trouverez ici un tutoriel sur l’installation de Docker, Docker compose v2
 
 Sur votre serveur, créer un dossier, qui va recevoir une copie des fichiers du dépôt et les données de Zabbix.
 
+- Avant de commencer il fau installer et configurer (NTPsec).
+
+[Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/OS-Debian-12/blob/main/installer-et-configurer-NTPsec.md)
+
 Création du dossier ~/zabbix/.
 ```
 mkdir ~/zabbix/
