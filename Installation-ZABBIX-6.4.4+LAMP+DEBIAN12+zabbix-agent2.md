@@ -15,7 +15,7 @@ Commençons par installer notre serveur LAMP.
 |------|------| 
 | - A. | [Installer le serveur Apache2.](#balise_01) |
 | - a1.| [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md) |
-| - B. | [Installer PHP.](#balise_02) |
+| - B. | [Installer PHP.](#balise_02) 
 | - C. | [Installer MySQL (MariaDB)](#balise_03) |
 | - D. | [Installer ZABBIX dans sa dernière version stable.](#balise_04) |
 | - E. | [Configurez et démarrez l'agent ZABBIX pour surveiller le serveur ZABBIX lui-même.](#balise_05) |
@@ -289,6 +289,10 @@ systemctl start mariadb
 ```
 <a name="balise_04"></a>
 # Installer Zabbix dans ça dernière version stable.
+
+- Avant de commencer il faut installer et configurer (NTPsec).
+
+[Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/OS-Debian-12/blob/main/installer-et-configurer-NTPsec.md)
 
 Ajoutez les dépôts pour Zabbix 6.4 et installez le serveur Zabbix.
 
