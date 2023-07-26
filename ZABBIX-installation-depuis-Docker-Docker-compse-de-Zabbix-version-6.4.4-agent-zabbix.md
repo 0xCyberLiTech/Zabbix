@@ -3,7 +3,7 @@
 images_build.yml
 https://github.com/zabbix/zabbix-docker/actions/workflows/images_build.yml
 
-# - ZABBIX installation version 6.4.4 depuis Docker compse
+# - ZABBIX installation depuis (Docker + Docker compse) de (Zabbix version 6.4.4 + agent-zabbix).
 
 Pour l’installation de Zabbix avec Docker, nous allons utiliser un fichier docker-compose.yml, les containers suivants y seront déclarés :
 
