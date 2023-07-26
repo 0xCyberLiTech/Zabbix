@@ -47,7 +47,6 @@ wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix
 ```
 sudo dpkg -i zabbix-release_6.4-1+debian12_all.deb
 ```
-
 Pour DEBIAN 11
 ```
 wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-2+debian11_all.deb
