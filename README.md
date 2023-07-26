@@ -8,7 +8,4 @@
 - 04 - [ZABBIX Sécurisation de la communication entre l'agent et le serveur.](ZABBIX-Sécurisation-de-la-communication-entre-l-agent-et-le-serveur.md)
 - 05 - [ZABBIX MySQL sauvegarde et restauration.md.](ZABBIX-MySQL-sauvegarde-restauration.md)
 - 06 - [ZABBIX Script backup automatisé.md.](ZABBIX-Script-backup-automatisé.md)
-- 07 - [.]()
-- 08 - [.]()
-- 09 - [.]()
-- 10 - [.]()
+
