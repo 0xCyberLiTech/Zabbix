@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-# ZABBIX installation depuis DEBIAN-12 de l'agent-zabbix.md
+## ZABBIX installation depuis DEBIAN-12 de l'agent-zabbix.md
 
 Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller.
 
