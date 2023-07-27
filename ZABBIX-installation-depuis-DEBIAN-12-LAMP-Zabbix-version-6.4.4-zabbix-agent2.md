@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-# - ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 6.4.4 + zabbix-agent2.
+## - ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 6.4.4 + zabbix-agent2.
 
 ## Sommaire :
 
@@ -10,7 +10,7 @@ Mise à jour du système :
 ```
 apt update && apt upgrade -y
 ```
-Commençons par installer notre serveur LAMP.
+## Commençons par installer notre serveur LAMP.
 
 - 01 - [Installer le serveur Apache2.](#balise_01)
 - 02 - [Exemple pour la création de deux virtualhosts HTTP & HTTPS apache2.](https://github.com/0xCyberLiTech/Apache2/blob/main/Exemple_create_VirtualHost.md)
