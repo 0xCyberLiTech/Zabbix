@@ -22,7 +22,7 @@ Commençons par installer notre serveur LAMP.
 | - E. | [Configurez et démarrez l'agent ZABBIX pour surveiller le serveur ZABBIX lui-même.](#balise_05) |
 
 <a name="balise_01"></a>
-# Installer le serveur Apache2 :
+## Installer le serveur Apache2 :
 
 ```
 apt -y install apache2
@@ -37,14 +37,14 @@ systemctl enable apache2.service
 systemctl status apache2.service
 ```
 <a name="balise_02"></a>
-# Installer PHP :
+## Installer PHP :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-# Installation de PHP-FPM
+## Installation de PHP-FPM
 ````
 apt -y install php-fpm
 ````
@@ -98,7 +98,7 @@ Serveur API <--> FPM/FastCGI
 C'est Ok pour la prise en charge de FPM, passons à la suite.
 
 <a name="balise_03"></a>
-# Installation du serveur MariaDB (MySQL)
+## Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
 ```
@@ -237,7 +237,7 @@ MariaDB [(none)]> show databases;
 +--------------------+
 4 rows in set (0,000 sec)
 ```
-# Create test database :
+## Create test database :
 ```
 MariaDB [(none)]> create database test_database; 
 Query OK, 1 row affected (0.000 sec)
@@ -289,7 +289,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_04"></a>
-# Installer Zabbix dans ça dernière version stable.
+## Installer Zabbix dans ça dernière version stable.
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
@@ -373,7 +373,7 @@ systemctl restart zabbix-server.service
 systemctl enable zabbix-server.service
 ```
 <a name="balise_05"></a>
-# Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
+## Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
 ```
 nano /etc/zabbix/zabbix_agent2.conf
 ```
