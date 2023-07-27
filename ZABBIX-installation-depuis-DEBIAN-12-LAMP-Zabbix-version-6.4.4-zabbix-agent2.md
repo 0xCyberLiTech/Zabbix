@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## - ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 6.4.4 + zabbix-agent2.
+## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 6.4.4 + zabbix-agent2.
 
 ## Sommaire :
 
