@@ -26,7 +26,9 @@ Sélectionnez votre hôte Zabbix dans la section Hôte. Je vais sélectionner l�
 
 Sélectionnez une balise d’élément que vous souhaitez surveiller dans la section Balise d’élément.
 
-Je vais sélectionner la balise item Application: Interface ens33 dans cet exemple. Cette balise item vous permettra de surveiller l’interface réseau ens33.
+Je vais sélectionner la balise item Application: Interface ens33 dans cet exemple.
+
+Cette balise item vous permettra de surveiller l’interface réseau ens33.
 
 ![grafana-06](./images/grafana-06.png)
 
