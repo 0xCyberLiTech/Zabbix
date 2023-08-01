@@ -20,5 +20,7 @@ Sélectionnez le groupe Zabbix souhaité dans la section Groupe. Je vais sélect
 
 ![grafana-04](./images/grafana-04.png)
 
+Sélectionnez votre hôte Zabbix dans la section Hôte. Je vais sélectionner l’hôte du serveur Zabbix.
 
+![grafana-05](./images/grafana-05.png)
 
