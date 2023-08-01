@@ -16,3 +16,9 @@ Je vais sélectionner le type de métriques.
 
 ![grafana-03](./images/grafana-03.png)
 
+Sélectionnez le groupe Zabbix souhaité dans la section Groupe. Je vais sélectionner le groupe de serveurs Zabbix par défaut.
+
+![grafana-04](./images/grafana-04.png)
+
+
+
