@@ -10,4 +10,5 @@
 - 04 - [ZABBIX Sécurisation de la communication entre l'agent et le serveur.](ZABBIX-installation-depuis-DEBIAN-12-de-l-agent-zabbix.md)
 - 05 - [ZABBIX MySQL sauvegarde et restauration.](ZABBIX-MySQL-sauvegarde-restauration.md)
 - 06 - [ZABBIX Script backup automatisé.md.](ZABBIX-Script-backup-automatisé.md)
+- 07 - [Surveillance-de-Zabbix-avec-Grafana.md](Surveillance-de-Zabbix-avec-Grafana.md)
 
