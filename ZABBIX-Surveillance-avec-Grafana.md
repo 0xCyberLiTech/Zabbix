@@ -14,3 +14,5 @@ Maintenant, sélectionnez le type de données que vous souhaitez interroger à p
 
 Je vais sélectionner le type de métriques.
 
+![grafana-03](./images/grafana-03.png)
+
