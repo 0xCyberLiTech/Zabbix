@@ -35,3 +35,7 @@ Cette balise item vous permettra de surveiller l’interface réseau ens33.
 Maintenant, sélectionnez l’élément que vous souhaitez surveiller dans la section Élément.
 
 Si vous avez sélectionné l’Application de balise Item : Interface ens33 comme je l’ai fait, vous pouvez sélectionner l’Interface Item ens33: Bit received pour surveiller la vitesse de téléchargement de l’interface réseau ens33.
+
+![grafana-07](./images/grafana-07.png)
+
+
