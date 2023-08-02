@@ -38,4 +38,8 @@ Si vous avez sélectionné l’Application de balise Item : Interface ens33 comm
 
 ![grafana-07](./images/grafana-07.png)
 
+Vous devriez voir un graphique de la vitesse de téléchargement de l’interface réseau ens33.
+
+![grafana-08](./images/grafana-08.png)
+
 
