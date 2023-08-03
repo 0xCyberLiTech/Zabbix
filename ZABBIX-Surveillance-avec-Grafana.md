@@ -42,4 +42,26 @@ Vous devriez voir un graphique de la vitesse de téléchargement de l’interfac
 
 ![grafana-08](./images/grafana-08.png)
 
+Concernat les règles de firewall (UFW) :
 
+```
+[ 1] 80/tcp                     ALLOW IN    192.168.50.0/24
+[ 2] 443/tcp                    ALLOW IN    192.168.50.0/24
+[ 3] 2234/tcp                   ALLOW IN    192.168.50.0/24
+[ 4] 10050/tcp                  ALLOW IN    192.168.50.0/24
+[ 5] 9443/tcp                   ALLOW IN    192.168.50.0/24
+[ 6] 9392/tcp                   ALLOW IN    192.168.0.0/16
+[ 7] 8181/tcp                   ALLOW IN    192.168.50.0/24
+[ 8] 8585/tcp                   ALLOW IN    192.168.50.0/24
+[ 9] 8086/tcp                   ALLOW IN    192.168.50.0/24
+[10] 1883/tcp                   ALLOW IN    192.168.50.0/24
+[11] 25/tcp                     ALLOW IN    192.168.50.0/24
+[12] Anywhere                   ALLOW IN    172.21.0.0/16
+[13] Anywhere                   ALLOW IN    172.22.0.0/16
+
+```
+Il faut ouvrir le port 3000 pourGrafana, mais cela ne suffit pas si Grafana est installé dans un container.
+```
+[12] Anywhere                   ALLOW IN    172.21.0.0/16
+[13] Anywhere                   ALLOW IN    172.22.0.0/16
+```
