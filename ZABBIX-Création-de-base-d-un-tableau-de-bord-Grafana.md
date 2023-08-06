@@ -30,3 +30,7 @@ Tout d’abord, changez la source de données en Zabbix à partir du menu dérou
 Pour surveiller la vitesse de téléchargement de votre serveur Zabbix, sélectionnez les paramètres de requête indiqués dans la capture d’écran ci-dessous.
 
 ![grafana-0F](./images/grafana-0F.png)
+
+Tapez le titre Vitesse de téléchargement dans la section Titre comme indiqué dans la capture d’écran ci-dessous.
+
+![grafana-0G](./images/grafana-0G.png)
