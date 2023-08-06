@@ -48,3 +48,9 @@ Vous pouvez effectuer de nombreuses personnalisations sur votre panneau Grafana.
 Une fois que vous êtes satisfait du résultat, cliquez sur Appliquer pour ajouter le panneau au tableau de bord.
 
 ![grafana-0J](./images/grafana-0J.png)
+
+Le panneau Vitesse de téléchargement doit être ajouté au tableau de bord.
+
+![grafana-0K](./images/grafana-0K.png)
+
+
