@@ -12,3 +12,9 @@ Pour créer un nouveau tableau de bord Grafana, cliquez sur Tableaux de bord > G
 Cliquez sur Nouveau tableau de bord.
 
 ![grafana-0B](./images/grafana-0B.png)
+
+Un nouveau tableau de bord doit être créé.
+
+Cliquez sur Ajouter un panneau vide pour ajouter un nouveau panneau au tableau de bord.
+
+![grafana-0C](./images/grafana-0C.png)
