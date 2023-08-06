@@ -53,4 +53,10 @@ Le panneau Vitesse de téléchargement doit être ajouté au tableau de bord.
 
 ![grafana-0K](./images/grafana-0K.png)
 
+Maintenant, créons un autre panneau pour surveiller la vitesse de téléchargement du serveur Zabbix.
+
+Comme le panneau de surveillance de la vitesse de téléchargement sera le même que le panneau Vitesse de téléchargement, vous pouvez le cloner et modifier quelques paramètres pour surveiller facilement la vitesse de téléchargement de votre serveur Zabbix.
+
+Pour cloner le panneau Vitesse de téléchargement, cliquez sur la flèche vers le bas du panneau et cliquez sur Plus... > Dupliquer comme indiqué dans la capture d’écran ci-dessous.
+
 
