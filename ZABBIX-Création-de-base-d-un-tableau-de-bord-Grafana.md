@@ -26,3 +26,7 @@ L’éditeur de panneau Grafana doit s’afficher. Vous pouvez configurer votre 
 Tout d’abord, changez la source de données en Zabbix à partir du menu déroulant Source de données comme indiqué dans la capture d’écran ci-dessous.
 
 ![grafana-0E](./images/grafana-0E.png)
+
+Pour surveiller la vitesse de téléchargement de votre serveur Zabbix, sélectionnez les paramètres de requête indiqués dans la capture d’écran ci-dessous.
+
+![grafana-0F](./images/grafana-0F.png)
