@@ -34,3 +34,8 @@ Pour surveiller la vitesse de téléchargement de votre serveur Zabbix, sélecti
 Tapez le titre Vitesse de téléchargement dans la section Titre comme indiqué dans la capture d’écran ci-dessous.
 
 ![grafana-0G](./images/grafana-0G.png)
+
+Sélectionnez l’unité Données / bits (IEC) dans la section Unité comme indiqué dans la capture d’écran ci-dessous.
+
+![grafana-0H](./images/grafana-0H.png)
+
