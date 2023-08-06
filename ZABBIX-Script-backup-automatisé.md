@@ -100,13 +100,13 @@ gzip -d zabbix-2023-07-23--23-14-38.sql.gz
 ```
 zabbix-2023-07-23--23-14-38.sql
 ```
-1) Récupération des sauvegardes depuis Windows se trouvant sur la machine Zabbix server dans le but d'un archivage.
+1) Récupération des sauvegardes depuis la machine hôte (Windows) se trouvant sur la machine Zabbix server (distante) dans le but d'un archivage de celles-ci.
 
 Lancer la console CMD en mode administrateur.
 
-Récupération des sauvegardes se trouvant sur la machine distante (Linux /data/zabbix/).
+Récupération des sauvegardes se trouvant sur la machine distante : (Linux /data/zabbix/).
 
-Celles-ci seront déposées sur votre machine Windows dans un dossier que vous aurez créé :
+Celles-ci seront déposées sur votre machine Windows dans un dossier que vous aurez créé : (/data/zabbix).
 
 D:\MON\DOSSIER\BACKUP
 ```
@@ -116,7 +116,7 @@ D:\MON\DOSSIER\BACKUP
 
 Récupération de la sauvegarde sur la machine hôte pour l'envoyer sur la machine Zabbix server.
 
-Le dossier ou sont contenuent les archives se trouve vers D:\DOSSIER_BACKUP
+Les archives se trouvent vers D:\DOSSIER_BACKUP sur la machine hôte; (local).
 ```
  pscp.exe -r -P 2277 D:\DOSSIER_BACKUP\zabbix-2023-08-05--00-00-01.sql.gz root@192.168.50.250:/data/zabbix/
 ```
