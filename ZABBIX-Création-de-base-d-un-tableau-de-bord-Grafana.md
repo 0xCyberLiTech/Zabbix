@@ -39,3 +39,9 @@ Sélectionnez l’unité Données / bits (IEC) dans la section Unité comme indi
 
 ![grafana-0H](./images/grafana-0H.png)
 
+Le graphique de vitesse de téléchargement devrait afficher l’unité de données correcte comme vous pouvez le voir dans la capture d’écran ci-dessous.
+
+![grafana-0I](./images/grafana-0I.png)
+
+
+
