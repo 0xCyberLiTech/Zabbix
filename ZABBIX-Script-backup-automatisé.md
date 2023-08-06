@@ -116,7 +116,7 @@ D:\MON\DOSSIER\BACKUP
 
 Récupération de la sauvegarde sur la machine hôte pour l'envoyer sur la machine Zabbix server.
 
-Le dossier ou sont contenuent les archives : D:\MON\DOSSIER\BACKUP
+Le dossier ou sont contenuent les archives se trouve vers D:\DOSSIER_BACKUP
 ```
- pscp.exe -r -P 2277 D:\DOSSIER_BACKUP\zabbix-2023-07-23--23-45-01.sql.gz root@192.168.50.250:/data/zabbix/
+ pscp.exe -r -P 2277 D:\DOSSIER_BACKUP\zabbix-2023-08-05--00-00-01.sql.gz root@192.168.50.250:/data/zabbix/
 ```
