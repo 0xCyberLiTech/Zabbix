@@ -18,3 +18,9 @@ Un nouveau tableau de bord doit être créé.
 Cliquez sur Ajouter un panneau vide pour ajouter un nouveau panneau au tableau de bord.
 
 ![grafana-0C](./images/grafana-0C.png)
+
+L’éditeur de panneau Grafana doit s’afficher. Vous pouvez configurer votre panneau Grafana à partir d’ici.
+
+![grafana-0D](./images/grafana-0D.png)
+
+Tout d’abord, changez la source de données en Zabbix à partir du menu déroulant Source de données comme indiqué dans la capture d’écran ci-dessous.
