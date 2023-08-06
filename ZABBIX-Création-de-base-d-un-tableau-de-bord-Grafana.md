@@ -43,5 +43,8 @@ Le graphique de vitesse de téléchargement devrait afficher l’unité de donn�
 
 ![grafana-0I](./images/grafana-0I.png)
 
+Vous pouvez effectuer de nombreuses personnalisations sur votre panneau Grafana. Vous pouvez lire l’article Comment connecter Grafana avec Prometheus? pour en savoir plus.
 
+Une fois que vous êtes satisfait du résultat, cliquez sur Appliquer pour ajouter le panneau au tableau de bord.
 
+![grafana-0J](./images/grafana-0J.png)
