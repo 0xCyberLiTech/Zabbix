@@ -24,3 +24,5 @@ L’éditeur de panneau Grafana doit s’afficher. Vous pouvez configurer votre 
 ![grafana-0D](./images/grafana-0D.png)
 
 Tout d’abord, changez la source de données en Zabbix à partir du menu déroulant Source de données comme indiqué dans la capture d’écran ci-dessous.
+
+![grafana-0E](./images/grafana-0E.png)
