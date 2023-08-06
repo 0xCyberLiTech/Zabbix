@@ -59,4 +59,4 @@ Comme le panneau de surveillance de la vitesse de téléchargement sera le même
 
 Pour cloner le panneau Vitesse de téléchargement, cliquez sur la flèche vers le bas du panneau et cliquez sur Plus... > Dupliquer comme indiqué dans la capture d’écran ci-dessous.
 
-
+![grafana-0L](./images/grafana-0L.png)
