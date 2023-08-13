@@ -540,7 +540,7 @@ Phase 09 :
 
 Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
-[Vous pouvez obtenir plus de détail sur UFW ici :](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
+[Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix.
 
