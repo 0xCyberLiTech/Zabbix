@@ -538,7 +538,7 @@ Phase 09 :
 
 ![zabbix-28.png](./images/zabbix-28.png)
 
-Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en place concernant notre serveur Zabbix.
+Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix.
 Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix.
