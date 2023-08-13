@@ -537,3 +537,47 @@ Phase 08 :
 Phase 09 :
 
 ![zabbix-28.png](./images/zabbix-28.png)
+
+Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en place concernant notre serveur Zabbix.
+
+Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix.
+Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix.
+
+```
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
+```
+'limit' correspond à n'autoriser que 6 tentatives de connexion en 30 secondes.
+```
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
+```
+Ouvrir le port 80 sur le serveur Zabbix ainsi que le port 443 en entrée.
+```
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp
+```
+Ou,
+```
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp
+```
+```
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp
+```
+Ou,
+```
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp
+```
+Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10050 en TCP. Ce port 10050 doit être ouvert (IN) sur le serveur Zabbix, afin de recueillir les communications en provenance des agent Zabbix des hôtes distants.
+```
+ufw limit in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp
+```
+Ou,
+```
+ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp
+```
+```
+     To                         Action      From
+     --                         ------      ----
+[ 1] 192.168.50.250 2234/tcp on enp86s0 LIMIT IN    192.168.50.118
+[ 2] 192.168.50.250 80/tcp on enp86s0 LIMIT IN    192.168.50.118
+[ 3] 192.168.50.250 443/tcp on enp86s0 LIMIT IN    192.168.50.118
+[ 4] 192.168.50.250 10050/tcp on enp86s0 LIMIT IN    192.168.0.0/16
+```
