@@ -337,7 +337,7 @@ MariaDB [(none)]> create database zabbix character set utf8mb4 collate utf8mb4_b
 ```
 Remplacez-le [mot de passe] par le mot de passe de votre choix :
 ```
-MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix2';
+MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix';
 ```
 ```
 MariaDB [(none)]> set global log_bin_trust_function_creators = 1;
@@ -362,7 +362,7 @@ DBName=zabbix
 DBUser=zabbix
 ```
 ```
-DBPassword=zabbix2
+DBPassword=zabbix
 ```
 ```
 systemctl restart zabbix-server.service
