@@ -362,7 +362,7 @@ DBName=zabbix
 DBUser=zabbix
 ```
 ```
-DBPassword=zabbix
+DBPassword=zabbix2
 ```
 ```
 systemctl restart zabbix-server.service
