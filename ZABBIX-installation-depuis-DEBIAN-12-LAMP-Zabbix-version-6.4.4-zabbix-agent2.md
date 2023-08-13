@@ -548,7 +548,9 @@ Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoi
 ```
 ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
 ```
-la  variable 'limit' correspond à n'autoriser que 6 tentatives de connexion en 30 secondes sur notre règle.
+La variable 'limit' correspond à n'autoriser que 6 tentatives de connexion en 30 secondes sur notre règle. 
+
+Cela permet de renfocer un peu plus la sécurité.
 ```
 ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
 ```
