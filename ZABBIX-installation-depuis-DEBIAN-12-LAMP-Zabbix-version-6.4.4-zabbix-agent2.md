@@ -569,7 +569,9 @@ Ou,
 ```
 ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp
 ```
-Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10050 en TCP. Ce port 10050 doit être ouvert en entrée sur le serveur Zabbix, afin de recueillir les communications en provenance des agent Zabbix des hôtes distants.
+Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10050 en TCP.
+
+Ce port 10050 doit être ouvert en entrée sur le serveur Zabbix, afin de recueillir les communications en provenance des agent Zabbix des hôtes distants.
 ```
 ufw limit in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp
 ```
