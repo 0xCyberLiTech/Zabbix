@@ -541,6 +541,7 @@ Phase 09 :
 Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix.
+
 Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix au travers du port 2277 en TCP en entrée.
 ```
 ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
