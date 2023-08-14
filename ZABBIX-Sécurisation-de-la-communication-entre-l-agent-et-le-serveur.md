@@ -1,6 +1,10 @@
 ![Psk-01.png](./images/Psk-01.png)
 
 # ZABBIX Sécurisation de la communication entre l'agent-ZABBIX et le serveur.
+## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
+## 02 - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
+
+## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
 Génération de la clé PSK.
 
@@ -29,11 +33,6 @@ Sur cette ligne, on retrouve deux données :
 - TLSPSKKey = 7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
 
 Ces deux données seront nécessaires pour paramétrer l'agent zabbix windows.
-
-## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
-## 02 - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
-
-## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
 [Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
 
