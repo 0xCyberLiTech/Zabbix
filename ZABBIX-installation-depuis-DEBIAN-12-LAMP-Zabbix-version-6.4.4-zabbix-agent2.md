@@ -542,7 +542,7 @@ Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre
 
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
-Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix.
+Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix à distance.
 
 Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix au travers du port 2277 en TCP en entrée.
 ```
@@ -586,10 +586,40 @@ ufw status numbered
 ```
      To                         Action      From
      --                         ------      ----
-[ 1] 192.168.50.250 2277/tcp on enp86s0 LIMIT IN    192.168.50.118
-[ 2] 192.168.50.250 80/tcp on enp86s0 ALLOW IN    192.168.50.118
-[ 3] 192.168.50.250 443/tcp on enp86s0 ALLOW IN    192.168.50.118
+[ 1] 192.168.50.250 2277/tcp on enp86s0 ALLOW IN    192.168.50.118             # 2277 SSH
+[ 2] 192.168.50.250 80/tcp on enp86s0 ALLOW IN    192.168.50.118             # 80 Apache2
+[ 3] 192.168.50.250 443/tcp on enp86s0 ALLOW IN    192.168.50.118             # 443 Apache2
 [ 4] 192.168.50.250 10050/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1050 agent Zabbix - For Passive checks
 [ 5] 192.168.50.250 10051/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1051 agent Zabbix - For Active checks
+```
+Autre exemple : d'autres règles de ce type peuvent également être mises en place.
 
+Dans cet exemple, nous avons installé Docker sur notre serveur Zabbix.
+
+De nouvelles règles seront mises en service afin d'assurer la communication entre docker et votre réseau local.
+```
+ufw allow from 172.17.0.0/16 to 192.168.50.0/24 proto tcp
+```
+```
+ufw allow from 172.18.0.0/16 to 192.168.50.0/24 proto tcp
+```
+Permettre l'accès depuis la machine hôte au portail Portainer.
+```
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 9443 proto tcp comment '9443 portail Portainer - Docker'
+```
+Lister à nouveau les règles mis en service :
+```
+ufw status numbered
+```
+```
+     To                         Action      From
+     --                         ------      ----
+[ 1] 192.168.50.250 2277/tcp on enp86s0 ALLOW IN    192.168.50.118             # 2277 SSH
+[ 2] 192.168.50.250 80/tcp on enp86s0 ALLOW IN    192.168.50.118             # 80 Apache2
+[ 3] 192.168.50.250 443/tcp on enp86s0 ALLOW IN    192.168.50.118             # 443 Apache2
+[ 4] 192.168.50.250 10050/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1050 agent Zabbix - For Passive checks
+[ 5] 192.168.50.250 9443/tcp on enp86s0 ALLOW IN    192.168.50.118             # 9443 portail Portainer - Docker
+[ 6] 192.168.50.0/24/tcp        ALLOW IN    172.17.0.0/16/tcp          # LANSUBNET 172.17.0.0 Docker
+[ 7] 192.168.50.0/24/tcp        ALLOW IN    172.18.0.0/16/tcp          # LANSUBNET 172.18.0.0 Docker
+[ 8] 192.168.50.250 10051/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1051 agent Zabbix - For Active checks
 ```
