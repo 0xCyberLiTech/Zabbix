@@ -65,3 +65,5 @@ On obtient donc le résultat suivant :
 
 - 2 ) - Intervention sur une machine Linux, déploiement des clés PSK.
 
+[Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
+
