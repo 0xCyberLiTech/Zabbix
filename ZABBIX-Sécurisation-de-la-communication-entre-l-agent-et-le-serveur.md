@@ -12,7 +12,7 @@ apt-get install gnutls-bin
 
 Par exemple, générer une clé PSK de 256 bits (32 octets).
 ```
-psktool -u pskwindows -p database.psk -s 32
+psktool -u PSK_0xCLT -p database.psk -s 32
 ```
 Un fichier est créé database.psk.
 ```
