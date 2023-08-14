@@ -111,10 +111,6 @@ L’option PSK se compose de deux valeurs importantes, l’identité PSK et le s
 
 Le secret doit être au minimum un 128 bits (PSK de 16 octets, entré sous forme de 32 chiffres hexadécimaux) jusqu’à 2048 bits (PSK de 256 octets, entré sous la forme de 512 chiffres hexadécimaux)
 
-Vous pouvez générer un secret PSK 256 bits sur votre serveur avec OpenSSL à l’aide de la commande
-```
-openssl rand -hex 32
-```
 Dans cet exemple, je l’enregistre également directement dans un fichier.
 
 Je crée d’abord un dossier et y navigue
@@ -127,14 +123,14 @@ cd /etc/zabbix/psk_keys/
 Génération de la clé PSK.
 
 ```
-openssl rand -hex 32 > database.psk
+openssl rand -hex 16 > database.psk
 ```
 Un fichier est créé database.psk.
 ```
 cat database.psk
 ```
 ```
-1b7d970b680c65cc0cb645e2ac8ad45e40bdbd71d0c6cb9881c6d32a0f80ddae
+764ea037da34ea0bd00994baaa304d64
 ```
 Je m’assure également que seul l’utilisateur Zabbix peut lire le fichier.
 ```
@@ -188,14 +184,14 @@ TLSPSKFile=/etc/zabbix/psk_keys/database.psk
 #
 # Mandatory: no
 # Default:
-TLSPSKIdentity=PSK_0xCLT
+TLSPSKIdentity=pskident
 ```
 Récapitulatif :
 ```
 TLSConnect=psk
 TLSAccept=psk
 TLSPSKFile=/etc/zabbix/psk_keys/database.psk
-TLSPSKIdentity=PSK_0xCLT
+TLSPSKIdentity=pskident
 ```
 La valeur TLSPSKIdentity que vous décidez ne sera pas chiffrée lors du transport, n’utilisez donc rien de sensible.
 
