@@ -1,8 +1,11 @@
 ![Psk-01.png](./images/Psk-01.png)
 
 # ZABBIX Sécurisation de la communication entre l'agent-ZABBIX et le serveur.
-## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
-## 02 - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
+
+👋 Sommaire des sujets abordés :
+
+- 01 - [ZABBIX - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.](#balise-01)
+- 02 - [ZABBIX - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.](#balise-02)
 
 ## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
