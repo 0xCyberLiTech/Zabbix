@@ -34,11 +34,12 @@ cat database.psk
 ```
 PSK_0xCLT:174bf4403d789ca1bf4851dbfee9cd6b
 ```
-- 1 ) - Intervention sur une machine Windows, déploiement des clés PSK.
 
-- 2 ) - Intervention sur une machine Linux, déploiement des clés PSK.
+1 ) - Intervention sur une machine Windows, déploiement des clés PSK.
 
-- 1 ) - Intervention sur une machine Windows, déploiement des clés PSK.
+2 ) - Intervention sur une machine Linux, déploiement des clés PSK.
+
+1 ) - Intervention sur une machine Windows, déploiement des clés PSK.
 
 [Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
 
