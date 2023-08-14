@@ -121,7 +121,6 @@ mkdir -p /etc/zabbix/psk_keys/
 cd /etc/zabbix/psk_keys/
 ```
 Génération de la clé PSK.
-
 ```
 openssl rand -hex 16 > database.psk
 ```
@@ -141,9 +140,9 @@ chmod 640 database.psk
 ```
 De plus, je reconfigure ensuite le fichier de configuration de l’agent Zabbix.
 ```
-sudo nano /etc/zabbix/zabbix_agent2.conf
+nano /etc/zabbix/zabbix_agent2.conf
 ```
-Et changez les options près du bas,
+Se rendre vers la fin du fichier, apporter les modifications suivantes :
 ```
 ####### TLS-RELATED PARAMETERS #######
 
