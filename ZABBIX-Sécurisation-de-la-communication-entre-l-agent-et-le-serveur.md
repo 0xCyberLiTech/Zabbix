@@ -8,32 +8,27 @@ Tout d'abord installer le paquet gnutls-bin.
 ```
 apt-get install gnutls-bin
 ```
-(GnuTLS :)
-
 Par exemple, générer une clé PSK de 256 bits (32 octets).
 ```
-psktool -u PSK_0xCLT -p database.psk -s 32
+psktool -u PSK_0xCLT -p databasewindows.psk -s 32
 ```
-Un fichier est créé database.psk.
+Par exemple, générer une clé PSK de 128 bits (16 octets).
 ```
-cat database.psk
+psktool -u PSK_0xCLT -p databasewindows.psk -s 16
+```
+Un fichier est créé databasewindows.psk, il faudra y récupérer les informations générées.
+```
+cat databasewindows.psk
 ```
 ```
 PSK_0xCLT:7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
 ```
-Par exemple, générer une clé PSK de 128 bits (16 octets).
+Sur cette ligne, on retrouve deux données :
+TLSPSKIdentity = PSK_0xCLT
+TLSPSKKey = 7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
 
-Pour mon exemple, j'ai opté pour une clé en 128 bits.
+Ces deux données seront nécessaires pour paramétrer l'agent zabbix windows.
 
-psktool -u pskwindows -p database.psk -s 16
-
-Un fichier est créé database.psk.
-```
-cat database.psk
-```
-```
-pskwindows:174bf4403d789ca1bf4851dbfee9cd6b
-```
 1 ) - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
 2 ) - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
