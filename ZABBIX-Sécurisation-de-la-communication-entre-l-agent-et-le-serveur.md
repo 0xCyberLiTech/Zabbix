@@ -4,11 +4,11 @@
 
 👋 Sommaire des sujets abordés :
 
-- 01 - [ZABBIX - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.](#balise-01)
-- 02 - [ZABBIX - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.](#balise-02)
+- 01 - [ZABBIX - Intervention sur une machine Windows, déploiement de la clé PSK sur l'agent zabbix.](#balise-01)
+- 02 - [ZABBIX - Intervention sur une machine Linux, déploiement de la clé PSK sur l'agent zabbix.](#balise-02)
 
 <a name="balise-01"></a>
-## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
+## 01 - Intervention sur une machine Windows, déploiement de la clé PSK sur l'agent zabbix.
 
 Génération de la clé PSK.
 
@@ -58,7 +58,7 @@ Il faut se rendre sur l'onglet chiffrement et reproduire les mêmes actions :
 ![zabbix-16](./images/zabbix-16.png)
 
 <a name="balise-02"></a>
-## 02 - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
+## 02 - Intervention sur une machine Linux, déploiement de la clé PSK sur l'agent zabbix.
 
 [Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
 
