@@ -30,9 +30,9 @@ Sur cette ligne, on retrouve deux données :
 
 Ces deux données seront nécessaires pour paramétrer l'agent zabbix windows.
 
-1 ) - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
+## 01 - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
-2 ) - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
+## 02 - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
 
 1 ) - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
