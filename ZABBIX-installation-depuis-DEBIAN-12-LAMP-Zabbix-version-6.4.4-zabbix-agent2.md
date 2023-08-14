@@ -589,5 +589,7 @@ ufw status numbered
 [ 1] 192.168.50.250 2277/tcp on enp86s0 LIMIT IN    192.168.50.118
 [ 2] 192.168.50.250 80/tcp on enp86s0 ALLOW IN    192.168.50.118
 [ 3] 192.168.50.250 443/tcp on enp86s0 ALLOW IN    192.168.50.118
-[ 4] 192.168.50.250 10050/tcp on enp86s0 ALLOW IN    192.168.0.0/16
+[ 4] 192.168.50.250 10050/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1050 agent Zabbix - For Passive checks
+[ 5] 192.168.50.250 10051/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1051 agent Zabbix - For Active checks
+
 ```
