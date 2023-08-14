@@ -1,4 +1,4 @@
-![zabbix-logo](./images/zabbix-logo.png)
+![Psk-01.png](./images/Psk-01.png)
 
 # ZABBIX Sécurisation de la communication entre l'agent-ZABBIX et le serveur.
 
