@@ -24,8 +24,9 @@ cat databasewindows.psk
 PSK_0xCLT:7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
 ```
 Sur cette ligne, on retrouve deux données :
-TLSPSKIdentity = PSK_0xCLT
-TLSPSKKey = 7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
+
+- TLSPSKIdentity = PSK_0xCLT
+- TLSPSKKey = 7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
 
 Ces deux données seront nécessaires pour paramétrer l'agent zabbix windows.
 
