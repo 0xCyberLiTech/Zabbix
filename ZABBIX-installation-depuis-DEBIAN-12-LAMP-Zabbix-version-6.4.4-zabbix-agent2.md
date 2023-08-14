@@ -546,28 +546,18 @@ Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur
 
 Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix au travers du port 2277 en TCP en entrée.
 ```
-ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp comment '2277 SSH'
 ```
 La variable 'limit' correspond à n'autoriser que 6 tentatives de connexion en 30 secondes sur notre règle. 
 
 Cela permet de renfocer un peu plus la sécurité.
-```
-ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp
-```
+
 Ouvrir le port 80 sur le serveur Zabbix ainsi que le port 443 en entrée.
 ```
-ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp
-```
-Ou,
-```
-ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp comment '80 Apache2'
 ```
 ```
-ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp
-```
-Ou,
-```
-ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp comment '443 Apache2'
 ```
 - Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10050 en TCP, mode passif.
 - Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10051 en TCP, mode actif.
@@ -614,7 +604,7 @@ ufw status numbered
 ```
      To                         Action      From
      --                         ------      ----
-[ 1] 192.168.50.250 2277/tcp on enp86s0 ALLOW IN    192.168.50.118             # 2277 SSH
+[ 1] 192.168.50.250 2277/tcp on enp86s0 LIMIT IN    192.168.50.118             # 2277 SSH
 [ 2] 192.168.50.250 80/tcp on enp86s0 ALLOW IN    192.168.50.118             # 80 Apache2
 [ 3] 192.168.50.250 443/tcp on enp86s0 ALLOW IN    192.168.50.118             # 443 Apache2
 [ 4] 192.168.50.250 10050/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1050 agent Zabbix - For Passive checks
@@ -622,4 +612,5 @@ ufw status numbered
 [ 6] 192.168.50.0/24/tcp        ALLOW IN    172.17.0.0/16/tcp          # LANSUBNET 172.17.0.0 Docker
 [ 7] 192.168.50.0/24/tcp        ALLOW IN    172.18.0.0/16/tcp          # LANSUBNET 172.18.0.0 Docker
 [ 8] 192.168.50.250 10051/tcp on enp86s0 ALLOW IN    192.168.0.0/16             # 1051 agent Zabbix - For Active checks
+
 ```
