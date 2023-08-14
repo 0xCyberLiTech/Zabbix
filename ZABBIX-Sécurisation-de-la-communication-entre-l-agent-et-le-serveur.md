@@ -12,7 +12,7 @@ apt-get install gnutls-bin
 
 Par exemple, générer une clé PSK de 256 bits (32 octets).
 ```
-psktool -u PSK_0xCLT -p database.psk -s 32
+psktool -u pskwindows -p database.psk -s 32
 ```
 Un fichier est créé database.psk.
 ```
@@ -25,16 +25,15 @@ Par exemple, générer une clé PSK de 128 bits (16 octets).
 
 Pour mon exemple, j'ai opté pour une clé en 128 bits.
 
-psktool -u PSK_0xCLT -p database.psk -s 16
+psktool -u pskwindows -p database.psk -s 16
 
 Un fichier est créé database.psk.
 ```
 cat database.psk
 ```
 ```
-PSK_0xCLT:174bf4403d789ca1bf4851dbfee9cd6b
+pskwindows:174bf4403d789ca1bf4851dbfee9cd6b
 ```
-
 1 ) - Intervention sur une machine Windows, déploiement des clés PSK sur l'agent zabbix.
 
 2 ) - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
@@ -66,6 +65,8 @@ On obtient donc le résultat suivant :
 2 ) - Intervention sur une machine Linux, déploiement des clés PSK sur l'agent zabbix.
 
 [Url ou récupérer les agents pour la version de Zabbix 6.4.x](https://www.zabbix.com/fr/download_agents?version=6.0+LTS&release=6.0.3&os=Linux&os_version=4.12&hardware=ppc64le&encryption=No+encryption&packaging=Archive&show_legacy=0)
+
+Nous supposons que l'agent zabbix est déja installé.
 
 Nous devons maintenant modifier le fichier de configuration pour indiquer à l’agent où trouver le serveur.
 
@@ -109,11 +110,11 @@ PSK signifie clé pré-partagée.
 
 L’option PSK se compose de deux valeurs importantes, l’identité PSK et le secret PSK.
 
-Le secret doit être au minimum un 128 bits (PSK de 16 octets, entré sous forme de 32 chiffres hexadécimaux) jusqu’à 2048 bits (PSK de 256 octets, entré sous la forme de 512 chiffres hexadécimaux)
+La clé doit être au minimum axée sur une résolution de 128 bits (PSK de 16 octets, entré sous forme de 32 chiffres hexadécimaux) jusqu’à 2048 bits (PSK de 256 octets, entré sous la forme de 512 chiffres hexadécimaux).
 
 Dans cet exemple, je l’enregistre également directement dans un fichier.
 
-Je crée d’abord un dossier et y navigue
+Je crée d’abord un dossier /etc/zabbix/psk_keys/.
 ```
 mkdir -p /etc/zabbix/psk_keys/
 ```
@@ -192,11 +193,11 @@ TLSAccept=psk
 TLSPSKFile=/etc/zabbix/psk_keys/database.psk
 TLSPSKIdentity=pskident
 ```
-La valeur TLSPSKIdentity que vous décidez ne sera pas chiffrée lors du transport, n’utilisez donc rien de sensible.
+La valeur TLSPSKIdentity que vous décidez de créer ne sera pas chiffrée lors du transport, n’utilisez donc rien de sensible.
 
 Je redémarre ensuite l’agent.
 ```
-sudo systemctl restart zabbix-agent2.service
+systemctl restart zabbix-agent2.service
 ```
 Je vais ensuite dans l’interface utilisateur du serveur Zabbix et configure les options de cryptage PSK pour l’hôte.
 
@@ -243,4 +244,9 @@ Dépannage :
 Vérifiez les journaux de l’agent Zabbix à l’adresse.
 ```
 tail -f /var/log/zabbix/zabbix_agent2.log
+```
+Si tout est OK :
+```
+2023/08/14 22:24:45.639298 Plugin communication protocol version is 6.4.0
+2023/08/14 22:24:45.639317 Zabbix Agent2 hostname: [Zabbix server]
 ```
