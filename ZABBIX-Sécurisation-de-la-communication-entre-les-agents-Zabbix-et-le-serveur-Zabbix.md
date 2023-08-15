@@ -70,8 +70,8 @@ Ouvrez /etc/zabbix/zabbix_agent2.conf dans votre éditeur de texte préféré et
 ```
 nano /etc/zabbix/zabbix_agent2.conf
 ```
-Server=[IP or hostname of your Zabbix server]
-ServerActive=[IP or hostname of your Zabbix server]
+- Server=[IP or hostname of your Zabbix server]
+- ServerActive=[IP or hostname of your Zabbix server]
 
 Nous devons également indiquer à Zabbix le nom d’hôte du système.
 
