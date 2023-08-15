@@ -1,6 +1,6 @@
 ![Psk-01.png](./images/Psk-01.png)
 
-# ZABBIX - Sécurisation de la communication entre l'agent-ZABBIX et le serveur.
+# ZABBIX - Sécurisation de la communication entre les agents Zabbix et le serveur Zabbix.
 
 👋 Sommaire des sujets abordés :
 
