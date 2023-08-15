@@ -81,6 +81,18 @@ Commentez la valeur par défaut de Hostname=Zabbix server et remplacez-la par la
 ```
 HostnameItem=system.hostname
 ```
+```
+### Option: Hostname
+#       List of comma delimited unique, case sensitive hostnames.
+#       Required for active checks and must match hostnames as configured on the server.
+#       Value is acquired from HostnameItem if undefined.
+#
+# Mandatory: no
+# Default:
+# Hostname=
+
+Hostname=system.hostname
+```
 Cela indiquera à l’agent de remplir automatiquement la valeur du nom d’hôte avec le nom d’hôte du système.
 
 Vous pouvez simplement définir le nom d’hôte dans le fichier de configuration.
