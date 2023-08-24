@@ -7,7 +7,7 @@ Dans cette section, je vais vous montrer comment créer un tableau de bord Grafa
 
 Pour créer un nouveau tableau de bord Grafana, cliquez sur Tableaux de bord > Gérer à partir de l’interface Web de Grafana.
 
-![grafana-0A](./images/grafana-0A.png)
+![grafana-0A](./images/Grafana-console_01.png)
 
 Cliquez sur Nouveau tableau de bord.
 
