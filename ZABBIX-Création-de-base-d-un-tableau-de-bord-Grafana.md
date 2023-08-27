@@ -1,5 +1,5 @@
 
-![grafana-dashboard-01.png](./images/Grafana-console_01.png)
+![grafana-dashboard-01.png](./images/Grafana-panel-01.png)
 
 # ZABBIX - Création de base d'un tableau de bord sur Grafana :
 
