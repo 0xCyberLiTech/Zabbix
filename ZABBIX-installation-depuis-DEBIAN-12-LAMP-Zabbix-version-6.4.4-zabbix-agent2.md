@@ -291,7 +291,7 @@ systemctl start mariadb
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
-[Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/OS-Debian-12/blob/main/installer-et-configurer-NTPsec.md)
+[Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/NTPsec/blob/main/Installer-et-configurer-NTPsec.md)
 
 Ajoutez les dépôts pour Zabbix 6.4 et installez le serveur Zabbix.
 
