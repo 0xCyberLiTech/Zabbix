@@ -348,7 +348,7 @@ MariaDB [(none)]> exit;
 ```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
-Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix2]
+Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix]
 ```
 Configure and start Zabbix Server.
 ```
