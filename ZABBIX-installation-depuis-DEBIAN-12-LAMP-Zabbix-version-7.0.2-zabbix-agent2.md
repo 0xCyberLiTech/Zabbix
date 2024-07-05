@@ -300,7 +300,6 @@ Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix 
 Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/ à ce jou 05-07-2024.
 
 Zabbix Official Repository
-
 ```
 wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
 ```
@@ -310,6 +309,8 @@ dpkg -i zabbix-release_7.0-2+debian12_all.deb
 ```
 apt update
 ```
+De nouveaux dépots seront installés.
+```
 nano /etc/apt/sources.list.d/zabbix.list
 ```
 ```
@@ -318,7 +319,6 @@ deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
 - Mettre en place MySQL-Server.
-
 ```
 apt update
 ```
