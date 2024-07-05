@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 6.4.4 + zabbix-agent2.
+## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.0.0 + zabbix-agent2.
 
 ## Sommaire :
 
@@ -293,35 +293,32 @@ systemctl start mariadb
 
 [Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/NTPsec/blob/main/Installer-et-configurer-NTPsec.md)
 
-Ajoutez les dépôts pour Zabbix 6.4 et installez le serveur Zabbix.
-
-Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/
+Ajoutez les dépôts pour Zabbix 7.0
 
 Pour surveiller Zabbix lui-même, installez également l'agent Zabbix (zabbix-agent2).
+
+Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/
+
+- Zabbix Official Repository
+
 ```
-wget http://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
-```
-```
-ls -l
-```
-```
-zabbix-release_6.4-1+debian12_all.deb
-```
-```
-dpkg -i zabbix-release_6.4-1+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
 ```
 ```
-cat /etc/apt/sources.list.d/zabbix.list
+dpkg -i zabbix-release_7.0-2+debian12_all.deb
+```
+```
+apt update
+```
+nano /etc/apt/sources.list.d/zabbix.list
 ```
 ```
 # Zabbix main repository
-deb https://repo.zabbix.com/zabbix/6.4/debian bookworm main
-deb-src https://repo.zabbix.com/zabbix/6.4/debian bookworm main
-
-# Zabbix unstable repository
-#deb https://repo.zabbix.com/zabbix/6.3/debian bookworm main
-#deb-src https://repo.zabbix.com/zabbix/6.3/debian bookworm main
+deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
+deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
+- Mettre en place MySQL-Server.
+
 ```
 apt update
 ```
