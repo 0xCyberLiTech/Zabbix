@@ -525,39 +525,39 @@ Nous allons finaliser cette installation depuis notre navigateur :
 
 Phase 01 :
 
-![zabbix-20.png](./images/zabbix-20.png)
+![Zabbix-7-001.png](./images/Zabbix-7-001.png)
 
 Phase 02 :
 
-![zabbix-21.png](./images/zabbix-21.png)
+![Zabbix-7-002.png](./images/Zabbix-7-002.png)
 
 Phase 03 :
 
-![zabbix-22.png](./images/zabbix-22.png)
+![Zabbix-7-003.png](./images/Zabbix-7-003.png)
 
 Phase 04 :
 
-![zabbix-23.png](./images/zabbix-23.png)
+![Zabbix-7-004.png](./images/Zabbix-7-004.png)
 
 Phase 05 :
 
-![zabbix-24.png](./images/zabbix-24.png)
+![Zabbix-7-005.png](./images/Zabbix-7-005.png)
 
 Phase 06 :
 
-![zabbix-25.png](./images/zabbix-25.png)
+![Zabbix-7-006.png](./images/Zabbix-7-006.png)
 
 Phase 07 :
 
-![zabbix-26.png](./images/zabbix-26.png)
+![Zabbix-7-007.png](./images/Zabbix-7-007.png)
 
 Phase 08 :
 
-![zabbix-27.png](./images/zabbix-27.png)
+![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
 Phase 09 :
 
-![zabbix-28.png](./images/zabbix-28.png)
+![Zabbix-7-009.png](./images/Zabbix-7-009.png)
 
 Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
