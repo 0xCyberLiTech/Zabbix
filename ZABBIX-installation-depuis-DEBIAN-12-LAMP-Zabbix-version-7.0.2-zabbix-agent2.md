@@ -330,17 +330,17 @@ Créez une base de données nommée zabbix.
 mysql
 ```
 ```
-MariaDB [(none)]> create database zabbix character set utf8mb4 collate utf8mb4_bin;
+create database zabbix character set utf8mb4 collate utf8mb4_bin;
 ```
 Remplacez-le [mot de passe] par le mot de passe de votre choix :
 ```
-MariaDB [(none)]> grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix';
+grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix';
 ```
 ```
-MariaDB [(none)]> set global log_bin_trust_function_creators = 1;
+set global log_bin_trust_function_creators = 1;
 ```
 ```
-MariaDB [(none)]> exit;
+exit;
 ```
 ```
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
@@ -361,6 +361,14 @@ DBUser=zabbix
 ```
 DBPassword=zabbix
 ```
+Enregistrer les modifications et quitter nano
+```
+Ctrl + o
+```
+```
+Ctrl + x
+```
+Redémarrer le service Zabbix Server.
 ```
 systemctl restart zabbix-server.service
 ```
@@ -381,6 +389,13 @@ ServerActive=127.0.0.1
 ```
 Hostname=Zabbix server
 ```
+Enregistrer les modifications et quitter nano
+```
+Ctrl + o
+```
+```
+Ctrl + x
+```
 ```
 systemctl restart zabbix-agent2.service
 ```
@@ -399,6 +414,14 @@ php_value[max_input_vars] = 10000
 php_value[always_populate_raw_post_data] = -1
 php_value[date.timezone] = Europe/Paris
 ```
+Enregistrer les modifications et quitter nano
+```
+Ctrl + o
+```
+```
+Ctrl + x
+```
+Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
 ```
 nano /etc/apache2/conf-enabled/zabbix.conf
 ```
@@ -485,6 +508,7 @@ nano /etc/apache2/conf-enabled/zabbix.conf
 ```
 systemctl restart apache2 php8.2-fpm
 ```
+Redémarrer les services zabbix-agent2 et apache2
 ```
 systemctl restart zabbix-server zabbix-agent2 apache2
 ```
