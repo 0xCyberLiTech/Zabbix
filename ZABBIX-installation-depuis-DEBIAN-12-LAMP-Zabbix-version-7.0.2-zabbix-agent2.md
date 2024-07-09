@@ -391,10 +391,7 @@ Hostname=Zabbix server
 ```
 Enregistrer les modifications et quitter nano
 ```
-Ctrl + o
-```
-```
-Ctrl + x
+Ctrl+o & Ctrl + x
 ```
 ```
 systemctl restart zabbix-agent2.service
@@ -416,10 +413,7 @@ php_value[date.timezone] = Europe/Paris
 ```
 Enregistrer les modifications et quitter nano
 ```
-Ctrl + o
-```
-```
-Ctrl + x
+Ctrl+o & Ctrl + x
 ```
 Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
 ```
