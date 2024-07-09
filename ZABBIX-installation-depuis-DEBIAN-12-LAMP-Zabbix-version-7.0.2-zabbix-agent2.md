@@ -363,10 +363,7 @@ DBPassword=zabbix
 ```
 Enregistrer les modifications et quitter nano
 ```
-Ctrl + o
-```
-```
-Ctrl + x
+Ctrl+o & Ctrl + x
 ```
 Redémarrer le service Zabbix Server.
 ```
