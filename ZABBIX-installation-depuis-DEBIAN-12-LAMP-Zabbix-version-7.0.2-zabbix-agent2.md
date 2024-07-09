@@ -508,7 +508,7 @@ nano /etc/apache2/conf-enabled/zabbix.conf
 ```
 systemctl restart apache2 php8.2-fpm
 ```
-Redémarrer les services zabbix-agent2 et apache2
+Redémarrer les services zabbix-server zabbix-agent2 et apache2
 ```
 systemctl restart zabbix-server zabbix-agent2 apache2
 ```
