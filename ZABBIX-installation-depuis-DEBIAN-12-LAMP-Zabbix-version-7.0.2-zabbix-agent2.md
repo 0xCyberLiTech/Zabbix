@@ -552,6 +552,27 @@ Phase 09 :
 
 Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
+Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.0.
+
+```
+nano /etc/zabbix/zabbix_server.conf
+```
+Avant modification :
+```
+# Default:
+# EnableGlobalScripts=1
+EnableGlobalScripts=0
+```
+Après modification :
+```
+# Default:
+# EnableGlobalScripts=1
+EnableGlobalScripts=1
+```
+Prise en compte de la modification :
+```
+systemctl restart zabbix-server zabbix-agent2 apache2
+```
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix à distance.
