@@ -586,7 +586,7 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ![ping.png](./images/ping.png)
 
-## Concernant la mise en place de règles firewall :
+## Concernant l'utilisation d'un firewall (UFW) sur votre serveur Zabbix :
 
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
