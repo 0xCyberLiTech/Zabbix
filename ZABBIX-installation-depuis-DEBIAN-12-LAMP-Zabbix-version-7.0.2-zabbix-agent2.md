@@ -554,6 +554,8 @@ Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre
 
 ## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.0.
 
+![script.png](./images/script.png)
+
 ```
 nano /etc/zabbix/zabbix_server.conf
 ```
