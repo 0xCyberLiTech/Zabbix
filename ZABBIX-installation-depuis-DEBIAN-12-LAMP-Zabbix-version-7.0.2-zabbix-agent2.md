@@ -91,7 +91,7 @@ On peut constater que le module FPM esy pris en charge.
 
 Serveur API <--> FPM/FastCGI
 
-![zabbix-29.png](./images/zabbix-29.png)
+![zabbix-29.png](./images/php.png)
 
 C'est Ok pour la prise en charge de FPM, passons à la suite.
 
