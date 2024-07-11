@@ -571,11 +571,19 @@ Après modification :
 # EnableGlobalScripts=1
 EnableGlobalScripts=1
 ```
-Prise en compte de la modification :
+Sur le fichier de configuration de l'agent2 apporter les modofications suivantes :
+```
+nano /etc/zabbix/zabbix_agent2.conf
+```
+Rajouter la variable 'AllowKey=' & 'Plugins.SystemRun.LogRemoteCommands' :
+```
+AllowKey=system.run[*]
+#Plugins.SystemRun.LogRemoteCommands=1
+```
+Pour la prise en compte des modifications redémarrer les services zabbix-server, zabbix-agent2 & apache2 :
 ```
 systemctl restart zabbix-server zabbix-agent2 apache2
 ```
-
 ![ping.png](./images/ping.png)
 
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
