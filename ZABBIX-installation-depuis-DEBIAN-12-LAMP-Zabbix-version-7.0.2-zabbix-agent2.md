@@ -586,6 +586,8 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ![ping.png](./images/ping.png)
 
+## Concernant la mise en place de règles firewall :
+
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix à distance.
