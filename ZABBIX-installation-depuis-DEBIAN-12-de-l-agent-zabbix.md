@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN-12 de l'agent Zabbix 'zabbix-agent2'.
+## ZABBIX installation de l'agent Zabbix 'zabbix-agent2' sur un poste client sous DEBIAN 12.
 
 Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller.
 
@@ -16,13 +16,13 @@ Toutes les actions sont éffectées depuis la session root :
 
 Tout d'abord, nous devons nous assurer que notre système est à jour. 
 
-Ouvrez un terminal ou SSH dans votre système Debian et exécutez la commande suivante :
+Exécuter la commande suivante :
 ```
 apt update && apt upgrade -y 
 ```
 Cette commande mettra à jour les listes de packages et mettra à niveau tous les packages obsolètes.
 
-- Step 2 : Configuration des dépots Official Repository
+- Step 2 : Configuration des dépots Official Repository sur ce poste client.
 
 ```
 wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
@@ -33,7 +33,7 @@ dpkg -i zabbix-release_7.0-2+debian12_all.deb
 ```
 apt update
 ```
-De nouveaux dépots seront installés.
+De nouveaux dépôts seront installés, vous pouvez vérifier cela.
 ```
 nano /etc/apt/sources.list.d/zabbix.list
 ```
@@ -42,7 +42,7 @@ nano /etc/apt/sources.list.d/zabbix.list
 deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
-Étape 3 : Installer l'agent Zabbix.
+Étape 3 : Installer l'agent Zabbix 'zabbix-agent2'.
 
 Maintenant, que les dépôts ont été configurés, nous pouvons installer l'agent Zabbix en exécutant la commande suivante.
 
@@ -90,6 +90,7 @@ Enregistrez les modifications et quittez l'éditeur de texte.
 ```
 systemctl restart zabbix-agent2
 ```
+Vérification à l'aide des logs.
 ```
 tail -f /var/log/zabbix/zabbix_agent2.log
 ```
@@ -107,4 +108,4 @@ tail -f /var/log/zabbix/zabbix_agent2.log
 ```
 Note : Autoriser les ports d’écoute sur le pare-feu
 
-Si vous avez un pare-feu UFW en cours d’exécution sur la machine à surveiller, autorisez les ports 10050 & 10051.
+Si vous avez un pare-feu 'UFW' en cours d’exécution sur la machine à surveiller, autorisez les ports 80, 443, 10050 & 10051.
