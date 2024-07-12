@@ -42,9 +42,6 @@ nano /etc/apt/sources.list.d/zabbix.list
 deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
-```
-apt update
-```
 Étape 3 : Installer l'agent Zabbix.
 
 Maintenant que les dépôts ont été configuré, nous pouvons installer l'agent Zabbix en exécutant la commande suivante :
@@ -52,9 +49,12 @@ Maintenant que les dépôts ont été configuré, nous pouvons installer l'agent
 ```
 apt install zabbix-agent2
 ```
-Lors de l'installation, vous pouvez être invité à configurer l'agent Zabbix.
-
-Si vous y êtes invité, sélectionnez « OK » ou appuyez sur Entrée pour continuer avec les valeurs par défaut.
+```
+systemctl enable zabbix-agent2.service
+```
+```
+cp /etc/zabbix/zabbix_agent2.conf /etc/zabbix/zabbix_agent2.conf.orig
+```
 
 - Étape 4 : Configurer l'agent Zabbix.
 
@@ -63,7 +63,7 @@ Une fois l'installation terminée, nous devons configurer l'agent Zabbix pour co
 Ouvrez le fichier de configuration de l'agent Zabbix à l'aide d'un éditeur de texte :
 
 ```
-sudo nano /etc/zabbix/zabbix_agentd.conf
+nano /etc/zabbix/zabbix_agent2.conf
 ```
 Dans le fichier de configuration, localisez les directives `Server=` et `ServerActive=` et définissez-les sur l'adresse IP ou le nom d'hôte de votre serveur Zabbix.
 
@@ -73,50 +73,38 @@ Server=zabbix-server-IP
 ServerActive=zabbix-server-IP
 ```
 ```
-### Option: Server
-#       List of comma delimited IP addresses, optionally in CIDR notation, or DNS names of Zabbix servers and Zabbix proxies.
-#       Incoming connections will be accepted only from the hosts listed here.
-#       If IPv6 support is enabled then '127.0.0.1', '::127.0.0.1', '::ffff:127.0.0.1' are treated equally
-#       and '::/0' will allow any IPv4 or IPv6 address.
-#       '0.0.0.0/0' can be used to allow any IPv4 address.
-#       Example: Server=127.0.0.1,192.168.1.0/24,::1,2001:db8::/32,zabbix.example.com
-#
-# Mandatory: yes, if StartAgents is not explicitly set to 0
+# Mandatory: yes
 # Default:
 # Server=
 
-Server=zabbix-server-IP
+Server=10.100.80.28
 ```
 ```
-### Option: ServerActive
-#       Zabbix server/proxy address or cluster configuration to get active checks from.
-#       Server/proxy address is IP address or DNS name and optional port separated by colon.
-#       Cluster configuration is one or more server addresses separated by semicolon.
-#       Multiple Zabbix servers/clusters and Zabbix proxies can be specified, separated by comma.
-#       More than one Zabbix proxy should not be specified from each Zabbix server/cluster.
-#       If Zabbix proxy is specified then Zabbix server/cluster for that proxy should not be specified.
-#       Multiple comma-delimited addresses can be provided to use several independent Zabbix servers in parallel. Spaces are allowed.
-#       If port is not specified, default port is used.
-#       IPv6 addresses must be enclosed in square brackets if port for that host is specified.
-#       If port is not specified, square brackets for IPv6 addresses are optional.
-#       If this parameter is not specified, active checks are disabled.
-#       Example for Zabbix proxy:
-#               ServerActive=127.0.0.1:10051
-#       Example for multiple servers:
-#               ServerActive=127.0.0.1:20051,zabbix.domain,[::1]:30051,::1,[12fc::1]
-#       Example for high availability:
-#               ServerActive=zabbix.cluster.node1;zabbix.cluster.node2:20051;zabbix.cluster.node3
-#       Example for high availability with two clusters and one server:
-#               ServerActive=zabbix.cluster.node1;zabbix.cluster.node2:20051,zabbix.cluster2.node1;zabbix.cluster2.node2,zabbix.domain
-#
 # Mandatory: no
 # Default:
 # ServerActive=
 
-ServerActive=zabbix-server-IP
+ServerActive=10.100.80.28
 ```
 Enregistrez les modifications et quittez l'éditeur de texte.
-
+```
+systemctl restart zabbix-agent2
+```
+```
+tail -f /var/log/zabbix/zabbix_agent2.log
+```
+```
+2024/07/12 10:50:28.804413 using plugin 'VFSDir' (built-in) providing following interfaces: exporter
+2024/07/12 10:50:28.804416 using plugin 'VfsFs' (built-in) providing following interfaces: exporter
+2024/07/12 10:50:28.804419 using plugin 'WebCertificate' (built-in) providing following interfaces: exporter, configurator
+2024/07/12 10:50:28.804421 using plugin 'WebPage' (built-in) providing following interfaces: exporter, configurator
+2024/07/12 10:50:28.804424 using plugin 'ZabbixAsync' (built-in) providing following interfaces: exporter
+2024/07/12 10:50:28.804428 using plugin 'ZabbixStats' (built-in) providing following interfaces: exporter, configurator
+2024/07/12 10:50:28.804430 lowering the plugin ZabbixSync capacity to 1 as the configured capacity 1000 exceeds limits
+2024/07/12 10:50:28.804433 using plugin 'ZabbixSync' (built-in) providing following interfaces: exporter
+2024/07/12 10:50:28.806254 Plugin communication protocol version is 6.4.0
+2024/07/12 10:50:28.806271 Zabbix Agent2 hostname: [Zabbix server]
+```
 Note : Autoriser les ports d’écoute sur le pare-feu
 
 Si vous avez un pare-feu UFW en cours d’exécution sur la machine à surveiller, autorisez les ports nécessaires comme indiqué ci-dessous :
