@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN-12 de l'agent-zabbix.md
+## ZABBIX installation depuis DEBIAN-12 de l'agent Zabbix 'zabbix-agent2'.
 
 Zabbix est une solution de surveillance open source populaire utilisée par les administrateurs système pour surveiller et suivre les performances des serveurs, des réseaux et des applications. Pour utiliser efficacement les capacités de surveillance de Zabbix, vous devez installer l'agent Zabbix sur les machines cibles que vous souhaitez surveiller.
 
@@ -10,15 +10,15 @@ Avant de procéder à l'installation, assurez-vous d'avoir les prérequis suivan
 
 Connectivité réseau au serveur Zabbix.
 
-Toutes les actions à suivre sont éffectées depuis la session root :
+Toutes les actions sont éffectées depuis la session root :
 
 - Étape 1 : Mettre à jour les packages système.
 
-Tout d'abord, nous devons nous assurer que nos packages système sont à jour. 
+Tout d'abord, nous devons nous assurer que notre système est à jour. 
 
 Ouvrez un terminal ou SSH dans votre système Debian et exécutez la commande suivante :
 ```
-sudo apt update && sudo apt upgrade -y 
+apt update && apt upgrade -y 
 ```
 Cette commande mettra à jour les listes de packages et mettra à niveau tous les packages obsolètes.
 
@@ -44,7 +44,7 @@ deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
 Étape 3 : Installer l'agent Zabbix.
 
-Maintenant que les dépôts ont été configuré, nous pouvons installer l'agent Zabbix en exécutant la commande suivante :
+Maintenant, que les dépôts ont été configurés, nous pouvons installer l'agent Zabbix en exécutant la commande suivante.
 
 ```
 apt install zabbix-agent2
