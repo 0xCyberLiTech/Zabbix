@@ -318,6 +318,7 @@ nano /etc/apt/sources.list.d/zabbix.list
 deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
 ```
+```
 apt update
 ```
 ```
