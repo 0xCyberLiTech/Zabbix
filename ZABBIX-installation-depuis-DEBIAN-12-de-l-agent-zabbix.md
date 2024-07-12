@@ -10,6 +10,8 @@ Avant de procéder à l'installation, assurez-vous d'avoir les prérequis suivan
 
 Connectivité réseau au serveur Zabbix.
 
+Toutes les actions à suivre sont éffectées depuis la session root :
+
 - Étape 1 : Mettre à jour les packages système.
 
 Tout d'abord, nous devons nous assurer que nos packages système sont à jour. 
@@ -20,63 +22,35 @@ sudo apt update && sudo apt upgrade -y
 ```
 Cette commande mettra à jour les listes de packages et mettra à niveau tous les packages obsolètes.
 
-- Step 2 : Configurer Zabbix Repository
+- Step 2 : Configuration des dépots Official Repository
 
-Zabbix fournit des dépôts officiels contenant les packages nécessaires pour une installation et des mises à jour faciles. 
-
-Exécutez les commandes suivantes pour ajouter les dépôts Zabbix et importer la clé GPG :
-
-Vérifier au préalable la dernière version de disponible depuis l'url suivante :
-
-Valable pour DEBIAN 12 / 11 / 10 / 09
-
-https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/
-
-Si la version de zabbix change (x.x) :
-
-https://repo.zabbix.com/zabbix/x.x/debian/pool/main/z/zabbix-release/
-
-Dernière version du paquet disponible au 13 juin 2023 pour DEBIAN 12 :
-
-zabbix-release_6.4-1+debian12_all.deb
-
-Pour DEBIAN 12
 ```
-wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-1+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
 ```
 ```
-sudo dpkg -i zabbix-release_6.4-1+debian12_all.deb
-```
-Pour DEBIAN 11
-```
-wget https://repo.zabbix.com/zabbix/6.4/debian/pool/main/z/zabbix-release/zabbix-release_6.4-2+debian11_all.deb
+dpkg -i zabbix-release_7.0-2+debian12_all.deb
 ```
 ```
-sudo dpkg -i zabbix-release_6.4-2+debian11_all.deb
+apt update
 ```
-Les dépôts officiels suivants auront été ajoutés dans /etc/apt/sources.list.d/zabbix.list.
-
-Je rappel que ce tuto est appliqué sur une DEBIAN 12 (bookworm).
+De nouveaux dépots seront installés.
 ```
-cat /etc/apt/sources.list.d/zabbix.list
-
+nano /etc/apt/sources.list.d/zabbix.list
+```
+```
 # Zabbix main repository
-deb https://repo.zabbix.com/zabbix/6.4/debian bookworm main
-deb-src https://repo.zabbix.com/zabbix/6.4/debian bookworm main
-
-# Zabbix unstable repository
-#deb https://repo.zabbix.com/zabbix/6.3/debian bookworm main
-#deb-src https://repo.zabbix.com/zabbix/6.3/debian bookworm main
+deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
+deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
+```
+```
+apt update
 ```
 Étape 3 : Installer l'agent Zabbix.
 
 Maintenant que les dépôts ont été configuré, nous pouvons installer l'agent Zabbix en exécutant la commande suivante :
 
 ```
-sudo apt update 
-```
-```
-sudo apt install zabbix-agent
+apt install zabbix-agent2
 ```
 Lors de l'installation, vous pouvez être invité à configurer l'agent Zabbix.
 
