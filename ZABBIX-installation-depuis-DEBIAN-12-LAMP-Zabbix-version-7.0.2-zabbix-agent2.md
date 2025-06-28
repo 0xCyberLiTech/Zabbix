@@ -297,7 +297,7 @@ systemctl start mariadb
 
 Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix (zabbix-agent2) sur se serveur.
 
-Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/7.2/debian/pool/main/z/ à ce jou 05-07-2024.
+Suivre la version des derniers dépôts (en prod 7.2) : https://repo.zabbix.com/zabbix/7.2/ à ce jou 28-06-2025.
 
 Zabbix Official Repository
 ```
