@@ -287,7 +287,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_04"></a>
-## Installer Zabbix dans ça dernière version stable.
+## Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
@@ -295,7 +295,7 @@ systemctl start mariadb
 
 - Ajoutez les derniers dépôts stable pour Zabbix 7.2.
 
-Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix (zabbix-agent2) sur se serveur.
+Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix 2 sur ce serveur et configurer celui-ci.
 
 Suivre la version des derniers dépôts (en prod 7.2) : https://repo.zabbix.com/zabbix/7.2/ à ce jou 28-06-2025.
 
