@@ -7,7 +7,7 @@
 Prérequis :
 
 Mise à jour du système :
-```
+```bash
 apt update && apt upgrade -y
 ```
 ## Commençons par installer notre serveur LAMP.
@@ -22,16 +22,16 @@ apt update && apt upgrade -y
 <a name="balise_01"></a>
 ## Installer le serveur Apache2 :
 
-```
+```bash
 apt -y install apache2
 ```
-```
+```bash
 systemctl start apache2.service
 ```
-```
+```bash
 systemctl enable apache2.service
 ```
-```
+```bash
 systemctl status apache2.service
 ```
 <a name="balise_02"></a>
