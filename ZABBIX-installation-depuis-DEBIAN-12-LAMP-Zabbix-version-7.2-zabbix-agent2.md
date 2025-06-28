@@ -1,36 +1,43 @@
 
+
 <p align="center">
-  <img src="./images/zabbix-logo.png" alt="zabbix-logo" width="200"/>
+  <img src="./images/zabbix-logo.png" alt="zabbix-logo" width="160"/>
 </p>
 
-# 🚀 Installation de ZABBIX 7.2 sur DEBIAN 12 (LAMP + zabbix-agent2)
+# Zabbix 7.2 sur Debian 12 — Guide Express
 
 ---
 
-## 📑 Sommaire
-
 <details>
-<summary><strong>Afficher / Masquer le sommaire</strong></summary>
+<summary><strong>Sommaire</strong></summary>
 
 - [Prérequis](#prérequis)
-- [Mise à jour du système](#mise-à-jour-du-système)
-- [Installer le serveur Apache2](#balise_01)
-- [Créer deux VirtualHosts HTTP & HTTPS](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
-- [Installer PHP](#balise_02)
-- [Installer MySQL (MariaDB)](#balise_03)
-- [Installer ZABBIX 7.2](#balise_04)
-- [Configurer et démarrer l'agent ZABBIX 2](#balise_05)
-- [Configuration du firewall (UFW)](#concernant-lutilisation-dun-firewall-ufw-sur-votre-serveur-zabbix)
+- [Mise à jour](#mise-à-jour)
+- [LAMP](#lamp)
+- [Apache2](#apache2)
+- [PHP](#php)
+- [MariaDB](#mariadb)
+- [Zabbix 7.2](#zabbix)
+- [Agent Zabbix](#agent)
+- [Configuration PHP](#phpconf)
+- [Configuration Apache](#apacheconf)
+- [Interface Web](#web)
+- [Scripts globaux](#globalscripts)
+- [Firewall UFW](#ufw)
 
 </details>
 
 ---
 
-## 🛠️ Prérequis
+## 🛠️ Prérequis <a name="prérequis"></a>
+
+* Debian 12 fraîchement installée
+* Accès root ou sudo
+* Connexion internet
 
 ---
 
-## 🔄 Mise à jour du système
+## 🔄 Mise à jour <a name="mise-à-jour"></a>
 
 ```bash
 apt update && apt upgrade -y
@@ -38,14 +45,194 @@ apt update && apt upgrade -y
 
 ---
 
-## 💡 Commençons par installer notre serveur LAMP
+## ⚡️ LAMP <a name="lamp"></a>
 
-1. [Installer le serveur Apache2.](#balise_01)
-2. [Créer deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
-3. [Installer PHP.](#balise_02)
-4. [Installer MySQL (MariaDB)](#balise_03)
-5. [Installer ZABBIX 7.2](#balise_04)
-6. [Configurer et démarrer l'agent ZABBIX 2](#balise_05)
+1. [Apache2](#apache2)
+2. [PHP](#php)
+3. [MariaDB](#mariadb)
+
+---
+
+## 🌐 Apache2 <a name="apache2"></a>
+
+```bash
+apt -y install apache2
+systemctl enable --now apache2
+```
+
+---
+
+## 🐘 PHP <a name="php"></a>
+
+```bash
+apt install php php-fpm
+a2enmod proxy_fcgi setenvif
+a2enconf php8.2-fpm
+systemctl restart apache2 php8.2-fpm
+```
+
+> ℹ️ Placez ce bloc dans votre VirtualHost pour activer FPM :
+```apache
+<FilesMatch \.php$>
+    SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
+</FilesMatch>
+```
+
+Testez avec :
+```bash
+echo '<?php phpinfo(); ?>' > /var/www/html/info.php
+```
+
+---
+
+## 🐬 MariaDB <a name="mariadb"></a>
+
+```bash
+apt -y install mariadb-server
+systemctl enable --now mariadb
+```
+
+Configurer le charset :
+```bash
+nano /etc/mysql/mariadb.conf.d/50-server.cnf
+# Ajoutez :
+character-set-server  = utf8mb4
+collation-server      = utf8mb4_general_ci
+```
+
+Sécurisez l’installation :
+```bash
+mysql_secure_installation
+```
+
+---
+
+## 📦 Zabbix 7.2 <a name="zabbix"></a>
+
+```bash
+wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+apt update
+apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
+```
+
+Créez la base de données :
+```bash
+mysql -e "create database zabbix character set utf8mb4 collate utf8mb4_bin; grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix'; set global log_bin_trust_function_creators = 1;"
+zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
+```
+
+> 💡 Si erreur : vérifiez le mot de passe ou les droits.
+
+Configurez `/etc/zabbix/zabbix_server.conf` :
+```ini
+DBName=zabbix
+DBUser=zabbix
+DBPassword=zabbix
+```
+
+```bash
+systemctl restart zabbix-server
+systemctl enable zabbix-server
+```
+
+---
+
+## 🤖 Agent Zabbix <a name="agent"></a>
+
+Dans `/etc/zabbix/zabbix_agent2.conf` :
+```ini
+Server=127.0.0.1
+ServerActive=127.0.0.1
+Hostname=Zabbix server
+AllowKey=system.run[*]
+#Plugins.SystemRun.LogRemoteCommands=1
+```
+
+```bash
+systemctl restart zabbix-agent2
+systemctl enable zabbix-agent2
+```
+
+---
+
+## ⚙️ Configuration PHP <a name="phpconf"></a>
+
+Dans `/etc/php/8.2/fpm/pool.d/www.conf` ajoutez à la fin :
+```ini
+php_value[max_execution_time] = 300
+php_value[memory_limit] = 128M
+php_value[post_max_size] = 16M
+php_value[upload_max_filesize] = 2M
+php_value[max_input_time] = 300
+php_value[max_input_vars] = 10000
+php_value[always_populate_raw_post_data] = -1
+php_value[date.timezone] = Europe/Paris
+```
+
+```bash
+systemctl restart php8.2-fpm apache2
+```
+
+---
+
+## 🏷️ Configuration Apache <a name="apacheconf"></a>
+
+Dans `/etc/apache2/conf-enabled/zabbix.conf` vérifiez la présence des paramètres PHP dans les blocs `<IfModule mod_php.c>` et `<IfModule mod_php7.c>`.
+
+```bash
+systemctl restart zabbix-server zabbix-agent2 apache2
+systemctl enable zabbix-server zabbix-agent2 apache2
+```
+
+---
+
+## 🖥️ Interface Web <a name="web"></a>
+
+Accédez à [http://mon-ip-local/zabbix](http://mon-ip-local/zabbix)
+
+| Étape | Capture |
+|-------|---------|
+| 1     | ![Zabbix-7-001.png](./images/Zabbix-7-001.png) |
+| 2     | ![Zabbix-7-002.png](./images/Zabbix-7-002.png) |
+| 3     | ![Zabbix-7-003.png](./images/Zabbix-7-003.png) |
+| 4     | ![Zabbix-7-004.png](./images/Zabbix-7-004.png) |
+| 5     | ![Zabbix-7-005.png](./images/Zabbix-7-005.png) |
+| 6     | ![Zabbix-7-006.png](./images/Zabbix-7-006.png) |
+| 7     | ![Zabbix-7-007.png](./images/Zabbix-7-007.png) |
+| 8     | ![Zabbix-7-008.png](./images/Zabbix-7-008.png) |
+
+---
+
+## ⚠️ Scripts globaux <a name="globalscripts"></a>
+
+Dans `/etc/zabbix/zabbix_server.conf` :
+```ini
+EnableGlobalScripts=1
+```
+
+```bash
+systemctl restart zabbix-server zabbix-agent2 apache2
+```
+
+---
+
+## 🔒 Firewall UFW <a name="ufw"></a>
+
+```bash
+# SSH limité à une IP
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp comment '2277 SSH'
+# HTTP/HTTPS
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp comment '80 Apache2'
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp comment '443 Apache2'
+# Zabbix agent (passif/actif)
+ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp comment '1050 agent Zabbix - For Passive checks'
+ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10051 proto tcp comment '1051 agent Zabbix - For Active checks'
+# Voir les règles
+ufw status numbered
+```
+
+> 💡 `limit` = 6 tentatives SSH max/30s pour plus de sécurité.
 
 ---
 
