@@ -1,43 +1,44 @@
 
 
+
 <p align="center">
   <img src="./images/zabbix-logo.png" alt="zabbix-logo" width="160"/>
 </p>
 
-# Zabbix 7.2 sur Debian 12 — Guide Express
+# 🟩⧉ Zabbix 7.2 sur Debian 12 — Guide Matrix ⧉🟩
 
 ---
 
 <details>
-<summary><strong>Sommaire</strong></summary>
+<summary><span style="color:#00ff41"><strong>🟩 Sommaire Matrix</strong></span></summary>
 
-- [Prérequis](#prérequis)
-- [Mise à jour](#mise-à-jour)
-- [LAMP](#lamp)
-- [Apache2](#apache2)
-- [PHP](#php)
-- [MariaDB](#mariadb)
-- [Zabbix 7.2](#zabbix)
-- [Agent Zabbix](#agent)
-- [Configuration PHP](#phpconf)
-- [Configuration Apache](#apacheconf)
-- [Interface Web](#web)
-- [Scripts globaux](#globalscripts)
-- [Firewall UFW](#ufw)
+- 🟩 [Prérequis](#prérequis)
+- 🟩 [Mise à jour](#mise-à-jour)
+- 🟩 [LAMP](#lamp)
+- 🟩 [Apache2](#apache2)
+- 🟩 [PHP](#php)
+- 🟩 [MariaDB](#mariadb)
+- 🟩 [Zabbix 7.2](#zabbix)
+- 🟩 [Agent Zabbix](#agent)
+- 🟩 [Configuration PHP](#phpconf)
+- 🟩 [Configuration Apache](#apacheconf)
+- 🟩 [Interface Web](#web)
+- 🟩 [Scripts globaux](#globalscripts)
+- 🟩 [Firewall UFW](#ufw)
 
 </details>
 
 ---
 
-## 🛠️ Prérequis <a name="prérequis"></a>
+## �⧉ Prérequis <a name="prérequis"></a>
 
-* Debian 12 fraîchement installée
-* Accès root ou sudo
-* Connexion internet
+> 🟩 Debian 12 fraîchement installée
+> 🟩 Accès root ou sudo
+> 🟩 Connexion internet
 
 ---
 
-## 🔄 Mise à jour <a name="mise-à-jour"></a>
+## �⧉ Mise à jour <a name="mise-à-jour"></a>
 
 ```bash
 apt update && apt upgrade -y
@@ -45,15 +46,16 @@ apt update && apt upgrade -y
 
 ---
 
-## ⚡️ LAMP <a name="lamp"></a>
+## 🟩⧉ LAMP <a name="lamp"></a>
 
-1. [Apache2](#apache2)
-2. [PHP](#php)
-3. [MariaDB](#mariadb)
+1. [🟩 Apache2](#apache2)
+2. [🟩 PHP](#php)
+3. [🟩 MariaDB](#mariadb)
 
 ---
 
-## 🌐 Apache2 <a name="apache2"></a>
+
+## 🟩⧉ Apache2 <a name="apache2"></a>
 
 ```bash
 apt -y install apache2
@@ -62,7 +64,7 @@ systemctl enable --now apache2
 
 ---
 
-## 🐘 PHP <a name="php"></a>
+## �⧉ PHP <a name="php"></a>
 
 ```bash
 apt install php php-fpm
@@ -71,7 +73,7 @@ a2enconf php8.2-fpm
 systemctl restart apache2 php8.2-fpm
 ```
 
-> ℹ️ Placez ce bloc dans votre VirtualHost pour activer FPM :
+> 🟩 Placez ce bloc dans votre VirtualHost pour activer FPM :
 ```apache
 <FilesMatch \.php$>
     SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
@@ -85,7 +87,7 @@ echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 
 ---
 
-## 🐬 MariaDB <a name="mariadb"></a>
+## �⧉ MariaDB <a name="mariadb"></a>
 
 ```bash
 apt -y install mariadb-server
@@ -107,7 +109,7 @@ mysql_secure_installation
 
 ---
 
-## 📦 Zabbix 7.2 <a name="zabbix"></a>
+## �⧉ Zabbix 7.2 <a name="zabbix"></a>
 
 ```bash
 wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
@@ -122,7 +124,7 @@ mysql -e "create database zabbix character set utf8mb4 collate utf8mb4_bin; gran
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
 
-> 💡 Si erreur : vérifiez le mot de passe ou les droits.
+> � Si erreur : vérifiez le mot de passe ou les droits.
 
 Configurez `/etc/zabbix/zabbix_server.conf` :
 ```ini
@@ -138,7 +140,7 @@ systemctl enable zabbix-server
 
 ---
 
-## 🤖 Agent Zabbix <a name="agent"></a>
+## 🟩⧉ Agent Zabbix <a name="agent"></a>
 
 Dans `/etc/zabbix/zabbix_agent2.conf` :
 ```ini
@@ -156,7 +158,7 @@ systemctl enable zabbix-agent2
 
 ---
 
-## ⚙️ Configuration PHP <a name="phpconf"></a>
+## 🟩⧉ Configuration PHP <a name="phpconf"></a>
 
 Dans `/etc/php/8.2/fpm/pool.d/www.conf` ajoutez à la fin :
 ```ini
@@ -176,7 +178,7 @@ systemctl restart php8.2-fpm apache2
 
 ---
 
-## 🏷️ Configuration Apache <a name="apacheconf"></a>
+## 🟩⧉ Configuration Apache <a name="apacheconf"></a>
 
 Dans `/etc/apache2/conf-enabled/zabbix.conf` vérifiez la présence des paramètres PHP dans les blocs `<IfModule mod_php.c>` et `<IfModule mod_php7.c>`.
 
@@ -187,7 +189,7 @@ systemctl enable zabbix-server zabbix-agent2 apache2
 
 ---
 
-## 🖥️ Interface Web <a name="web"></a>
+## �⧉ Interface Web <a name="web"></a>
 
 Accédez à [http://mon-ip-local/zabbix](http://mon-ip-local/zabbix)
 
@@ -204,7 +206,7 @@ Accédez à [http://mon-ip-local/zabbix](http://mon-ip-local/zabbix)
 
 ---
 
-## ⚠️ Scripts globaux <a name="globalscripts"></a>
+## 🟩⧉ Scripts globaux <a name="globalscripts"></a>
 
 Dans `/etc/zabbix/zabbix_server.conf` :
 ```ini
@@ -217,7 +219,7 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 
 ---
 
-## 🔒 Firewall UFW <a name="ufw"></a>
+## �⧉ Firewall UFW <a name="ufw"></a>
 
 ```bash
 # SSH limité à une IP
@@ -232,7 +234,7 @@ ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10051 proto t
 ufw status numbered
 ```
 
-> 💡 `limit` = 6 tentatives SSH max/30s pour plus de sécurité.
+> � `limit` = 6 tentatives SSH max/30s pour plus de sécurité.
 
 ---
 
