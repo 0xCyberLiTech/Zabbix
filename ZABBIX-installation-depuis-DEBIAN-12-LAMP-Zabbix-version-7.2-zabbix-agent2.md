@@ -1,41 +1,71 @@
-![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.2 + zabbix-agent2.
+<p align="center">
+  <img src="./images/zabbix-logo.png" alt="zabbix-logo" width="200"/>
+</p>
 
-## Sommaire :
+# 🚀 Installation de ZABBIX 7.2 sur DEBIAN 12 (LAMP + zabbix-agent2)
 
-Prérequis :
+---
 
-Mise à jour du système :
-```
+## 📑 Sommaire
+
+<details>
+<summary><strong>Afficher / Masquer le sommaire</strong></summary>
+
+- [Prérequis](#prérequis)
+- [Mise à jour du système](#mise-à-jour-du-système)
+- [Installer le serveur Apache2](#balise_01)
+- [Créer deux VirtualHosts HTTP & HTTPS](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
+- [Installer PHP](#balise_02)
+- [Installer MySQL (MariaDB)](#balise_03)
+- [Installer ZABBIX 7.2](#balise_04)
+- [Configurer et démarrer l'agent ZABBIX 2](#balise_05)
+- [Configuration du firewall (UFW)](#concernant-lutilisation-dun-firewall-ufw-sur-votre-serveur-zabbix)
+
+</details>
+
+---
+
+## 🛠️ Prérequis
+
+---
+
+## 🔄 Mise à jour du système
+
+```bash
 apt update && apt upgrade -y
 ```
-## Commençons par installer notre serveur LAMP.
 
-- 01 - [Installer le serveur Apache2.](#balise_01)
-- 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
-- 03 - [Installer PHP.](#balise_02) 
-- 04 - [Installer MySQL (MariaDB)](#balise_03)
-- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
-- 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_05)
+---
+
+## 💡 Commençons par installer notre serveur LAMP
+
+1. [Installer le serveur Apache2.](#balise_01)
+2. [Créer deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
+3. [Installer PHP.](#balise_02)
+4. [Installer MySQL (MariaDB)](#balise_03)
+5. [Installer ZABBIX 7.2](#balise_04)
+6. [Configurer et démarrer l'agent ZABBIX 2](#balise_05)
+
+---
 
 <a name="balise_01"></a>
-## Installer le serveur Apache2 :
 
-```
+## 🖥️ Installer le serveur Apache2
+
+```bash
 apt -y install apache2
 ```
-```
+```bash
 systemctl start apache2.service
-```
-```
 systemctl enable apache2.service
-```
-```
 systemctl status apache2.service
 ```
+
+---
+
 <a name="balise_02"></a>
-## Installer PHP :
+## 🐘 Installer PHP
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
@@ -338,258 +368,188 @@ grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix';
 ```
 set global log_bin_trust_function_creators = 1;
 ```
-```
 exit;
 ```
-```
+
+```bash
+# Importer le schéma de la base de données Zabbix (saisir le mot de passe défini précédemment)
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
-Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix]
-```
-Configure and start Zabbix Server.
-```
-```
+
+> 💡 **Astuce :** Utilisez la commande ci-dessus pour initialiser la base de données Zabbix. Si vous voyez des erreurs, vérifiez les droits de l'utilisateur et le mot de passe.
+
+---
+
+### ⚙️ Configuration du serveur Zabbix
+
+Éditez le fichier de configuration principal :
+```bash
 nano /etc/zabbix/zabbix_server.conf
 ```
-```
+Modifiez les paramètres suivants :
+```ini
 DBName=zabbix
-```
-```
 DBUser=zabbix
-```
-```
 DBPassword=zabbix
 ```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-Redémarrer le service Zabbix Server.
-```
+Enregistrez et quittez nano (`Ctrl+O` puis `Ctrl+X`).
+
+---
+
+Redémarrez et activez le service Zabbix Server :
+```bash
 systemctl restart zabbix-server.service
-```
-```
 systemctl enable zabbix-server.service
 ```
+
+---
+
 <a name="balise_05"></a>
-## Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
-```
-nano /etc/zabbix/zabbix_agent2.conf
-```
-```
-Server=127.0.0.1
-```
-```
-ServerActive=127.0.0.1
-```
-```
-Hostname=Zabbix server
-```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-```
-systemctl restart zabbix-agent2.service
-```
-Modifiez les valeurs PHP pour les exigences Zabbix.
-```
-nano /etc/php/8.2/fpm/pool.d/www.conf
-```
-```
-# add to the end
-php_value[max_execution_time] = 300
-php_value[memory_limit] = 128M
-php_value[post_max_size] = 16M
-php_value[upload_max_filesize] = 2M
-php_value[max_input_time] = 300
-php_value[max_input_vars] = 10000
-php_value[always_populate_raw_post_data] = -1
-php_value[date.timezone] = Europe/Paris
-```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
-```
-nano /etc/apache2/conf-enabled/zabbix.conf
-```
-```
-# Define /zabbix alias, this is the default
-<IfModule mod_alias.c>
-    Alias /zabbix /usr/share/zabbix
-</IfModule>
+## 🕵️‍♂️ Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même
 
-<Directory "/usr/share/zabbix">
-    Options FollowSymLinks
-    AllowOverride None
-    Order allow,deny
-    Allow from all
+1. **Éditez la configuration de l'agent :**
+   ```bash
+   nano /etc/zabbix/zabbix_agent2.conf
+   ```
+   Modifiez/ajoutez :
+   ```ini
+   Server=127.0.0.1
+   ServerActive=127.0.0.1
+   Hostname=Zabbix server
+   AllowKey=system.run[*]
+   #Plugins.SystemRun.LogRemoteCommands=1
+   ```
+   > 💡 **Astuce :** `AllowKey` permet d'autoriser l'exécution de commandes à distance depuis l'interface Zabbix.
 
-    <IfModule mod_php.c>
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        php_value max_input_vars 10000
-        php_value always_populate_raw_post_data -1
-        php_value date.timezone Europe/Paris
-    </IfModule>
+2. **Redémarrez l'agent :**
+   ```bash
+   systemctl restart zabbix-agent2.service
+   ```
 
-    <IfModule mod_php7.c>
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        php_value max_input_vars 10000
-        php_value always_populate_raw_post_data -1
-        php_value[date.timezone] = Europe/Paris
-    </IfModule>
-</Directory>
+---
 
-<Directory "/usr/share/zabbix/conf">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
+### 🛠️ Ajustez la configuration PHP pour Zabbix
 
-<Directory "/usr/share/zabbix/app">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
+1. **Éditez le pool PHP-FPM**
+   ```bash
+   nano /etc/php/8.2/fpm/pool.d/www.conf
+   ```
+   Ajoutez à la fin :
+   ```ini
+   php_value[max_execution_time] = 300
+   php_value[memory_limit] = 128M
+   php_value[post_max_size] = 16M
+   php_value[upload_max_filesize] = 2M
+   php_value[max_input_time] = 300
+   php_value[max_input_vars] = 10000
+   php_value[always_populate_raw_post_data] = -1
+   php_value[date.timezone] = Europe/Paris
+   ```
+   Enregistrez et quittez (`Ctrl+O` puis `Ctrl+X`).
 
-<Directory "/usr/share/zabbix/include">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
+2. **Redémarrez PHP-FPM et Apache2 :**
+   ```bash
+   systemctl restart php8.2-fpm apache2
+   ```
 
-<Directory "/usr/share/zabbix/local">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
+---
 
-<Directory "/usr/share/zabbix/vendor">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
-```
-```
-systemctl restart apache2 php8.2-fpm
-```
-Redémarrer les services zabbix-server zabbix-agent2 et apache2
-```
-systemctl restart zabbix-server zabbix-agent2 apache2
-```
-```
-systemctl enable zabbix-server zabbix-agent2 apache2
-```
-Info pour la consultation des logs de l'agent zabbix :
-```
-tail -100f /var/log/zabbix/zabbix_agent2.log
-```
-Se rendre vers http://mon-ip-local/zabbix :
+### 🔍 Vérifiez la configuration Apache pour Zabbix
 
-Nous allons finaliser cette installation depuis notre navigateur :
+1. **Éditez le fichier de conf :**
+   ```bash
+   nano /etc/apache2/conf-enabled/zabbix.conf
+   ```
+   Vérifiez que les paramètres PHP sont bien présents dans les blocs `<IfModule mod_php.c>` et `<IfModule mod_php7.c>`.
 
-Phase 01 :
+2. **Redémarrez tous les services nécessaires :**
+   ```bash
+   systemctl restart zabbix-server zabbix-agent2 apache2
+   systemctl enable zabbix-server zabbix-agent2 apache2
+   ```
 
-![Zabbix-7-001.png](./images/Zabbix-7-001.png)
+3. **Consultez les logs de l'agent Zabbix (optionnel) :**
+   ```bash
+   tail -100f /var/log/zabbix/zabbix_agent2.log
+   ```
 
-Phase 02 :
+---
 
-![Zabbix-7-002.png](./images/Zabbix-7-002.png)
+## 🌐 Finalisation de l'installation via l'interface web
 
-Phase 03 :
+Rendez-vous sur : [http://mon-ip-local/zabbix](http://mon-ip-local/zabbix)
 
-![Zabbix-7-003.png](./images/Zabbix-7-003.png)
+Suivez les étapes graphiques d'installation :
 
-Phase 04 :
+| Étape | Capture d'écran |
+|-------|----------------|
+| 1     | ![Zabbix-7-001.png](./images/Zabbix-7-001.png) |
+| 2     | ![Zabbix-7-002.png](./images/Zabbix-7-002.png) |
+| 3     | ![Zabbix-7-003.png](./images/Zabbix-7-003.png) |
+| 4     | ![Zabbix-7-004.png](./images/Zabbix-7-004.png) |
+| 5     | ![Zabbix-7-005.png](./images/Zabbix-7-005.png) |
+| 6     | ![Zabbix-7-006.png](./images/Zabbix-7-006.png) |
+| 7     | ![Zabbix-7-007.png](./images/Zabbix-7-007.png) |
+| 8     | ![Zabbix-7-008.png](./images/Zabbix-7-008.png) |
 
-![Zabbix-7-004.png](./images/Zabbix-7-004.png)
+---
 
-Phase 05 :
+## ⚠️ Important : Activation des scripts globaux Zabbix
 
-![Zabbix-7-005.png](./images/Zabbix-7-005.png)
-
-Phase 06 :
-
-![Zabbix-7-006.png](./images/Zabbix-7-006.png)
-
-Phase 07 :
-
-![Zabbix-7-007.png](./images/Zabbix-7-007.png)
-
-Phase 08 :
-
-![Zabbix-7-008.png](./images/Zabbix-7-008.png)
-
-## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.2.
+Par défaut, la variable `EnableGlobalScripts` est désactivée dans `/etc/zabbix/zabbix_server.conf`.
 
 ![script.png](./images/script.png)
 
+1. **Éditez le fichier**
+   ```bash
+   nano /etc/zabbix/zabbix_server.conf
+   ```
+2. **Modifiez la section suivante**
+   ```ini
+   ### Option: EnableGlobalScripts
+   #    Enable global scripts on Zabbix server.
+   #       0 - disable
+   #       1 - enable
+   #
+   # Mandatory: no
+   # Default:
+   # EnableGlobalScripts=1
+   EnableGlobalScripts=1
+   ```
+   Enregistrez et quittez (`Ctrl+O` puis `Ctrl+X`).
+
+3. **Redémarrez les services**
+   ```bash
+   systemctl restart zabbix-server zabbix-agent2 apache2
+   ```
+
+---
+
+## 🔒 Sécurisation et firewall (UFW)
+
+Pour plus de détails sur UFW, consultez [ce guide](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md).
+
+### Exemples de règles UFW pour Zabbix
+
+```bash
+# Autoriser SSH uniquement depuis une IP précise
+ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp comment '2277 SSH'
+
+# Autoriser HTTP/HTTPS
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp comment '80 Apache2'
+ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp comment '443 Apache2'
+
+# Autoriser les ports Zabbix (passif/actif)
+ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp comment '1050 agent Zabbix - For Passive checks'
+ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10051 proto tcp comment '1051 agent Zabbix - For Active checks'
+
+# Lister les règles actives
+ufw status numbered
 ```
-nano /etc/zabbix/zabbix_server.conf
-```
-Avant modification :
-```
-### Option: EnableGlobalScripts
-#    Enable global scripts on Zabbix server.
-#       0 - disable
-#       1 - enable
-#
-# Mandatory: no
-# Default:
-# EnableGlobalScripts=1
-EnableGlobalScripts=0
-```
-Après modification :
-```
-### Option: EnableGlobalScripts
-#    Enable global scripts on Zabbix server.
-#       0 - disable
-#       1 - enable
-#
-# Mandatory: no
-# Default:
-# EnableGlobalScripts=1
-EnableGlobalScripts=1
-```
-Sur le fichier de configuration de l'agent2 apporter les modofications suivantes :
-```
-nano /etc/zabbix/zabbix_agent2.conf
-```
-Rajouter la variable 'AllowKey=' & 'Plugins.SystemRun.LogRemoteCommands' :
-```
-AllowKey=system.run[*]
-#Plugins.SystemRun.LogRemoteCommands=1
-```
-Pour la prise en compte des modifications redémarrer les services zabbix-server, zabbix-agent2 & apache2 :
-```
-systemctl restart zabbix-server zabbix-agent2 apache2
-```
-![ping.png](./images/ping.png)
+
+> 💡 **Astuce :** La variable `limit` permet de limiter le nombre de tentatives de connexion SSH pour renforcer la sécurité.
+
+---
 
 ## Concernant l'utilisation d'un firewall (UFW) sur votre serveur Zabbix :
 
