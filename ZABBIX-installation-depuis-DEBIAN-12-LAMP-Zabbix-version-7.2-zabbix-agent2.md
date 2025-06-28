@@ -6,6 +6,11 @@
 
 Prérequis :
 
+$ pwd
+/home/marc
+$ whoami
+marc
+
 Mise à jour du système :
 ```
 apt update && apt upgrade -y
