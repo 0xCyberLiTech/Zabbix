@@ -4,7 +4,7 @@
 
 👋 Sommaire des sujets abordés :
 
-- 01 - [ZABBIX - Installation depuis DEBIAN-12 de (LAMP + Zabbix v 7.0.2 + zabbix-agent2).](ZABBIX-installation-depuis-DEBIAN-12-LAMP-Zabbix-version-7.0.2-zabbix-agent2.md)
+- 01 - [ZABBIX - Installation depuis DEBIAN-12 de (LAMP + Zabbix v 7.2 + zabbix-agent2).](ZABBIX-installation-depuis-DEBIAN-12-LAMP-Zabbix-version-7.2-zabbix-agent2.md)
 - 02 - [ZABBIX - Installation depuis (Docker-compse) de (Zabbix v 6.4.4 + MariaDB + Nginx + agent-zabbix).](ZABBIX-installation-depuis-Docker-Docker-compse-de-Zabbix-version-6.4.4-agent-zabbix.md)
 - 03 - [ZABBIX - Installation depuis DEBIAN 12 de l'agent-zabbix.md.](ZABBIX-installation-depuis-DEBIAN-12-de-l-agent-zabbix.md)
 - 04 - [ZABBIX - Sécurisation de la communication entre les agents Zabbix et le serveur Zabbix.](ZABBIX-Sécurisation-de-la-communication-entre-les-agents-Zabbix-et-le-serveur-Zabbix.md)
