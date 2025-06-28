@@ -7,7 +7,7 @@
 Prérequis :
 
 Mise à jour du système :
-```bash
+```
 apt update && apt upgrade -y
 ```
 ## Commençons par installer notre serveur LAMP.
@@ -22,16 +22,16 @@ apt update && apt upgrade -y
 <a name="balise_01"></a>
 ## Installer le serveur Apache2 :
 
-```bash
+```
 apt -y install apache2
 ```
-```bash
+```
 systemctl start apache2.service
 ```
-```bash
+```
 systemctl enable apache2.service
 ```
-```bash
+```
 systemctl status apache2.service
 ```
 <a name="balise_02"></a>
@@ -39,27 +39,27 @@ systemctl status apache2.service
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
-```bash
+```
 apt install php
 ```
 ## Installation de PHP-FPM
-````bash
+````
 apt -y install php-fpm
 ````
 Ajoutez les paramètres dans le ou les Virtualhosts que vous souhaitez associer à PHP-FPM.
-```bash
+```
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
-```bash
+```
 <VirtualHost *:80>
         <FilesMatch \.php$>
                 SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
         </FilesMatch>
 ```
-```bash
+```
 a2enmod proxy_fcgi setenvif
 ```
-```bash
+```
 Considering dependency proxy for proxy_fcgi:
 Enabling module proxy.
 Enabling module proxy_fcgi.
@@ -67,22 +67,22 @@ Module setenvif already enabled
 To activate the new configuration, you need to run:
   systemctl restart apache2
 ```
-```bash
+```
 systemctl restart apache2.service
 ```
-```bash
+```
 a2enconf php8.2-fpm
 ```
-```bash
+```
 Enabling conf php8.2-fpm.
 To activate the new configuration, you need to run:
   systemctl reload apache2
 ```
-```bash
+```
 systemctl restart php8.2-fpm apache2
 ```
 Créez le fichier [info.php] dans la racine du dossier Web, ( /va/www/html/ ).
-```bash
+```
 echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 ```
 Accéder à l'Url http://mon-ip-local/info.php afin de tester.
@@ -99,21 +99,21 @@ C'est Ok pour la prise en charge de FPM, passons à la suite.
 ## Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
-```bash
+```
 apt -y install mariadb-server
 ```
-```bash
+```
 nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
-```bash
+```
 character-set-server  = utf8mb4
 collation-server      = utf8mb4_general_ci
 ```
-```bash
+```
 systemctl restart mariadb.service
 ```
 Sécuriser le serveur MariaDB :
-```bash
+```
 mysql_secure_installation
 ```
 ```
@@ -186,11 +186,11 @@ installation should now be secure.
 
 Thanks for using MariaDB!
 ```
-```bash
+```
 systemctl restart mariadb.service
 ```
 Se connecter à MySQL :
-```bash
+```
 mysql
 ```
 - [Unix_Socket] authentication is enabled by default :
