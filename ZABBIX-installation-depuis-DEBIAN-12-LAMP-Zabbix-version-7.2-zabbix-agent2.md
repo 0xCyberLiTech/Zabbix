@@ -541,13 +541,9 @@ Phase 07 :
 
 ![Zabbix-7-007.png](./images/Zabbix-7-007.png)
 
-Phase 08 :
-
-![Zabbix-7-008.png](./images/Zabbix-7-008.png)
-
 Phase 09 :
 
-![Zabbix-7-009.png](./images/Zabbix-7-009.png)
+![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
 Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
 
