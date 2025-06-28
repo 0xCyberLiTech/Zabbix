@@ -16,8 +16,8 @@ apt update && apt upgrade -y
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
 - 03 - [Installer PHP.](#balise_02) 
 - 04 - [Installer MySQL (MariaDB)](#balise_03)
-- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 en prod.](#balise_04)
-- 06 - [Configurez et démarrez l'agent ZABBIX pour surveiller le serveur ZABBIX lui-même.](#balise_05)
+- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
+- 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_05)
 
 <a name="balise_01"></a>
 ## Installer le serveur Apache2 :
