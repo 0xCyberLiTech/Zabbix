@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.0.2 + zabbix-agent2.
+## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.2 + zabbix-agent2.
 
 ## Sommaire :
 
@@ -293,18 +293,18 @@ systemctl start mariadb
 
 [Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/NTPsec/blob/main/Installer-et-configurer-NTPsec.md)
 
-- Ajoutez les derniers dépôts stable pour Zabbix 7.0.
+- Ajoutez les derniers dépôts stable pour Zabbix 7.2.
 
 Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix (zabbix-agent2) sur se serveur.
 
-Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/ à ce jou 05-07-2024.
+Suivre la version des derniers dépôts : http://repo.zabbix.com/zabbix/7.2/debian/pool/main/z/ à ce jou 05-07-2024.
 
 Zabbix Official Repository
 ```
-wget https://repo.zabbix.com/zabbix/7.0/debian/pool/main/z/zabbix-release/zabbix-release_7.0-2+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
 ```
 ```
-dpkg -i zabbix-release_7.0-2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 ```
 ```
 apt update
@@ -315,8 +315,8 @@ nano /etc/apt/sources.list.d/zabbix.list
 ```
 ```
 # Zabbix main repository
-deb https://repo.zabbix.com/zabbix/7.0/debian bookworm main
-deb-src https://repo.zabbix.com/zabbix/7.0/debian bookworm main
+deb https://repo.zabbix.com/zabbix/7.2/debian bookworm main
+deb-src https://repo.zabbix.com/zabbix/7.2/debian bookworm main
 ```
 ```
 apt update
