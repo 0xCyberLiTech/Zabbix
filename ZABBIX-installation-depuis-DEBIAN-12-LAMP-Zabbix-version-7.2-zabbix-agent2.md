@@ -545,9 +545,7 @@ Phase 08 :
 
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
-Si vous mettez en place un firewall (UFW), voici un exemple de règles à mettre en service concernant notre serveur Zabbix.
-
-## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.0.
+## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.2.
 
 ![script.png](./images/script.png)
 
@@ -556,12 +554,24 @@ nano /etc/zabbix/zabbix_server.conf
 ```
 Avant modification :
 ```
+### Option: EnableGlobalScripts
+#    Enable global scripts on Zabbix server.
+#       0 - disable
+#       1 - enable
+#
+# Mandatory: no
 # Default:
 # EnableGlobalScripts=1
 EnableGlobalScripts=0
 ```
 Après modification :
 ```
+### Option: EnableGlobalScripts
+#    Enable global scripts on Zabbix server.
+#       0 - disable
+#       1 - enable
+#
+# Mandatory: no
 # Default:
 # EnableGlobalScripts=1
 EnableGlobalScripts=1
