@@ -7,8 +7,8 @@
 Prérequis :
 
 Mise à jour du système :
-```
-apt update && apt upgrade -y
+```bash
+sudo apt update && sudo apt upgrade -y
 ```
 ## Commençons par installer notre serveur LAMP.
 
@@ -22,33 +22,33 @@ apt update && apt upgrade -y
 <a name="balise_01"></a>
 ## Installer le serveur Apache2 :
 
+```bash
+sudo apt -y install apache2
 ```
-apt -y install apache2
+```bash
+sudo systemctl start apache2.service
 ```
+```bash
+sudo systemctl enable apache2.service
 ```
-systemctl start apache2.service
-```
-```
-systemctl enable apache2.service
-```
-```
-systemctl status apache2.service
+```bash
+sudo systemctl status apache2.service
 ```
 <a name="balise_02"></a>
 ## Installer PHP :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
-```
-apt install php
+```bash
+sudo apt install php
 ```
 ## Installation de PHP-FPM
-````
-apt -y install php-fpm
-````
-Ajoutez les paramètres dans le ou les Virtualhosts que vous souhaitez associer à PHP-FPM.
+```bash
+sudo apt -y install php-fpm
 ```
-nano /etc/apache2/sites-enabled/000-default.conf
+Ajoutez les paramètres dans le ou les Virtualhosts que vous souhaitez associer à PHP-FPM.
+```bash
+sudo nano /etc/apache2/sites-enabled/000-default.conf
 ```
 ```
 <VirtualHost *:80>
@@ -56,8 +56,8 @@ nano /etc/apache2/sites-enabled/000-default.conf
                 SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
         </FilesMatch>
 ```
-```
-a2enmod proxy_fcgi setenvif
+```bash
+sudo a2enmod proxy_fcgi setenvif
 ```
 ```
 Considering dependency proxy for proxy_fcgi:
@@ -65,29 +65,29 @@ Enabling module proxy.
 Enabling module proxy_fcgi.
 Module setenvif already enabled
 To activate the new configuration, you need to run:
-  systemctl restart apache2
+  sudo systemctl restart apache2
 ```
+```bash
+sudo systemctl restart apache2.service
 ```
-systemctl restart apache2.service
-```
-```
-a2enconf php8.2-fpm
+```bash
+sudo a2enconf php8.2-fpm
 ```
 ```
 Enabling conf php8.2-fpm.
 To activate the new configuration, you need to run:
-  systemctl reload apache2
+  sudo systemctl reload apache2
 ```
+```bash
+sudo systemctl restart php8.2-fpm apache2
 ```
-systemctl restart php8.2-fpm apache2
-```
-Créez le fichier [info.php] dans la racine du dossier Web, ( /va/www/html/ ).
-```
-echo '<?php phpinfo(); ?>' > /var/www/html/info.php
+Créez le fichier [info.php] dans la racine du dossier Web, ( /var/www/html/ ).
+```bash
+echo '<?php phpinfo(); ?>' | sudo tee /var/www/html/info.php
 ```
 Accéder à l'Url http://mon-ip-local/info.php afin de tester.
 
-On peut constater que le module FPM esy pris en charge.
+On peut constater que le module FPM est pris en charge.
 
 Serveur API <--> FPM/FastCGI
 
@@ -99,99 +99,31 @@ C'est Ok pour la prise en charge de FPM, passons à la suite.
 ## Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
+```bash
+sudo apt -y install mariadb-server
 ```
-apt -y install mariadb-server
-```
-```
-nano /etc/mysql/mariadb.conf.d/50-server.cnf
+```bash
+sudo nano /etc/mysql/mariadb.conf.d/50-server.cnf
 ```
 ```
 character-set-server  = utf8mb4
 collation-server      = utf8mb4_general_ci
 ```
-```
-systemctl restart mariadb.service
+```bash
+sudo systemctl restart mariadb.service
 ```
 Sécuriser le serveur MariaDB :
+```bash
+sudo mysql_secure_installation
 ```
-mysql_secure_installation
-```
-```
-NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
-      SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
+*(suivre les instructions affichées à l'écran)*
 
-In order to log into MariaDB to secure it, we'll need the current
-password for the root user. If you've just installed MariaDB, and
-haven't set the root password yet, you should just press enter here.
-
-Enter current password for root (enter for none):
-OK, successfully used password, moving on...
-
-Setting the root password or using the unix_socket ensures that nobody
-can log into the MariaDB root user without the proper authorisation.
-
-You already have your root account protected, so you can safely answer 'n'.
-
-Switch to unix_socket authentication [Y/n] Y
-Enabled successfully!
-Reloading privilege tables..
- ... Success!
-
-
-You already have your root account protected, so you can safely answer 'n'.
-
-Change the root password? [Y/n] Y
-New password:
-Re-enter new password:
-Password updated successfully!
-Reloading privilege tables..
- ... Success!
-
-
-By default, a MariaDB installation has an anonymous user, allowing anyone
-to log into MariaDB without having to have a user account created for
-them.  This is intended only for testing, and to make the installation
-go a bit smoother.  You should remove them before moving into a
-production environment.
-
-Remove anonymous users? [Y/n] Y
- ... Success!
-
-Normally, root should only be allowed to connect from 'localhost'.  This
-ensures that someone cannot guess at the root password from the network.
-
-Disallow root login remotely? [Y/n] Y
- ... Success!
-
-By default, MariaDB comes with a database named 'test' that anyone can
-access.  This is also intended only for testing, and should be removed
-before moving into a production environment.
-
-Remove test database and access to it? [Y/n] Y
- - Dropping test database...
- ... Success!
- - Removing privileges on test database...
- ... Success!
-
-Reloading the privilege tables will ensure that all changes made so far
-will take effect immediately.
-
-Reload privilege tables now? [Y/n] Y
- ... Success!
-
-Cleaning up...
-
-All done!  If you've completed all of the above steps, your MariaDB
-installation should now be secure.
-
-Thanks for using MariaDB!
-```
-```
-systemctl restart mariadb.service
+```bash
+sudo systemctl restart mariadb.service
 ```
 Se connecter à MySQL :
-```
-mysql
+```bash
+sudo mysql
 ```
 - [Unix_Socket] authentication is enabled by default :
 ```
@@ -274,20 +206,20 @@ MariaDB [(none)]> exit;
 Bye
 ```
 Si vous souhaitez supprimer toutes les données de MariaDB et l'initialiser, exécutez comme suit.
+```bash
+sudo systemctl stop mariadb
 ```
-systemctl stop mariadb
+```bash
+sudo rm -rf /var/lib/mysql/*
 ```
+```bash
+sudo mysql_install_db --datadir=/var/lib/mysql --user=mysql
 ```
-rm -rf /var/lib/mysql/*
-```
-```
-mysql_install_db --datadir=/var/lib/mysql --user=mysql
-```
-```
-systemctl start mariadb
+```bash
+sudo systemctl start mariadb
 ```
 <a name="balise_04"></a>
-## Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
+## Installer Zabbix dans sa dernière version stable 7.2 à ce jour (28-06-2025).
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
@@ -300,33 +232,33 @@ Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix 
 Suivre la version des derniers dépôts (en prod 7.2) : https://repo.zabbix.com/zabbix/7.2/ à ce jou 28-06-2025.
 
 Zabbix Official Repository
-```
+```bash
 wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
 ```
+```bash
+sudo dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 ```
-dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+```bash
+sudo apt update
 ```
-```
-apt update
-```
-De nouveaux dépots seront installés.
-```
-nano /etc/apt/sources.list.d/zabbix.list
+De nouveaux dépôts seront installés.
+```bash
+sudo nano /etc/apt/sources.list.d/zabbix.list
 ```
 ```
 # Zabbix main repository
 deb https://repo.zabbix.com/zabbix/7.2/stable/debian bookworm main
 deb-src https://repo.zabbix.com/zabbix/7.2/stable/debian bookworm main
 ```
+```bash
+sudo apt update
 ```
-apt update
-```
-```
-apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
+```bash
+sudo apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
 ```
 Créez une base de données nommée zabbix.
-```
-mysql
+```bash
+sudo mysql
 ```
 ```
 create database zabbix character set utf8mb4 collate utf8mb4_bin;
@@ -341,15 +273,13 @@ set global log_bin_trust_function_creators = 1;
 ```
 exit;
 ```
-```
+```bash
 zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
 ```
 Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix]
-```
-Configure and start Zabbix Server.
-```
-```
-nano /etc/zabbix/zabbix_server.conf
+Configurez et démarrez Zabbix Server.
+```bash
+sudo nano /etc/zabbix/zabbix_server.conf
 ```
 ```
 DBName=zabbix
@@ -360,21 +290,21 @@ DBUser=zabbix
 ```
 DBPassword=zabbix
 ```
-Enregistrer les modifications et quitter nano
+Enregistrez les modifications et quittez nano
 ```
 Ctrl+o & Ctrl+x
 ```
-Redémarrer le service Zabbix Server.
+Redémarrez le service Zabbix Server.
+```bash
+sudo systemctl restart zabbix-server.service
 ```
-systemctl restart zabbix-server.service
-```
-```
-systemctl enable zabbix-server.service
+```bash
+sudo systemctl enable zabbix-server.service
 ```
 <a name="balise_05"></a>
 ## Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
-```
-nano /etc/zabbix/zabbix_agent2.conf
+```bash
+sudo nano /etc/zabbix/zabbix_agent2.conf
 ```
 ```
 Server=127.0.0.1
@@ -385,16 +315,16 @@ ServerActive=127.0.0.1
 ```
 Hostname=Zabbix server
 ```
-Enregistrer les modifications et quitter nano
+Enregistrez les modifications et quittez nano
 ```
 Ctrl+o & Ctrl+x
 ```
-```
-systemctl restart zabbix-agent2.service
+```bash
+sudo systemctl restart zabbix-agent2.service
 ```
 Modifiez les valeurs PHP pour les exigences Zabbix.
-```
-nano /etc/php/8.2/fpm/pool.d/www.conf
+```bash
+sudo nano /etc/php/8.2/fpm/pool.d/www.conf
 ```
 ```
 # add to the end
@@ -407,13 +337,13 @@ php_value[max_input_vars] = 10000
 php_value[always_populate_raw_post_data] = -1
 php_value[date.timezone] = Europe/Paris
 ```
-Enregistrer les modifications et quitter nano
+Enregistrez les modifications et quittez nano
 ```
 Ctrl+o & Ctrl+x
 ```
 Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
-```
-nano /etc/apache2/conf-enabled/zabbix.conf
+```bash
+sudo nano /etc/apache2/conf-enabled/zabbix.conf
 ```
 ```
 # Define /zabbix alias, this is the default
@@ -495,19 +425,19 @@ nano /etc/apache2/conf-enabled/zabbix.conf
     </files>
 </Directory>
 ```
-```
-systemctl restart apache2 php8.2-fpm
+```bash
+sudo systemctl restart apache2 php8.2-fpm
 ```
 Redémarrer les services zabbix-server zabbix-agent2 et apache2
+```bash
+sudo systemctl restart zabbix-server zabbix-agent2 apache2
 ```
-systemctl restart zabbix-server zabbix-agent2 apache2
-```
-```
-systemctl enable zabbix-server zabbix-agent2 apache2
+```bash
+sudo systemctl enable zabbix-server zabbix-agent2 apache2
 ```
 Info pour la consultation des logs de l'agent zabbix :
-```
-tail -100f /var/log/zabbix/zabbix_agent2.log
+```bash
+sudo tail -100f /var/log/zabbix/zabbix_agent2.log
 ```
 Se rendre vers http://mon-ip-local/zabbix :
 
@@ -549,8 +479,8 @@ Phase 08 :
 
 ![script.png](./images/script.png)
 
-```
-nano /etc/zabbix/zabbix_server.conf
+```bash
+sudo nano /etc/zabbix/zabbix_server.conf
 ```
 Avant modification :
 ```
@@ -576,9 +506,9 @@ Après modification :
 # EnableGlobalScripts=1
 EnableGlobalScripts=1
 ```
-Sur le fichier de configuration de l'agent2 apporter les modofications suivantes :
-```
-nano /etc/zabbix/zabbix_agent2.conf
+Sur le fichier de configuration de l'agent2 apporter les modifications suivantes :
+```bash
+sudo nano /etc/zabbix/zabbix_agent2.conf
 ```
 Rajouter la variable 'AllowKey=' & 'Plugins.SystemRun.LogRemoteCommands' :
 ```
@@ -586,8 +516,8 @@ AllowKey=system.run[*]
 #Plugins.SystemRun.LogRemoteCommands=1
 ```
 Pour la prise en compte des modifications redémarrer les services zabbix-server, zabbix-agent2 & apache2 :
-```
-systemctl restart zabbix-server zabbix-agent2 apache2
+```bash
+sudo systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ![ping.png](./images/ping.png)
 
@@ -598,33 +528,33 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 Ouvrir le port SSH approprié en entrée, afin d'avoir la main sur votre serveur Zabbix à distance.
 
 Dans cet exemple, je n'autorise que la machine distante 192.168.50.118 à pouvoir accéder en SSH sur le serveur Zabbix au travers du port 2277 en TCP en entrée.
-```
-ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp comment '2277 SSH'
+```bash
+sudo ufw limit in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 2277 proto tcp comment '2277 SSH'
 ```
 La variable 'limit' correspond à n'autoriser que 6 tentatives de connexion en 30 secondes sur notre règle. 
 
-Cela permet de renfocer un peu plus la sécurité.
+Cela permet de renforcer un peu plus la sécurité.
 
 Ouvrir le port 80 sur le serveur Zabbix ainsi que le port 443 en entrée.
+```bash
+sudo ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp comment '80 Apache2'
 ```
-ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 80 proto tcp comment '80 Apache2'
-```
-```
-ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp comment '443 Apache2'
+```bash
+sudo ufw allow in on enp86s0 from 192.168.50.118 to 192.168.50.250 port 443 proto tcp comment '443 Apache2'
 ```
 - Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10050 en TCP, pour le mode passif.
 - Il faut autoriser le LANSUBNET 192.168.0.0/16 à communiquer vers le serveur Zabbix (192.168.50.250) à travers le port 10051 en TCP, pour le mode actif.
 
 Ces ports doivent être ouverts en entrée sur le serveur Zabbix, afin de recueillir les communications en provenance des agent Zabbix des hôtes distants, que ce soit en mode passif ou en mode actif.
+```bash
+sudo ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp comment '1050 agent Zabbix - For Passive checks'
 ```
-ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10050 proto tcp comment '1050 agent Zabbix - For Passive checks'
-```
-```
-ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10051 proto tcp comment '1051 agent Zabbix - For Active checks'
+```bash
+sudo ufw allow in on enp86s0 from 192.168.0.0/16 to 192.168.50.250 port 10051 proto tcp comment '1051 agent Zabbix - For Active checks'
 ```
 Lister les règles en service :
-```
-ufw status numbered
+```bash
+sudo ufw status numbered
 ```
 ```
      To                         Action      From
