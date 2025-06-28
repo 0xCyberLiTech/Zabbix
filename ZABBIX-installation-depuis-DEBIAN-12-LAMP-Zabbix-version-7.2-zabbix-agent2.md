@@ -541,7 +541,7 @@ Phase 07 :
 
 ![Zabbix-7-007.png](./images/Zabbix-7-007.png)
 
-Phase 09 :
+Phase 08 :
 
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
