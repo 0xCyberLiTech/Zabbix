@@ -299,7 +299,7 @@ Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix 
 
 Suivre la version des derniers dépôts (en prod 7.2) : https://repo.zabbix.com/zabbix/7.2/ à ce jou 28-06-2025.
 
-Zabbix Official Repository
+a). Install Zabbix repository :
 ```
 wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
 ```
@@ -309,70 +309,60 @@ dpkg -i zabbix-release_latest_7.2+debian12_all.deb
 ```
 apt update
 ```
-De nouveaux dépots seront installés.
+b). Install Zabbix server, frontend, agent2 :
 ```
-nano /etc/apt/sources.list.d/zabbix.list
+apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2
 ```
+c). Install Zabbix agent 2 plugins :
+Vous souhaiterez peut-être installer les plugins de l'agent Zabbix 2.
 ```
-# Zabbix main repository
-deb https://repo.zabbix.com/zabbix/7.2/stable/debian bookworm main
-deb-src https://repo.zabbix.com/zabbix/7.2/stable/debian bookworm main
+apt install zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent2-plugin-postgresql
 ```
+d). Créer la base de données initiale :
+Assurez-vous que votre serveur de base de données est opérationnel.
+
+Exécutez la commande suivante sur votre hébergeur de base de données.
 ```
-apt update
+# mysql -uroot -p
+password
+mysql> create database zabbix character set utf8mb4 collate utf8mb4_bin;
+mysql> create user zabbix@localhost identified by 'password';
+mysql> grant all privileges on zabbix.* to zabbix@localhost;
+mysql> set global log_bin_trust_function_creators = 1;
+mysql> quit;
 ```
+Sur le serveur Zabbix, importez le schéma et les données initiales. Vous serez invité à saisir votre nouveau mot de passe.
 ```
-apt -y install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabbix-sql-scripts zabbix-agent2 php-mysql php-gd php-bcmath php-net-socket
+zcat /usr/share/zabbix/sql-scripts/mysql/server.sql.gz | mysql --default-character-set=utf8mb4 -uzabbix -p zabbix
 ```
-Créez une base de données nommée zabbix.
+Désactivez l'option log_bin_trust_function_creators après l'importation du schéma de base de données.
 ```
-mysql
+# mysql -uroot -p
+password
+mysql> set global log_bin_trust_function_creators = 0;
+mysql> quit;
 ```
+e). Configurer la base de données pour le serveur Zabbix :
+
+Modifier le fichier /etc/zabbix/zabbix_server.conf
 ```
-create database zabbix character set utf8mb4 collate utf8mb4_bin;
+DBPassword=password
 ```
-Remplacez-le [mot de passe] par le mot de passe de votre choix :
+f). Démarrer les processus du serveur et de l'agent Zabbix
+
+Démarrez les processus du serveur et de l'agent Zabbix et faites-les démarrer au démarrage du système.
 ```
-grant all privileges on zabbix.* to zabbix@'localhost' identified by 'zabbix';
-```
-```
-set global log_bin_trust_function_creators = 1;
-```
-```
-exit;
-```
-```
-zcat /usr/share/zabbix-sql-scripts/mysql/server.sql.gz | mysql -uzabbix -p zabbix
-```
-Le mot de passe que vous avez défini ci-dessus pour l'utilisateur [zabbix]
-```
-Configure and start Zabbix Server.
-```
-```
-nano /etc/zabbix/zabbix_server.conf
-```
-```
-DBName=zabbix
-```
-```
-DBUser=zabbix
+systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ```
-DBPassword=zabbix
+systemctl enable zabbix-server zabbix-agent2 apache2
 ```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-Redémarrer le service Zabbix Server.
-```
-systemctl restart zabbix-server.service
-```
-```
-systemctl enable zabbix-server.service
-```
+g). Ouvrir la page Web de l'interface utilisateur de Zabbix
+
+L'URL par défaut de l'interface utilisateur Zabbix lors de l'utilisation du serveur Web Apache est http://host/zabbix
+
 <a name="balise_05"></a>
-## Configurez et démarrez l'agent Zabbix pour surveiller le serveur Zabbix lui-même.
+## Configurez et démarrez l'agent Zabbix 2 pour surveiller le serveur Zabbix lui-même.
 ```
 nano /etc/zabbix/zabbix_agent2.conf
 ```
