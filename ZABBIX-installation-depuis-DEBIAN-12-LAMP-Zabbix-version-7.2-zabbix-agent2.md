@@ -18,7 +18,7 @@ Prérequis avant de poursuivre :
 - 03 - [Installer PHP & PHP-FPM.](#balise_02) 
 - 04 - [Installer MySQL (MariaDB)](#balise_03)
 - 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
-- 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_05)
+- 06 - [Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci](#balise_05)
 
 <a name="balise_01"></a>
 ## 01 - Installer un serveur Apache2 fonctionnel de base :
@@ -429,7 +429,7 @@ Phase 08 :
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
 <a name="balise_05"></a>
-## Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci.
+## 006 - Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci.
 
 a). Install Zabbix repository:
 
