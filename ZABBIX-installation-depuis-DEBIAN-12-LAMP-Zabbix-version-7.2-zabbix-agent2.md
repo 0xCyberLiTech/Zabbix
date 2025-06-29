@@ -17,8 +17,8 @@ Prérequis avant de poursuivre :
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
 - 03 - [Installer PHP & PHP-FPM.](#balise_03) 
 - 04 - [Installer MySQL (MariaDB)](#balise_04)
-- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_05)
-- 06 - [Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci](#balise_06)
+- 05 - [Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.2.](#balise_05)
+- 06 - [Installez et configurez l'agent Zabbix 2 pour votre plateforme.](#balise_06)
 - 07 - [Infos complémentaires.](#balise_07)
 
 <a name="balise_01"></a>
@@ -319,7 +319,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_05"></a>
-## 005 - Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
+## 005 - Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.2.
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
@@ -449,7 +449,7 @@ Phase 08 :
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
 <a name="balise_06"></a>
-## 006 - Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci.
+## 006 - Installez et configurez l'agent Zabbix 2 pour votre plateforme.
 
 a). Install Zabbix repository:
 
@@ -485,53 +485,6 @@ systemctl restart zabbix-agent2
 
 ```
 systemctl enable zabbix-agent2
-```
-Vérification des paramètres suivants concernant l'agent Zabbix 2 installé sur le serveur Zabbix.
-
-```
-nano /etc/zabbix/zabbix_agent2.conf
-```
-```
-Server=127.0.0.1
-```
-```
-ServerActive=127.0.0.1
-```
-```
-Hostname=Zabbix server
-```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-```
-systemctl restart zabbix-agent2.service
-```
-Modifiez les valeurs PHP pour les exigences Zabbix.
-```
-nano /etc/php/8.2/fpm/pool.d/www.conf
-```
-```
-# add to the end
-php_value[max_execution_time] = 300
-php_value[memory_limit] = 128M
-php_value[post_max_size] = 16M
-php_value[upload_max_filesize] = 2M
-php_value[max_input_time] = 300
-php_value[max_input_vars] = 10000
-php_value[always_populate_raw_post_data] = -1
-php_value[date.timezone] = Europe/Paris
-```
-Enregistrer les modifications et quitter nano
-```
-Ctrl+o & Ctrl+x
-```
-Redémarrer les services zabbix-server zabbix-agent2 et apache2
-```
-systemctl restart zabbix-server zabbix-agent2 apache2
-```
-```
-systemctl enable zabbix-server zabbix-agent2 apache2
 ```
 <a name="balise_07"></a>
 ## 07 - Infos complémentaires :
