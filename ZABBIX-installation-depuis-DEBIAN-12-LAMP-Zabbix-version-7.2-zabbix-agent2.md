@@ -9,6 +9,7 @@ Prérequis avant de poursuivre :
 - Mise à jour du système.
 - Seveur Apache + PHP opérationnel.
 - Serveur MySQL opérationnel.
+- Serveur de temps NTP.
 
 ## Voici les étapes suivantes que vous devez réaliser :
 
@@ -317,7 +318,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_04"></a>
-## Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
+## 005 - Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
