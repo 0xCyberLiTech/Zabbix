@@ -15,10 +15,11 @@ Prérequis avant de poursuivre :
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
-- 03 - [Installer PHP & PHP-FPM.](#balise_02) 
-- 04 - [Installer MySQL (MariaDB)](#balise_03)
-- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
-- 06 - [Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci](#balise_05)
+- 03 - [Installer PHP & PHP-FPM.](#balise_03) 
+- 04 - [Installer MySQL (MariaDB)](#balise_04)
+- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_05)
+- 06 - [Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci](#balise_06)
+- 07 - [Infos complémentaires.](#balise_07)
 
 <a name="balise_01"></a>
 ## 01 - Installer un serveur Apache2 fonctionnel de base :
@@ -35,7 +36,7 @@ systemctl enable apache2.service
 ```
 systemctl status apache2.service
 ```
-<a name="balise_02"></a>
+<a name="balise_03"></a>
 ## 03 - Installer PHP & PHP-FPM :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
@@ -123,7 +124,7 @@ Serveur API <--> FPM/FastCGI
 
 C'est Ok pour la prise en charge de PHP + PHP FPM, passons à la suite.
 
-<a name="balise_03"></a>
+<a name="balise_04"></a>
 ## 004 - Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
@@ -317,7 +318,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 ```
 systemctl start mariadb
 ```
-<a name="balise_04"></a>
+<a name="balise_05"></a>
 ## 005 - Installer Zabbix dans ça dernière version stable 7.2 à ce jour (28-06-2025).
 
 - Avant de commencer il faut installer et configurer (NTPsec).
@@ -379,6 +380,25 @@ Modifier le fichier /etc/zabbix/zabbix_server.conf
 ```
 DBPassword=password
 ```
+Modifiez les valeurs PHP pour les exigences Zabbix.
+```
+nano /etc/php/8.2/fpm/pool.d/www.conf
+```
+```
+; add to the end
+php_value[max_execution_time] = 300
+php_value[memory_limit] = 128M
+php_value[post_max_size] = 16M
+php_value[upload_max_filesize] = 2M
+php_value[max_input_time] = 300
+php_value[max_input_vars] = 10000
+php_value[always_populate_raw_post_data] = -1
+php_value[date.timezone] = Europe/Paris
+```
+Enregistrer les modifications et quitter nano
+```
+Ctrl+o & Ctrl+x
+```
 f). Démarrer les processus du serveur et de l'agent Zabbix
 
 Démarrez les processus du serveur et de l'agent Zabbix et faites-les démarrer au démarrage du système.
@@ -428,7 +448,7 @@ Phase 08 :
 
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
-<a name="balise_05"></a>
+<a name="balise_06"></a>
 ## 006 - Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci.
 
 a). Install Zabbix repository:
@@ -506,53 +526,6 @@ Enregistrer les modifications et quitter nano
 ```
 Ctrl+o & Ctrl+x
 ```
-Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
-```
-nano /etc/apache2/conf-enabled/zabbix.conf
-```
-Ajouter :
-```
-<IfModule mod_alias.c>
-    Alias /zabbix /usr/share/zabbix/ui
-</IfModule>
-```
-```
-# Define /zabbix alias, this is the default
-<IfModule mod_alias.c>
-    Alias /zabbix /usr/share/zabbix/ui
-</IfModule>
-
-<Directory "/usr/share/zabbix/ui">
-    Options FollowSymLinks
-    AllowOverride None
-    Order allow,deny
-    Allow from all
-
-    <IfModule mod_php.c>
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        php_value max_input_vars 10000
-        php_value always_populate_raw_post_data -1
-    </IfModule>
-
-    <IfModule mod_php7.c>
-        php_value max_execution_time 300
-        php_value memory_limit 128M
-        php_value post_max_size 16M
-        php_value upload_max_filesize 2M
-        php_value max_input_time 300
-        php_value max_input_vars 10000
-        php_value always_populate_raw_post_data -1
-    </IfModule>
-</Directory>
-
-```
-```
-systemctl restart apache2 php8.2-fpm
-```
 Redémarrer les services zabbix-server zabbix-agent2 et apache2
 ```
 systemctl restart zabbix-server zabbix-agent2 apache2
@@ -560,10 +533,21 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 systemctl enable zabbix-server zabbix-agent2 apache2
 ```
-Info pour la consultation des logs de l'agent zabbix :
+<a name="balise_07"></a>
+## 07 - Infos complémentaires :
+
+- Consultation des logs de l'agent zabbix.
+- Activation de l'exécution des scripts dans Zabbix.
+- Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
+
+Consultation des logs de l'agent zabbix.
+
 ```
 tail -100f /var/log/zabbix/zabbix_agent2.log
 ```
+
+Activation de l'exécution des scripts dans Zabbix.
+
 ## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.2.
 
 ![script.png](./images/script.png)
@@ -610,7 +594,7 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ![ping.png](./images/ping.png)
 
-## Concernant l'utilisation d'un firewall (UFW) sur votre serveur Zabbix :
+Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
 
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
