@@ -6,10 +6,9 @@
 
 Prérequis :
 
-Mise à jour du système :
-Seveur Apache + PHP opérationnel
-Serveur MySQL opérationnel
-## Commençons par installer notre serveur LAMP.
+- Mise à jour du système.
+- Seveur Apache + PHP opérationnel.
+- Serveur MySQL opérationnel.
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
