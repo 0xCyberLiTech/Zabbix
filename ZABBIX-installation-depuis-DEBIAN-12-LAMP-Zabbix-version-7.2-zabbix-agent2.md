@@ -361,8 +361,82 @@ g). Ouvrir la page Web de l'interface utilisateur de Zabbix
 
 L'URL par défaut de l'interface utilisateur Zabbix lors de l'utilisation du serveur Web Apache est http://host/zabbix
 
+Se rendre vers http://mon-ip-local/zabbix :
+
+Nous allons finaliser cette installation depuis l'interface Web : navigateur :
+
+Phase 01 :
+
+![Zabbix-7-001.png](./images/Zabbix-7-001.png)
+
+Phase 02 :
+
+![Zabbix-7-002.png](./images/Zabbix-7-002.png)
+
+Phase 03 :
+
+![Zabbix-7-003.png](./images/Zabbix-7-003.png)
+
+Phase 04 :
+
+![Zabbix-7-004.png](./images/Zabbix-7-004.png)
+
+Phase 05 :
+
+![Zabbix-7-005.png](./images/Zabbix-7-005.png)
+
+Phase 06 :
+
+![Zabbix-7-006.png](./images/Zabbix-7-006.png)
+
+Phase 07 :
+
+![Zabbix-7-007.png](./images/Zabbix-7-007.png)
+
+Phase 08 :
+
+![Zabbix-7-008.png](./images/Zabbix-7-008.png)
+
 <a name="balise_05"></a>
-## Configurez et démarrez l'agent Zabbix 2 pour surveiller le serveur Zabbix lui-même.
+## Installez, configurez et démarrer l'agent Zabbix 2 sur votre serveur Zabbix afin de surveiller celui-ci.
+
+a). Install Zabbix repository:
+
+```
+wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+```
+
+```
+dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+```
+
+```
+apt update
+```
+b). Install Zabbix agent 2 :
+
+Install zabbix-agent2 package.
+```
+apt install zabbix-agent2
+```
+c). Install Zabbix agent 2 plugins
+
+Vous pouvez installer les plugins de l'agent 2 de Zabbix.
+```
+apt install zabbix-agent2-plugin-mongodb zabbix-agent2-plugin-mssql zabbix-agent2-plugin-postgresql
+```
+d). Start Zabbix agent 2 process
+
+Démarrez le processus de l'agent Zabbix 2 et faites-le démarrer au démarrage du système.
+```
+systemctl restart zabbix-agent2
+```
+
+```
+systemctl enable zabbix-agent2
+```
+Vérification des paramètres suivants concernant l'agent Zabbix 2 installé sur le serveur Zabbix.
+
 ```
 nano /etc/zabbix/zabbix_agent2.conf
 ```
@@ -405,13 +479,19 @@ Vérification de la configuration /etc/apache2/conf-enabled/zabbix.conf
 ```
 nano /etc/apache2/conf-enabled/zabbix.conf
 ```
+Ajouter :
+```
+<IfModule mod_alias.c>
+    Alias /zabbix /usr/share/zabbix/ui
+</IfModule>
+```
 ```
 # Define /zabbix alias, this is the default
 <IfModule mod_alias.c>
-    Alias /zabbix /usr/share/zabbix
+    Alias /zabbix /usr/share/zabbix/ui
 </IfModule>
 
-<Directory "/usr/share/zabbix">
+<Directory "/usr/share/zabbix/ui">
     Options FollowSymLinks
     AllowOverride None
     Order allow,deny
@@ -425,7 +505,6 @@ nano /etc/apache2/conf-enabled/zabbix.conf
         php_value max_input_time 300
         php_value max_input_vars 10000
         php_value always_populate_raw_post_data -1
-        php_value date.timezone Europe/Paris
     </IfModule>
 
     <IfModule mod_php7.c>
@@ -436,54 +515,9 @@ nano /etc/apache2/conf-enabled/zabbix.conf
         php_value max_input_time 300
         php_value max_input_vars 10000
         php_value always_populate_raw_post_data -1
-        php_value[date.timezone] = Europe/Paris
     </IfModule>
 </Directory>
 
-<Directory "/usr/share/zabbix/conf">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
-
-<Directory "/usr/share/zabbix/app">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
-
-<Directory "/usr/share/zabbix/include">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
-
-<Directory "/usr/share/zabbix/local">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
-
-<Directory "/usr/share/zabbix/vendor">
-    Order deny,allow
-    Deny from all
-    <files *.php>
-        Order deny,allow
-        Deny from all
-    </files>
-</Directory>
 ```
 ```
 systemctl restart apache2 php8.2-fpm
@@ -499,42 +533,6 @@ Info pour la consultation des logs de l'agent zabbix :
 ```
 tail -100f /var/log/zabbix/zabbix_agent2.log
 ```
-Se rendre vers http://mon-ip-local/zabbix :
-
-Nous allons finaliser cette installation depuis notre navigateur :
-
-Phase 01 :
-
-![Zabbix-7-001.png](./images/Zabbix-7-001.png)
-
-Phase 02 :
-
-![Zabbix-7-002.png](./images/Zabbix-7-002.png)
-
-Phase 03 :
-
-![Zabbix-7-003.png](./images/Zabbix-7-003.png)
-
-Phase 04 :
-
-![Zabbix-7-004.png](./images/Zabbix-7-004.png)
-
-Phase 05 :
-
-![Zabbix-7-005.png](./images/Zabbix-7-005.png)
-
-Phase 06 :
-
-![Zabbix-7-006.png](./images/Zabbix-7-006.png)
-
-Phase 07 :
-
-![Zabbix-7-007.png](./images/Zabbix-7-007.png)
-
-Phase 08 :
-
-![Zabbix-7-008.png](./images/Zabbix-7-008.png)
-
 ## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.2.
 
 ![script.png](./images/script.png)
