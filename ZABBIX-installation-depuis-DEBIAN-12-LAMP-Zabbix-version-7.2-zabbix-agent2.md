@@ -4,11 +4,13 @@
 
 ## Sommaire :
 
-Prérequis :
+Prérequis avant de poursuivre :
 
 - Mise à jour du système.
 - Seveur Apache + PHP opérationnel.
 - Serveur MySQL opérationnel.
+
+## Voici les étapes suivantes que vous devez réaliser :
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
