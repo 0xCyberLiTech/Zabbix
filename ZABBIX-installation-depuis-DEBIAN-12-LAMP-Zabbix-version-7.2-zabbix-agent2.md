@@ -115,7 +115,7 @@ Créez le fichier [info.php] dans la racine du dossier Web, ( /va/www/html/ ).
 echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 ```
 Accéder à l'Url http://mon-ip-local/info.php afin de tester.
-Cette page nous permet d'avoir accès à l'ensemble des informations , peut être très utile.
+Cette page nous permet d'avoir accès à l'ensemble des informations PHP (version, extensions, config, etc.), peut être très utile.
 
 On peut y constater que le module FPM esy pris en charge.
 
