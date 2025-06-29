@@ -139,7 +139,7 @@ collation-server      = utf8mb4_general_ci
 ```
 systemctl restart mariadb.service
 ```
-Sécuriser le serveur MariaDB :
+## Sécuriser le serveur MariaDB :
 ```
 mysql_secure_installation
 ```
@@ -216,6 +216,9 @@ Thanks for using MariaDB!
 ```
 systemctl restart mariadb.service
 ```
+## Rappel sur les base de MySQL avant de poursuivre.
+Si vous ne vous santez pas concerné passer à l'étape suivante, [Cliquer ici.](#balise_04)
+
 Se connecter à MySQL :
 ```
 mysql
