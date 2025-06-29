@@ -123,7 +123,7 @@ Serveur API <--> FPM/FastCGI
 C'est Ok pour la prise en charge de PHP + PHP FPM, passons à la suite.
 
 <a name="balise_03"></a>
-## Installation du serveur MariaDB (MySQL)
+## 004 - Installation du serveur MariaDB (MySQL)
 
 Nous devons exécuter la commande comme mentionné ci-dessous :
 ```
