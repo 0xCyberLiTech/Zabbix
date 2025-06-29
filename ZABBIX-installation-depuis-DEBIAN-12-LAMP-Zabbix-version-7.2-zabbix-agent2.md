@@ -9,7 +9,7 @@ Prérequis avant de poursuivre :
 - Mise à jour du système.
 - Seveur Apache + PHP opérationnel.
 - Serveur MySQL opérationnel.
-- Serveur de temps NTP.
+- Serveur de temps NTP opérationnel.
 
 ## Voici les étapes suivantes que vous devez réaliser :
 
