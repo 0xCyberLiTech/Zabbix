@@ -219,7 +219,7 @@ Thanks for using MariaDB!
 systemctl restart mariadb.service
 ```
 ## Rappel sur les base de MySQL avant de poursuivre.
-Si vous ne vous santez pas concerné passer à l'étape suivante, [Cliquer ici.](#balise_04)
+Si vous ne vous santez pas concerné passer à l'étape suivante, [Cliquer ici.](#balise_05)
 
 Se connecter à MySQL :
 ```
