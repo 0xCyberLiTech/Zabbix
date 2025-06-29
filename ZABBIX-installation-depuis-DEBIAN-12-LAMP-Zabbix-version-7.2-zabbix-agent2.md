@@ -14,7 +14,7 @@ Prérequis avant de poursuivre :
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
-- 03 - [Installer PHP.](#balise_02) 
+- 03 - [Installer PHP & PHP-FPM.](#balise_02) 
 - 04 - [Installer MySQL (MariaDB)](#balise_03)
 - 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
 - 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_05)
@@ -35,20 +35,18 @@ systemctl enable apache2.service
 systemctl status apache2.service
 ```
 <a name="balise_02"></a>
-## 03 - Installer PHP :
+## 03 - Installer PHP & PHP-FPM :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-## Installer PHP-FPM
+## Installer le module PHP-FPM :
 
-A quoi sert PHP-FPM
+A quoi sert ce module PHP-FPM, concrètement ?
 
 PHP-FPM signifie PHP FastCGI Process Manager. Son rôle principal est de gérer l’exécution des scripts PHP sur un serveur web de manière plus rapide, plus efficace et plus sécurisée.
-
-À quoi ça sert, concrètement ?
 
 - Améliorer les performances : PHP-FPM lance plusieurs processus PHP en avance, prêts à exécuter des scripts sans délai.
 - Mieux gérer la charge : Il répartit intelligemment les requêtes entre les différents processus PHP, ce qui aide quand il y a beaucoup de trafic.
@@ -67,9 +65,27 @@ nano /etc/apache2/sites-enabled/000-default.conf
                 SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
         </FilesMatch>
 ```
+À quoi ça sert ?
+
+Elle dit à Apache (le serveur web) :
+
+➡️ “Pour exécuter les fichiers PHP, envoie-les à PHP-FPM via ce fichier spécial (le socket)”.
+
+🧠 Décomposons :
+- proxy:unix:/var/run/php/php8.2-fpm.sock → c’est le chemin du socket utilisé pour parler à PHP-FPM.
+- |fcgi://localhost/ → indique qu’on utilise le protocole FastCGI pour communiquer.
+
 ```
 a2enmod proxy_fcgi setenvif
 ```
+À quoi ça sert ?
+
+Sert à activer deux modules Apache :
+
+- 🧩 proxy_fcgi : permet à Apache de parler avec PHP-FPM (via FastCGI).
+- ⚙️ setenvif : permet de définir des variables d’environnement selon la requête (utile pour PHP-FPM aussi).
+
+
 ```
 Considering dependency proxy for proxy_fcgi:
 Enabling module proxy.
@@ -92,19 +108,22 @@ To activate the new configuration, you need to run:
 ```
 systemctl restart php8.2-fpm apache2
 ```
+## Test de PHP :
+
 Créez le fichier [info.php] dans la racine du dossier Web, ( /va/www/html/ ).
 ```
 echo '<?php phpinfo(); ?>' > /var/www/html/info.php
 ```
 Accéder à l'Url http://mon-ip-local/info.php afin de tester.
+Cette page nous permet d'avoir accès à l'ensemble des informations , peut être très utile.
 
-On peut constater que le module FPM esy pris en charge.
+On peut y constater que le module FPM esy pris en charge.
 
 Serveur API <--> FPM/FastCGI
 
 ![zabbix-29.png](./images/php.png)
 
-C'est Ok pour la prise en charge de FPM, passons à la suite.
+C'est Ok pour la prise en charge de PHP + PHP FPM, passons à la suite.
 
 <a name="balise_03"></a>
 ## Installation du serveur MariaDB (MySQL)
