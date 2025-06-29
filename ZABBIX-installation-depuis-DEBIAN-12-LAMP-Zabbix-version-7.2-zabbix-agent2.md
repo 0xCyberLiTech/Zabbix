@@ -13,7 +13,7 @@ apt update && apt upgrade -y
 ## Commençons par installer notre serveur LAMP.
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
-- 02 - [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md)
+- 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
 - 03 - [Installer PHP.](#balise_02) 
 - 04 - [Installer MySQL (MariaDB)](#balise_03)
 - 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
