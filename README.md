@@ -13,3 +13,13 @@
 - 07 - [ZABBIX - Surveillance avec Grafana.md](ZABBIX-Surveillance-avec-Grafana.md)
 - 08 - [ZABBIX - Création de base d'un tableau de bord sur Grafana.](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md)
 
+---
+
+Merci pour ta visite — et bon déploiement Debian ! 💻🚀
+
+---
+
+<p align="center">
+  🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessible à tous.
+</p>
+
