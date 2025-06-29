@@ -13,11 +13,11 @@ apt update && apt upgrade -y
 ## Commençons par installer notre serveur LAMP.
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
-- 02 - [Créé deux VirtualHosts HTTP & HTTPS.](#balise_02)
-- 03 - [Installer PHP.](#balise_03) 
-- 04 - [Installer MySQL (MariaDB)](#balise_04)
-- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_05)
-- 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_06)
+- 02 - [Créé deux VirtualHosts HTTP & HTTPS.](Créé-deux-VirtualHosts-HTTP-HTTPS.md)
+- 03 - [Installer PHP.](#balise_02) 
+- 04 - [Installer MySQL (MariaDB)](#balise_03)
+- 05 - [Installer ZABBIX dans sa dernière version stable 7.2 pour la prod.](#balise_04)
+- 06 - [Configurer et démarrer l'agent ZABBIX 2 sur le serveur ZABBIX afin de surveiller celui-ci.](#balise_05)
 
 <a name="balise_01"></a>
 ## 01 - Installer un serveur Apache2 fonctionnel de base :
@@ -35,14 +35,14 @@ systemctl enable apache2.service
 systemctl status apache2.service
 ```
 <a name="balise_02"></a>
-## Installer PHP :
+## 03 - Installer PHP :
 
 Pour DEBIAN 12 (Bookworm), la version de PHP est 8.2.
 Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-## Installation de PHP-FPM
+Installer PHP-FPM
 ````
 apt -y install php-fpm
 ````
