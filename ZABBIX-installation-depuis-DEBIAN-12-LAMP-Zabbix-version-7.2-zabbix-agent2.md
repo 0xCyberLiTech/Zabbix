@@ -42,7 +42,18 @@ Pour DEBIAN 11 (Bullseye), la version de PHP est 7.4.
 ```
 apt install php
 ```
-Installer PHP-FPM
+## Installer PHP-FPM
+
+A quoi sert PHP-FPM
+
+PHP-FPM signifie PHP FastCGI Process Manager. Son rôle principal est de gérer l’exécution des scripts PHP sur un serveur web de manière plus rapide, plus efficace et plus sécurisée.
+
+À quoi ça sert, concrètement ?
+
+- Améliorer les performances : PHP-FPM lance plusieurs processus PHP en avance, prêts à exécuter des scripts sans délai.
+- Mieux gérer la charge : Il répartit intelligemment les requêtes entre les différents processus PHP, ce qui aide quand il y a beaucoup de trafic.
+- Configurer plus finement : On peut adapter les réglages (nombre de processus, limites de mémoire, etc.) selon chaque site ou application.
+
 ````
 apt -y install php-fpm
 ````
