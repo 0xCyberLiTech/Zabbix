@@ -7,9 +7,8 @@
 Prérequis :
 
 Mise à jour du système :
-```
-apt update && apt upgrade -y
-```
+Seveur Apache + PHP opérationnel
+Serveur MySQL opérationnel
 ## Commençons par installer notre serveur LAMP.
 
 - 01 - [Installer un serveur Apache2 fonctionnel de base.](#balise_01)
