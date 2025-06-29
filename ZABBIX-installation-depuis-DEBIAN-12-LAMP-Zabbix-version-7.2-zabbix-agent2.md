@@ -67,8 +67,6 @@ nano /etc/apache2/sites-enabled/000-default.conf
 ```
 À quoi ça sert ?
 
-Elle dit à Apache (le serveur web) :
-
 ➡️ “Pour exécuter les fichiers PHP, envoie-les à PHP-FPM via ce fichier spécial (le socket)”.
 
 🧠 Décomposons :
@@ -84,7 +82,6 @@ Sert à activer deux modules Apache :
 
 - 🧩 proxy_fcgi : permet à Apache de parler avec PHP-FPM (via FastCGI).
 - ⚙️ setenvif : permet de définir des variables d’environnement selon la requête (utile pour PHP-FPM aussi).
-
 
 ```
 Considering dependency proxy for proxy_fcgi:
