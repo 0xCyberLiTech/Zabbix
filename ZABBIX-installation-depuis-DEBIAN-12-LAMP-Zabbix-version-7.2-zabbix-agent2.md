@@ -509,7 +509,7 @@ Ces outils sont nécessaires pour les vérifications ICMP (ping) dans Zabbix.
 
 Voici comment résoudre ça 👇
 
-✅ Étapes de résolution
+Étapes de résolution
 - Vérifie si fping est installé :
 
 ```
@@ -529,17 +529,24 @@ sudo apt install fping
   
 - Deux solutions possibles :
 
--1 Créer un lien symbolique :
+- 1 ✅ Créer un lien symbolique :
 
 ```
 sudo ln -s /usr/bin/fping /usr/sbin/fping
+```
+```
 sudo ln -s /usr/bin/fping6 /usr/sbin/fping6
 ```
--2 Ou modifier la config Zabbix : 
+-2 ✅ Ou modifier la config Zabbix : 
 
 Dans /etc/zabbix/zabbix_server.conf, ajoute ou décommente :
 ```
+nano /etc/zabbix/zabbix_server.conf
+```
+```
 FpingLocation=/usr/bin/fping
+```
+```
 Fping6Location=/usr/bin/fping6
 ```
 
