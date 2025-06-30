@@ -489,17 +489,65 @@ systemctl enable zabbix-agent2
 <a name="balise_07"></a>
 ## 07 - Infos complémentaires :
 
-- Consultation des logs de l'agent zabbix.
-- Activation de l'exécution des scripts dans Zabbix.
-- Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
+- A - Message d'erreur ping & ping6
+- B - Consultation des logs de l'agent zabbix.
+- C - Activation de l'exécution des scripts dans Zabbix.
+- D - Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
 
-Consultation des logs de l'agent zabbix.
+- A - Message d'erreur ping & ping6
+  
+```
+At least one of '/usr/sbin/fping', '/usr/sbin/fping6' must exist. Both are missing in the system.
+```
+![Zabbix-7-008.png](./images/Zabbix-7-008.png)
+
+Ce message d’erreur indique que Zabbix ne trouve pas les exécutables fping ou fping6 à l’endroit attendu (/usr/sbin). 
+
+Ces outils sont nécessaires pour les vérifications ICMP (ping) dans Zabbix.
+
+Voici comment résoudre ça 👇
+
+✅ Étapes de résolution
+- Vérifie si fping est installé :
+
+```
+which fping
+```
+Chemin qui à été trouvé ou est installé fping :
+```
+/usr/bin/fping
+```
+- S’il n’est pas installé, installe-le :
+
+- Sur Debian/Ubuntu :
+```
+sudo apt install fping
+```
+- Il est souvent installé dans /usr/bin/fping, alors que Zabbix le cherche dans /usr/sbin.
+  
+- Deux solutions possibles :
+
+-1 Créer un lien symbolique :
+
+```
+sudo ln -s /usr/bin/fping /usr/sbin/fping
+sudo ln -s /usr/bin/fping6 /usr/sbin/fping6
+```
+-2 Ou modifier la config Zabbix : 
+
+Dans /etc/zabbix/zabbix_server.conf, ajoute ou décommente :
+```
+FpingLocation=/usr/bin/fping
+Fping6Location=/usr/bin/fping6
+```
+
+- B -  Consultation des logs de l'agent zabbix.
 
 ```
 tail -100f /var/log/zabbix/zabbix_agent2.log
 ```
 
-Activation de l'exécution des scripts dans Zabbix.
+- C - Activation de l'exécution des scripts dans Zabbix.
 
 ## Très important la variable 'EnableGlobalScripts'  dans le fichier /etc/zabbix/zabbix_server.conf est désactivée par défaut sur ZABBIX 7.2.
 
@@ -547,7 +595,7 @@ systemctl restart zabbix-server zabbix-agent2 apache2
 ```
 ![ping.png](./images/ping.png)
 
-Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
+- D - Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
 
 [Vous pouvez obtenir plus de détail sur UFW ici.](https://github.com/0xCyberLiTech/Cybersecurite/blob/main/UFW-installation-et-configuration.md)
 
