@@ -61,7 +61,7 @@ Ajoutez les paramètres dans le ou les Virtualhosts que vous souhaitez associer 
 ```bash
 nano /etc/apache2/sites-enabled/000-default.conf
 ```
-```bash
+```
 <VirtualHost *:80>
         <FilesMatch \.php$>
                 SetHandler "proxy:unix:/var/run/php/php8.2-fpm.sock|fcgi://localhost/"
@@ -85,7 +85,7 @@ Sert à activer deux modules Apache :
 - 🧩 proxy_fcgi : permet à Apache de parler avec PHP-FPM (via FastCGI).
 - ⚙️ setenvif : permet de définir des variables d’environnement selon la requête (utile pour PHP-FPM aussi).
 
-```bash
+```
 Considering dependency proxy for proxy_fcgi:
 Enabling module proxy.
 Enabling module proxy_fcgi.
@@ -99,7 +99,7 @@ systemctl restart apache2.service
 ```bash
 a2enconf php8.2-fpm
 ```
-```bash
+```
 Enabling conf php8.2-fpm.
 To activate the new configuration, you need to run:
   systemctl reload apache2
@@ -381,14 +381,14 @@ mysql> quit;
 e). Configurer la base de données pour le serveur Zabbix :
 
 Modifier le fichier /etc/zabbix/zabbix_server.conf
-```bash
+```
 DBPassword=password
 ```
 Modifiez les valeurs PHP pour les exigences Zabbix.
 ```bash
 nano /etc/php/8.2/fpm/pool.d/www.conf
 ```
-```bash
+```
 ; add to the end
 php_value[max_execution_time] = 300
 php_value[memory_limit] = 128M
@@ -570,7 +570,7 @@ tail -100f /var/log/zabbix/zabbix_agent2.log
 nano /etc/zabbix/zabbix_server.conf
 ```
 Avant modification :
-```bash
+```
 ### Option: EnableGlobalScripts
 #    Enable global scripts on Zabbix server.
 #       0 - disable
@@ -582,7 +582,7 @@ Avant modification :
 EnableGlobalScripts=0
 ```
 Après modification :
-```bash
+```
 ### Option: EnableGlobalScripts
 #    Enable global scripts on Zabbix server.
 #       0 - disable
