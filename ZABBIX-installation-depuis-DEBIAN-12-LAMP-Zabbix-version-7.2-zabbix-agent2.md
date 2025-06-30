@@ -223,7 +223,7 @@ Si vous ne vous sentez pas concerné passer à l'étape suivante, [Cliquer ici.]
 
 Se connecter à MySQL :
 ```bash
-mysql -root -p
+mysql -uroot -p
 ```
 - [Unix_Socket] authentication is enabled by default :
 ```
