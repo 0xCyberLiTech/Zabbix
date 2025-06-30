@@ -499,7 +499,7 @@ systemctl enable zabbix-agent2
 ```
 At least one of '/usr/sbin/fping', '/usr/sbin/fping6' must exist. Both are missing in the system.
 ```
-![Zabbix-7-008.png](./images/Zabbix-7-008.png)
+![donnees_graph_ping_ping6.png](./images/donnees_graph_ping_ping6.png)
 
 Ce message d’erreur indique que Zabbix ne trouve pas les exécutables fping ou fping6 à l’endroit attendu (/usr/sbin). 
 
