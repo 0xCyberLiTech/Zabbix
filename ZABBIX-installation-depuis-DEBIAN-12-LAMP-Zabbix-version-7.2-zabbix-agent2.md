@@ -494,6 +494,8 @@ systemctl enable zabbix-agent2
 - C - Activation de l'exécution des scripts dans Zabbix.
 - D - Utilisation d'un firewall (UFW) sur votre serveur Zabbix.
 
+Allons y commençons par :
+
 - A - Message d'erreur ping & ping6
   
 ```
