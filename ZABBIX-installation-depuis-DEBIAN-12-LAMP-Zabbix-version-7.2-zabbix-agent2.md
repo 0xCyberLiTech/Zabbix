@@ -145,7 +145,7 @@ systemctl restart mariadb.service
 ```bash
 mysql_secure_installation
 ```
-```bash
+```
 NOTE: RUNNING ALL PARTS OF THIS SCRIPT IS RECOMMENDED FOR ALL MariaDB
       SERVERS IN PRODUCTION USE!  PLEASE READ EACH STEP CAREFULLY!
 
