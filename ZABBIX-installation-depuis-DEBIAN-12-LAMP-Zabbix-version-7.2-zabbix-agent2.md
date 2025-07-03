@@ -1,6 +1,6 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.2 + zabbix-agent2.
+## ZABBIX installation depuis DEBIAN 12 (LAMP + Zabbix version 7.4 + zabbix-agent2.
 
 ## Sommaire :
 
@@ -17,7 +17,7 @@ Prérequis avant de poursuivre :
 - 02 - [Créé deux VirtualHosts HTTP & HTTPS.](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md)
 - 03 - [Installer PHP & PHP-FPM.](#balise_03) 
 - 04 - [Installer MySQL (MariaDB)](#balise_04)
-- 05 - [Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.2.](#balise_05)
+- 05 - [Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.4.](#balise_05)
 - 06 - [Installez et configurez l'agent Zabbix 2 pour votre plateforme.](#balise_06)
 - 07 - [Infos complémentaires.](#balise_07)
 
@@ -319,24 +319,24 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_05"></a>
-## 005 - Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.2.
+## 005 - Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.4.
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
 [Installer et configurer (NTPsec)](https://github.com/0xCyberLiTech/NTPsec/blob/main/Installer-et-configurer-NTPsec.md)
 
-- Ajoutez les derniers dépôts stables pour Zabbix 7.2.
+- Ajoutez les derniers dépôts stables pour Zabbix 7.4.
 
 Pour surveiller Zabbix lui-même, il faudra également installer l'agent Zabbix 2 sur ce serveur et configurer celui-ci.
 
-Suivre la version des derniers dépôts (en prod 7.2) : https://repo.zabbix.com/zabbix/7.2/ à ce jou 28-06-2025.
+Suivre la version des derniers dépôts (en prod 7.4) : https://repo.zabbix.com/zabbix/7.4/ à ce jou 03-07-2025.
 
 a). Install Zabbix repository :
 ```bash
-wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian12_all.deb
 ```
 ```bash
-dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.4+debian12_all.deb
 ```
 ```bash
 apt update
@@ -458,11 +458,11 @@ Phase 08 :
 a). Install Zabbix repository:
 
 ```bash
-wget https://repo.zabbix.com/zabbix/7.2/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.2+debian12_all.deb
+wget https://repo.zabbix.com/zabbix/7.4/release/debian/pool/main/z/zabbix-release/zabbix-release_latest_7.4+debian12_all.deb
 ```
 
 ```bash
-dpkg -i zabbix-release_latest_7.2+debian12_all.deb
+dpkg -i zabbix-release_latest_7.4+debian12_all.deb
 ```
 
 ```bash
