@@ -1,6 +1,8 @@
------------------------------------------------------------------
-Mise à jour de Zabbix 7.2 vers 7.4 sur Debian (MariaDB + Apache2)
------------------------------------------------------------------
+![zabbix-logo](./images/zabbix-logo.png)
+
+## ZABBIX - Mise à jour de Zabbix 7.2 vers 7.4 sur Debian (MariaDB + Apache2).
+
+## Sommaire :
 
 🧱 Prérequis
 
