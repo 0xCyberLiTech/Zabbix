@@ -70,8 +70,6 @@ Ou via terminal :
 
 zabbix_server -V | head -n 1
 
-```
-
 <p align="center">
   🔒 CyberSécurité par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Made with 💻
 </p>
