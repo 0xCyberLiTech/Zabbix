@@ -10,7 +10,7 @@
 - 04 - [ZABBIX - Script backup automatisé.md.](ZABBIX-Script-backup-automatisé.md)
 - 05 - [ZABBIX - Surveillance avec Grafana.md](ZABBIX-Surveillance-avec-Grafana.md)
 - 06 - [ZABBIX - Création de base d'un tableau de bord sur Grafana.](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md)
-
+- 07 - [ZABBIX - Mise à jour de Zabbix 7.2 vers 7.4 sur Debian (MariaDB+Apache2).](Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md)
 ---
 
 Merci pour ta visite — et bon déploiement Debian ! 💻🚀
