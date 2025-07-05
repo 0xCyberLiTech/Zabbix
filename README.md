@@ -1,7 +1,7 @@
 <div align="center">
 
 <a href="https://github.com/0xCyberLiTech">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=33FF33&center=true&vCenter=true&width=650&lines=SUPERVISION+AVEC+ZABBIX;Installation+•+Sécurité+•+Sauvegarde;Tutoriels+pour+Debian+12" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=33FF33&center=true&vCenter=true&width=700&lines=SUPERVISION+AVEC+ZABBIX;Installation+•+Sécurité+•+Backup;Tutoriels+pour+Debian" alt="Typing SVG" />
 </a>
 
 <p align="center">
@@ -37,8 +37,6 @@
 > * 🎓 Autodidacte, avec un fort esprit de transmission
 > * 🔐 Intéressé par la cybersécurité, les solutions open source et la performance système
 > * 🧪 Toujours partant pour tester une nouvelle stack technique
-
----
 
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
