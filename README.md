@@ -29,7 +29,7 @@
 
 ---
 
-### 🧭 **Navigation du Dépôt**
+### 🧭 **Sommaire :**
 
 <div align="center">
 
