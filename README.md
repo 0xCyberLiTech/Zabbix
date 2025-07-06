@@ -13,6 +13,22 @@
 
 ---
 
+### 👨‍💻 **À propos de moi.**
+
+> Ce dépôt constitue mon laboratoire numérique où je consigne rigoureusement mes apprentissages et expérimentations.
+> Passionné par l'écosystème Linux et la cybersécurité, je documente mon parcours et mes projets sur mon GitHub.
+> Vous y trouverez des guides pratiques sur la supervision (Zabbix, Nagios), la conteneurisation (Docker) et la sécurisation de serveurs Debian.
+> Mon objectif : partager mes connaissances de manière claire et pédagogique.
+> N'hésitez pas à y jeter un œil : https://github.com/0xcyberlitech
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,grafana,prometheus,git,vim" />
+  </a>
+</p>
+
+---
+
 ### 🧭 **Navigation du Dépôt**
 
 <div align="center">
@@ -28,15 +44,6 @@
 | **Mise à jour** | Mettre à jour Zabbix de 7.2 vers 7.4 sur Debian | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX_Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md) |
 
 </div>
-
----
-
-### 👨‍💻 **À propos de moi**
-
-> * 💡 Passionné par Debian GNU/Linux depuis plusieurs années
-> * 🎓 Autodidacte, avec un fort esprit de transmission
-> * 🔐 Intéressé par la cybersécurité, les solutions open source et la performance système
-> * 🧪 Toujours partant pour tester une nouvelle stack technique
 
 ---
 
