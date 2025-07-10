@@ -173,6 +173,17 @@ echo "🎉 Mise à jour de Zabbix 7.2 → 7.4 terminée avec succès !"
 chmod +x upgrade_zabbix_7.2_to_7.4.sh
 ```
 
+---
+
+**Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
+</p>
+
+
 <p align="center">
   🔒 CyberSécurité par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Made with 💻
 </p>
