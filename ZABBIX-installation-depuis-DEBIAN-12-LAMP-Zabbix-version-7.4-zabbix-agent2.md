@@ -653,6 +653,13 @@ ufw status numbered
 [ 5] 192.168.50.250 10051/tcp  on enp86s0 ALLOW IN    192.168.0.0/16             # 1051 agent Zabbix - For Active checks
 ```
 
+---
+
+**Mise à jour :** Juillet 2025
+
+---
+
 <p align="center">
-  🔒 CyberSécurité par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Made with 🔒
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
 </p>
+
