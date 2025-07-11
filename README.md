@@ -40,8 +40,8 @@
 | **Sauvegarde** | Sauvegarde et restauration de la base de données MySQL | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-MySQL-sauvegarde-restauration.md) |
 | **Sauvegarde** | Script de backup automatisé | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Script-backup-automatisé.md) |
 | **Grafana** | Intégrer Zabbix comme source de données dans Grafana | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Surveillance-avec-Grafana.md) |
-| **Grafana** | Création d'un tableau de bord de base | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md) |
-| **Mise à jour** | Mettre à jour Zabbix de 7.2 vers 7.4 sur Debian | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX_Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md) |
+| **Dashboard** | Création d'un tableau de bord de base | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md) |
+| **Update** | Mettre à jour Zabbix de 7.2 vers 7.4 sur Debian | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX_Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md) |
 
 </div>
 
