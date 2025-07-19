@@ -325,7 +325,7 @@ mysql_install_db --datadir=/var/lib/mysql --user=mysql
 systemctl start mariadb
 ```
 <a name="balise_05"></a>
-## 005 - Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.4.
+## 05 - Installer Server, Frontend, Agent 2 ZABBIX dans sa dernière version stable 7.4.
 
 - Avant de commencer il faut installer et configurer (NTPsec).
 
@@ -459,7 +459,7 @@ Phase 08 :
 ![Zabbix-7-008.png](./images/Zabbix-7-008.png)
 
 <a name="balise_06"></a>
-## 006 - Installez et configurez l'agent Zabbix 2 pour votre plateforme.
+## 06 - Installez et configurez l'agent Zabbix 2 pour votre plateforme.
 
 a). Install Zabbix repository:
 
