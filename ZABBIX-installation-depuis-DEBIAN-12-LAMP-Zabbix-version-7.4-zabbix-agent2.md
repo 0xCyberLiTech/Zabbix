@@ -21,6 +21,21 @@ Prérequis avant de poursuivre :
 - 06 - [Installez et configurez l'agent Zabbix 2 pour votre plateforme.](#balise_06)
 - 07 - [Infos complémentaires.](#balise_07)
 
+<div align="center">
+
+| Étape | Description | Accès Direct |
+|:---:|:---|:---:|
+| **01** | Installer un serveur Apache2 fonctionnel de base | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=apache&logoColor=white">](#balise_01) |
+| **02** | Créé deux VirtualHosts HTTP & HTTPS | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=apache&logoColor=white">](https://github.com/0xCyberLiTech/Apache2/blob/main/Cr%C3%A9%C3%A9-deux-VirtualHosts-HTTP-HTTPS.md) |
+| **03** | Installer PHP & PHP-FPM | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=php&logoColor=white">](#balise_03) |
+| **04** | Installer MySQL (MariaDB) | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=mysql&logoColor=white">](#balise_04) |
+| **05** | Installer Server, Frontend, Agent 2 ZABBIX version 7.4 | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=zabbix&logoColor=white">](#balise_05) |
+| **06** | Installez et configurez l'agent Zabbix 2 pour votre plateforme | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=zabbix&logoColor=white">](#balise_06) |
+| **07** | Infos complémentaires | [<img src="https://img.shields.io/badge/ACCÉDER-blue?style=for-the-badge&logo=readthedocs&logoColor=white">](#balise_07) |
+
+</div>
+
+
 <a name="balise_01"></a>
 ## 01 - Installer un serveur Apache2 fonctionnel de base :
 
