@@ -108,3 +108,13 @@ Comme le panneau de surveillance de la vitesse de téléchargement sera le même
 Pour cloner le panneau Vitesse de téléchargement, cliquez sur la flèche vers le bas du panneau et cliquez sur Plus... > Dupliquer comme indiqué dans la capture d’écran ci-dessous.
 
 ![grafana-0L](./images/grafana-0L.png)
+
+---
+
+**📅 Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
+</p>
