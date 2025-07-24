@@ -1,7 +1,5 @@
 ![zabbix-logo](./images/zabbix-logo.png)
 
-![zabbix-logo](./images/zabbix-logo.png)
-
 <div align="center">
 
 <a href="https://github.com/0xCyberLiTech">
