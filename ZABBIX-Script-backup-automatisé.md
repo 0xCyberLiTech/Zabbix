@@ -171,3 +171,13 @@ Les archives se trouvent vers D:\DOSSIER_BACKUP sur la machine hôte; (local).
 ```
  pscp.exe -r -P 2277 D:\DOSSIER_BACKUP\zabbix-2023-08-05--00-00-01.sql.gz root@192.168.50.250:/data/zabbix/
 ```
+
+---
+
+**📅 Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
+</p>
