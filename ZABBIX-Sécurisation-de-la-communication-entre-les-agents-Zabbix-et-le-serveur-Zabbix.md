@@ -306,3 +306,13 @@ Si tout est OK :
 2023/08/14 22:24:45.639298 Plugin communication protocol version is 6.4.0
 2023/08/14 22:24:45.639317 Zabbix Agent2 hostname: [Zabbix server]
 ```
+
+---
+
+**📅 Mise à jour :** Juillet 2025
+
+---
+
+<p align="center">
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
+</p>
