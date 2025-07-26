@@ -116,10 +116,6 @@ Il faut ouvrir le port 3000 pourGrafana, mais cela ne suffit pas si Grafana est 
 
 ---
 
-**📅 Mise à jour :** Juillet 2025
-
----
-
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
 </p>
