@@ -306,10 +306,8 @@ Si tout est OK :
 2023/08/14 22:24:45.639317 Zabbix Agent2 hostname: [Zabbix server]
 ```
 
-![Psk-01.png](./images/Psk-01.png)
-
 ---
 
 <p align="center">
-  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
+  <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour des tutoriels accessibles à tous. 🔒</b>
 </p>
