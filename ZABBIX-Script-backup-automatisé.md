@@ -173,10 +173,6 @@ Les archives se trouvent vers D:\DOSSIER_BACKUP sur la machine hôte; (local).
 
 ---
 
-**📅 Mise à jour :** Juillet 2025
-
----
-
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
 </p>
