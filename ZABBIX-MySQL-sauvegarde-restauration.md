@@ -70,11 +70,6 @@ mysql -u zabbix -p zabbix < zabbix_backup_23-07-2023_20-51.sql
 
 ---
 
-**📅 Mise à jour :** Juillet 2025
-
----
-
 <p align="center">
   <b>🔒 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une supervision accessible et efficace 🔒</b>
 </p>
-
