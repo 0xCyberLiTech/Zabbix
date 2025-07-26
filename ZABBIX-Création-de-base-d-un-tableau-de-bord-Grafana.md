@@ -1,6 +1,6 @@
 <div align="center">
 
-  ![grafana-dashboard-01.png](./images/Grafana-panel-01.png)
+  ![Psk-01.png](./images/Psk-01.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
@@ -107,9 +107,7 @@ Pour cloner le panneau Vitesse de téléchargement, cliquez sur la flèche vers 
 
 ![grafana-0L](./images/grafana-0L.png)
 
----
-
-**📅 Mise à jour :** Juillet 2025
+![grafana-dashboard-01.png](./images/Grafana-panel-01.png)
 
 ---
 
