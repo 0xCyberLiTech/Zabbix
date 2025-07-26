@@ -3,14 +3,14 @@
 
 <div align="center">
 
-<a href="https://github.com/0xCyberLiTech">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
-</a>
-
-<p align="center">
-  <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
-  <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
-</p>
+  <a href="https://github.com/0xCyberLiTech">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
+  </a>
+  
+  <p align="center">
+    <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
+    <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
+  </p>
 
   [![🔗 Profil GitHub](https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square)](https://github.com/0xCyberLiTech)
   [![📦 Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Zabbix?label=version&style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Zabbix/releases/latest)
