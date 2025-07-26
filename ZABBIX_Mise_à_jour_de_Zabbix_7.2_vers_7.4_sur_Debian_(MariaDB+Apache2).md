@@ -216,13 +216,10 @@ zabbix_server -V | head -n 1
 echo "🎉 Mise à jour de Zabbix 7.2 → 7.4 terminée avec succès !"
 
 ```
+
 ```bash
 chmod +x upgrade_zabbix_7.2_to_7.4.sh
 ```
-
----
-
-**📅 Mise à jour :** Juillet 2025
 
 ---
 
