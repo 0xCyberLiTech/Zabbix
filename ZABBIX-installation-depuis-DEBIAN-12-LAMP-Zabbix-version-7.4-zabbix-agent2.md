@@ -2,21 +2,21 @@
 
 <div align="center">
 
-<a href="https://github.com/0xCyberLiTech">
-  <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
-</a>
-
-<p align="center">
-  <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
-  <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
-</p>
-
-[![Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Supervision?style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Supervision/releases/latest)
-[![Changelog](https://img.shields.io/badge/📄%20CHANGELOG-Supervision-blue)](https://github.com/0xCyberLiTech/Supervision/blob/main/CHANGELOG.md)
-[![Langage](https://img.shields.io/badge/langage-Bash-blue)](https://bash.org/)
-[![OS](https://img.shields.io/badge/système-Debian%2012-success)](https://www.debian.org/)
-[![Licence](https://img.shields.io/github/license/0xCyberLiTech/Supervision)](LICENSE)
-[![Statut](https://img.shields.io/badge/status-en%20développement-orange)]()
+  <a href="https://github.com/0xCyberLiTech">
+    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
+  </a>
+  
+  <p align="center">
+    <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
+    <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
+  </p>
+  
+  [![Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Supervision?style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Supervision/releases/latest)
+  [![Changelog](https://img.shields.io/badge/📄%20CHANGELOG-Supervision-blue)](https://github.com/0xCyberLiTech/Supervision/blob/main/CHANGELOG.md)
+  [![Langage](https://img.shields.io/badge/langage-Bash-blue)](https://bash.org/)
+  [![OS](https://img.shields.io/badge/système-Debian%2012-success)](https://www.debian.org/)
+  [![Licence](https://img.shields.io/github/license/0xCyberLiTech/Supervision)](LICENSE)
+  [![Statut](https://img.shields.io/badge/status-en%20développement-orange)]()
 
 </div>
 
