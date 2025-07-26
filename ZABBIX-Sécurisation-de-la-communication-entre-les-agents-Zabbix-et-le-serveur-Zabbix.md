@@ -11,12 +11,11 @@
   <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
 </p>
 
-[![Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Supervision?style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Supervision/releases/latest)
-[![Changelog](https://img.shields.io/badge/📄%20CHANGELOG-Supervision-blue)](https://github.com/0xCyberLiTech/Supervision/blob/main/CHANGELOG.md)
-[![Langage](https://img.shields.io/badge/langage-Bash-blue)](https://bash.org/)
-[![OS](https://img.shields.io/badge/système-Debian%2012-success)](https://www.debian.org/)
-[![Licence](https://img.shields.io/github/license/0xCyberLiTech/Supervision)](LICENSE)
-[![Statut](https://img.shields.io/badge/status-en%20développement-orange)]()
+[![🔗 Profil GitHub](https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square)](https://github.com/0xCyberLiTech)
+[![📦 Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Zabbix?label=version&style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Zabbix/releases/latest)
+[![📄 CHANGELOG](https://img.shields.io/badge/📄%20Changelog-Zabbix-blue?style=flat-square)](https://github.com/0xCyberLiTech/Zabbix/blob/main/CHANGELOG.md)
+[![📂 Dépôts publics](https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square)](https://github.com/0xCyberLiTech?tab=repositories)
+[![👥 Contributeurs](https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square)](https://github.com/0xCyberLiTech/Zabbix/graphs/contributors)
 
 </div>
 
