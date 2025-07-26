@@ -1,6 +1,6 @@
 <div align="center">
 
-  ![Psk-01.png](./images/Psk-01.png)
+  ![zabbix-logo](./images/zabbix-logo.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
@@ -306,9 +306,7 @@ Si tout est OK :
 2023/08/14 22:24:45.639317 Zabbix Agent2 hostname: [Zabbix server]
 ```
 
----
-
-**📅 Mise à jour :** Juillet 2025
+![Psk-01.png](./images/Psk-01.png)
 
 ---
 
