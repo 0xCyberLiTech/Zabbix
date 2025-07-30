@@ -1,5 +1,5 @@
 <p align="center">
-  <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
+  <a href="https://www.zabbix.com/download" target="_blank" rel="noopener noreferrer">
     <img src="./images/zabbix-logo.png" alt="Logo Zabbix" width="360">
   </a>
 </p>
