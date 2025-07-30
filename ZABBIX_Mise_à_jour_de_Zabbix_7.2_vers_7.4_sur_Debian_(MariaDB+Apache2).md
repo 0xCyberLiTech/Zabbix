@@ -1,6 +1,10 @@
+<p align="center">
+  <a href="https://www.zabbix.com/download" target="_blank" rel="noopener noreferrer">
+    <img src="./images/zabbix-logo.png" alt="Logo Zabbix" width="360">
+  </a>
+</p>
+
 <div align="center">
-  
-  ![zabbix-logo](./images/zabbix-logo.png)
 
   <a href="https://github.com/0xCyberLiTech">
     <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
