@@ -5,11 +5,6 @@
     <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ESUPERVISION+ZABBIX_" alt="Titre dynamique SUPERVISION ZABBIX" />
   </a>
   <br></br>
-
-  <p align="center">
-    <em>Tutoriels et configurations pour la supervision avec Zabbix.</em><br>
-    <b>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</b>
-  </p>
   
   <p align="center">
     <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
