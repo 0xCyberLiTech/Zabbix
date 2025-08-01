@@ -1,14 +1,10 @@
-<p align="center">
-  <a href="https://www.zabbix.com/download" target="_blank" rel="noopener noreferrer">
-    <img src="./images/zabbix-logo.png" alt="Logo Zabbix" width="360">
-  </a>
-</p>
-
 <div align="center">
 
+  <br></br>
   <a href="https://github.com/0xCyberLiTech">
-    <img src="https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=32&pause=1000&color=D14A4A&center=true&vCenter=true&width=650&lines=SUPERVISION+D'INFRASTRUCTURES;Monitorer+•+Analyser+•+Gérer;Zabbix+•+Nagios+•+Prometheus" alt="Typing SVG" />
+    <img src="https://readme-typing-svg.herokuapp.com?font=JetBrains+Mono&size=50&duration=6000&pause=1000000000&color=FF0048&center=true&vCenter=true&width=1100&lines=%3ESUPERVISION+ZABBIX_" alt="Titre dynamique SUPERVISION ZABBIX" />
   </a>
+  <br></br>
   
   <p align="center">
     <em>Un dépôt pédagogique sur la supervision des infrastructures numériques.</em><br>
