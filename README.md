@@ -40,6 +40,16 @@
 
 ---
 
+### 🎯 Objectif du dépôt
+
+> Ce dépôt vise à centraliser les connaissances pratiques liées à la **supervision des systèmes d'information**. Il s’adresse à tous ceux souhaitant :
+> 
+> - Comprendre les enjeux du monitoring
+> - Déployer des outils efficaces (Zabbix, Nagios, etc.)
+> - Améliorer la **stabilité**, la **performance** et la **disponibilité** de leur infrastructure IT
+
+---
+
 <div align="center">
 
 ### 🧭 **Sommaire :**
