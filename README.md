@@ -40,9 +40,9 @@
 
 ---
 
-### 🧭 **Sommaire :**
-
 <div align="center">
+
+### 🧭 **Sommaire :**
 
 | Catégorie | Sujet | Accès Rapide |
 |:---:|:---|:---:|
