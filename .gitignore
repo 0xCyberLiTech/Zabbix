@@ -1,0 +1,19 @@
+# Fichiers de configuration sensibles
+*.key
+*.pem
+*.crt
+*.conf
+
+# Dossiers privés ou contenant des secrets
+secrets/
+private/
+
+# Fichiers temporaires et système
+*.log
+*.tmp
+.DS_Store
+Thumbs.db
+
+# Sauvegardes d'éditeurs
+*~
+*.bak
