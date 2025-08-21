@@ -21,6 +21,16 @@ et ce projet respecte la versionnement sémantique [SemVer](https://semver.org/l
 
 ---
 
+## [v1.1.0] - 2025-08-21
+
+### Sécurisation et organisation
+
+- Ajout d’un fichier `.gitignore` pour renforcer la sécurité et éviter la publication de fichiers sensibles ou inutiles
+- Vérification et organisation des fichiers du dépôt
+- Mise en place de bonnes pratiques pour la gestion des fichiers et dossiers
+
+---
+
 ## 📌 À venir
 
 - 🔒 Renforcement de la sécurité (HTTPS, règles UFW avancées)
