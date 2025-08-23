@@ -29,7 +29,7 @@
 > Bienvenue dans mon **laboratoire numérique personnel** dédié à l’apprentissage et à la vulgarisation de la cybersécurité.  
 > Passionné par **Linux**, la **cryptographie** et les **systèmes sécurisés**, je partage ici mes notes, expérimentations et fiches pratiques.  
 >  
-> Pproposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
+ > Proposer un contenu clair, structuré et accessible pour étudiants, curieux et professionnels de l’IT.  
 
 <p align="center">
   <a href="https://github.com/0xCyberLiTech" target="_blank" rel="noopener">
