@@ -1,0 +1,25 @@
+name: Génération automatique du CHANGELOG
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+      - name: Générer le CHANGELOG
+        uses: TriPSs/conventional-changelog-action@v4
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          output-file: CHANGELOG.md
+          skip-version-file: true
+          skip-commit: false
+          skip-tag: true
+          commit-message: "docs(changelog): mise à jour automatique du CHANGELOG.md"

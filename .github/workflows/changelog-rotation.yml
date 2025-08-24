@@ -1,0 +1,40 @@
+name: Rotation automatique du CHANGELOG
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  changelog-rotation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout du code
+        uses: actions/checkout@v4
+      - name: Vérifier la taille du CHANGELOG.md
+        id: check_size
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            size=$(stat -c%s "CHANGELOG.md")
+            echo "Taille du CHANGELOG.md : $size octets"
+            if [ "$size" -gt 10485760 ]; then
+              echo "ARCHIVE=true" >> $GITHUB_ENV
+            else
+              echo "ARCHIVE=false" >> $GITHUB_ENV
+            fi
+          else
+            echo "ARCHIVE=false" >> $GITHUB_ENV
+          fi
+      - name: Archiver le CHANGELOG si nécessaire
+        if: env.ARCHIVE == 'true'
+        run: |
+          head -n -1000 CHANGELOG.md > CHANGELOG-archive.md
+          tail -n 1000 CHANGELOG.md > CHANGELOG.md
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add CHANGELOG.md CHANGELOG-archive.md
+          git commit -m "docs(changelog): rotation automatique du changelog (>10Mo)"
+          git push
