@@ -11,11 +11,26 @@
     <strong>📊 Monitoring – 📈 Performance – ⚙️ Fiabilité</strong>
   </p>
 
-  [![🔗 Profil GitHub](https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square)](https://github.com/0xCyberLiTech)
-  [![📦 Dernière version](https://img.shields.io/github/v/release/0xCyberLiTech/Zabbix?label=version&style=flat-square&color=blue)](https://github.com/0xCyberLiTech/Zabbix/releases/latest)
-  [![📄 CHANGELOG](https://img.shields.io/badge/📄%20Changelog-Zabbix-blue?style=flat-square)](https://github.com/0xCyberLiTech/Zabbix/blob/main/CHANGELOG.md)
-  [![📂 Dépôts publics](https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square)](https://github.com/0xCyberLiTech?tab=repositories)
-  [![👥 Contributeurs](https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square)](https://github.com/0xCyberLiTech/Zabbix/graphs/contributors)
+  <p align="center">
+    <a href="https://0xcyberlitech.github.io/">
+      <img src="https://img.shields.io/badge/Portfolio-0xCyberLiTech-181717?logo=github&style=flat-square" alt="🌐 Portfolio" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech">
+      <img src="https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square" alt="🔗 Profil GitHub" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Zabbix/releases/latest">
+      <img src="https://img.shields.io/github/v/release/0xCyberLiTech/Zabbix?label=version&style=flat-square&color=blue" alt="📦 Dernière version" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Zabbix/blob/main/CHANGELOG.md">
+      <img src="https://img.shields.io/badge/📄%20Changelog-Zabbix-blue?style=flat-square" alt="📄 CHANGELOG Zabbix" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech?tab=repositories">
+      <img src="https://img.shields.io/badge/Dépôts-publics-blue?style=flat-square" alt="📂 Dépôts publics" />
+    </a>
+    <a href="https://github.com/0xCyberLiTech/Zabbix/graphs/contributors">
+      <img src="https://img.shields.io/badge/👥%20Contributeurs-cliquez%20ici-007ec6?style=flat-square" alt="👥 Contributeurs Zabbix" />
+    </a>
+  </p>
 
 </div>
 
