@@ -85,7 +85,6 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
     <img src="https://skillicons.dev/icons?i=linux,debian,bash,docker,nginx,git,vim,python,markdown" alt="Skills" width="420">
   </a>
 </p>
-
 <p align="center">
   <b>🔐 Un guide proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Pour une cybersécurité compréhensible et efficace. 🔐</b>
 </p>
