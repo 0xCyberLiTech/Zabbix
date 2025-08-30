@@ -66,13 +66,13 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 | Catégorie | Sujet | Accès Rapide |
 |:---:|:---|:---:|
-| **Installation** | Installation complète sur Debian 12 (LAMP + Zabbix 7.4) | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-installation-depuis-DEBIAN-12-LAMP-Zabbix-version-7.4-zabbix-agent2.md) |
-| **Sécurité** | Sécuriser la communication entre agents et serveur | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Sécurisation-de-la-communication-entre-les-agents-Zabbix-et-le-serveur-Zabbix.md) |
-| **Sauvegarde** | Sauvegarde et restauration de la base de données MySQL | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-MySQL-sauvegarde-restauration.md) |
-| **Backup** | Script sauvegarde automatisé | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Script-backup-automatisé.md) |
-| **Grafana** | Intégrer Zabbix comme source de données dans Grafana | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Surveillance-avec-Grafana.md) |
-| **Dashboard** | Création d'un tableau de bord de base | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md) |
-| **Update** | Mettre à jour Zabbix de 7.2 vers 7.4 sur Debian | [<img src="https://img.shields.io/badge/EXPLORER-brightgreen?style=for-the-badge&logo=github&logoColor=white">](ZABBIX_Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md) |
+| **Installation** | Installation complète sur Debian 12 (LAMP + Zabbix 7.4) | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-installation-depuis-DEBIAN-12-LAMP-Zabbix-version-7.4-zabbix-agent2.md) |
+| **Sécurité** | Sécuriser la communication entre agents et serveur |[![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-Sécurisation-de-la-communication-entre-les-agents-Zabbix-et-le-serveur-Zabbix.md) |
+| **Sauvegarde** | Sauvegarde et restauration de la base de données MySQL | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-MySQL-sauvegarde-restauration.md) |
+| **Backup** | Script sauvegarde automatisé | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-Script-backup-automatisé.md) |
+| **Grafana** | Intégrer Zabbix comme source de données dans Grafana | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-Surveillance-avec-Grafana.md) |
+| **Dashboard** | Création d'un tableau de bord de base | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX-Création-de-base-d-un-tableau-de-bord-Grafana.md) |
+| **Update** | Mettre à jour Zabbix de 7.2 vers 7.4 sur Debian | [![Explorer](https://img.shields.io/badge/EXPLORER-4CAF50?style=for-the-badge&logo=github&logoColor=white)](ZABBIX_Mise_à_jour_de_Zabbix_7.2_vers_7.4_sur_Debian_(MariaDB+Apache2).md) |
 
 </div>
 
