@@ -62,7 +62,7 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 
 <div align="center">
 
-### 🧭 **Sommaire :**
+### 🧭 **Sommaire**
 
 | Catégorie | Sujet | Accès Rapide |
 |:---:|:---|:---:|
