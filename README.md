@@ -8,7 +8,7 @@
   
   <br></br>
 
-  <h2>Laboratoire numérique pour la cybersécurité, Linux & IT.</h2>
+  <h2>Supervision Zabbix — agents, templates, triggers, graphes.</h2>
 
   <p align="center">
     <a href="https://0xcyberlitech.github.io/">
@@ -18,7 +18,7 @@
       <img src="https://img.shields.io/badge/Profil-GitHub-181717?logo=github&style=flat-square" alt="🔗 Profil GitHub" />
     </a>
     <a href="https://github.com/0xCyberLiTech/Zabbix/releases/latest">
-      <img src="https://img.shields.io/github/v/release/0xCyberLiTech/Zabbix?label=version&style=flat-square&color=blue" alt="📦 Dernière version" />
+      <img src="https://img.shields.io/badge/version-v1.0-blue?style=flat-square" alt="📦 Dernière version" />
     </a>
     <a href="https://github.com/0xCyberLiTech/Zabbix/blob/main/CHANGELOG.md">
       <img src="https://img.shields.io/badge/📄%20Changelog-Zabbix-blue?style=flat-square" alt="📄 CHANGELOG Zabbix" />
