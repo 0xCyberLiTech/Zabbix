@@ -134,4 +134,3 @@ Le contenu est structuré, accessible et optimisé SEO pour répondre aux besoin
 <b>🔒 Un projet proposé par <a href="https://github.com/0xCyberLiTech">0xCyberLiTech</a> • Développé en collaboration avec <a href="https://claude.ai">Claude AI</a> (Anthropic) 🔒</b>
 
 </div>
-
