@@ -80,23 +80,23 @@ apt-get install gnutls-bin
 ```
 Par exemple, générer une clé PSK de 256 bits (32 octets).
 ```
-psktool -u PSK_0xCLT -p databasewindows.psk -s 32
+psktool -u PSK_srv-linux-01 -p databasewindows.psk -s 32
 ```
 Par exemple, générer une clé PSK de 128 bits (16 octets).
 ```
-psktool -u PSK_0xCLT -p databasewindows.psk -s 16
+psktool -u PSK_srv-linux-01 -p databasewindows.psk -s 16
 ```
 Un fichier est créé databasewindows.psk, il faudra y récupérer les informations générées.
 ```
 cat databasewindows.psk
 ```
 ```
-PSK_0xCLT:7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
+PSK_srv-linux-01:<CLE-PSK-256-BITS>
 ```
 Sur cette ligne, on retrouve deux données :
 
-- TLSPSKIdentity = PSK_0xCLT
-- TLSPSKKey = 7670cb2e697889092755fd5a50acb8a16bcf356c5eb6e1e39feb89a391464985
+- TLSPSKIdentity = PSK_srv-linux-01
+- TLSPSKKey = <CLE-PSK-256-BITS>
 
 - Ces deux données seront nécessaires pour paramétrer l'agent Zabbix Windows.
 - Ces deux données seront également nécessaires pour déclarer la méthode de chiffrement (PSK) des Hôtes Windows sur le serveur Zabbix.
@@ -200,7 +200,7 @@ Un fichier est créé database.psk.
 cat database.psk
 ```
 ```
-764ea037da34ea0bd00994baaa304d64
+<CLE-PSK-128-BITS>
 ```
 Je m’assure également que seul l’utilisateur Zabbix peut lire le fichier.
 ```
